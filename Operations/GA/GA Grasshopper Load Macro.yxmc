@@ -1,0 +1,1654 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2018.1">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="Google Analytics">
+        <Position x="186" y="366" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="client_id">656414315087-hgh8h7h3h6t77e8hn2d98elack9mcdv1.apps.googleusercontent.com</Value>
+          <Value name="accountsList">624155</Value>
+          <Value name="webPropertiesList">UA-624155-1</Value>
+          <Value name="profilesList">1027805</Value>
+          <Value name="preDefDropDown">custom</Value>
+          <Value name="startDatePicker">2018-04-27</Value>
+          <Value name="endDatePicker">2018-05-03</Value>
+          <Value name="metricsList">ga:sessions,ga:bounces,ga:transactionRevenue,ga:transactions</Value>
+          <Value name="metricsGoalsList">ga:goal2Completions,ga:goal5Completions</Value>
+          <Value name="dimensionsList">ga:source,ga:medium,ga:campaign,ga:date,ga:userType,ga:country,ga:deviceCategory</Value>
+          <Value name="segmentsList">
+          </Value>
+          <Value name="advOptions">False</Value>
+          <Value name="maxResults">10000</Value>
+          <Value name="accessToken">ya29.GlyxBUOyAoDR2o-q05zQsHEkM5jveyqHiwRk7_Ko8ZQ_SbJdROkDhGj3Q6xMn11G9VitTwbCIxSCRu5KIw56LgCrxOrzERXRqbVutkfkrA0pMZxyqQo0Bh6tmQrY0A</Value>
+          <Value name="page">#summary</Value>
+          <Value name="errorStatus">
+          </Value>
+          <Value name="client_secret">4B0556470D80B2AF787294E78E6AF88BD469D0DFCBAB35DB001BC1C1BBD9612290DB7055E1AE4F1A5B89C6EB1353587B0B76E9D1FEB365EED490EFC26AEC4C5F44775E4E0143229E17ABFDFD69D728C63C4262856A30BC0EB1F878091289137741E360B989CB9388E52211EF5DEBA95887D55EAC2239B91B824257C314D597BB915D2DA1464091DDFCDC2ECD44AF97195D366A3B84C94F17619400971CAA127B55A6091DF5B357CB621D8F020D04357A50DB127ACE8C47D6163B07426E25F2113E22C9FD8B92B92BCB949B5B8E2DDEA0A0BDB7BB883E5</Value>
+          <Value name="refresh_token">4D4CE62664F61157D60C45252951CE3003D30B4FBE6DA96DE77B925869240C3287304B3BA4736B00E9916B30E7548D6EC9AE4C3F9A075572729393F6BE1390727ABABECE0F8EC96FFC7773E64D0F01FBA9153C9AD73DF7C1E763C1D63B4EB8F79CD776FC0A21B51019CDB35054E77948A9F67324D7C944D739493D695229F46E38F0A2539157ECF2342D9312AF0A21A10DE8DA067F379CCA25A1722927C11B7ABC668CDF5D33072881B11188FBAAB6B9D2BF8CA81FC2BE4DE45AE3FFA5316F7644EFF442A60A1ECA1AFB0FDE6249F63E0D5EBC080F40040B58A962E3FC0A17073B9FA73BA0BBD4F6B8D7C4CB18EEB8E18EA7A12BA523A26A002C91677D2C44F84C8E97602B6E56B9BCE36372D2ACC2FEB469A2EBFEBF4072A317608B7075E9A2D2FE70AACD307D7E6723E19B33983DAC5296C9DFAE215D99CFAB94BEB0897925B6A8C6F66D8F201526F5038EEF9062E0FC1862E5B03CD35D229A544838DAD2D2927B2008467F403288A1BF1CB63E4D4E9F7A1A37EF4AF6A09FDA87A5DA36C</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Data">
+          <RecordInfo>
+            <Field name="source" size="1073741823" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="medium" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="campaign" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="date" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="userType" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="country" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="deviceCategory" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="sessions" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="bounces" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="transactionRevenue" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="transactions" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="goal2Completions" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="goal5Completions" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="Summary">
+          <RecordInfo>
+            <Field description="TextToColumns: Parsed from JSON_Name" name="Parameter" size="1073741823" source="TextToColumns: Parsed from JSON_Name (BatchMacro)" type="V_WString" />
+            <Field description="TextToColumns: Parsed from JSON_Name" name="Category" size="1073741823" source="TextToColumns: Parsed from JSON_Name (BatchMacro)" type="V_WString" />
+            <Field name="Detail" size="1073741823" source="JSONParse:  (BatchMacro)" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="Parameter" order="Asc" />
+            <Field field="Category" order="Asc" />
+            <Field field="Detail" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="Google Analytics\Supporting_Macros\Google_Analytics.yxmc" EngineDll="Macro" EngineDllEntryPoint="Google Analytics\Supporting_Macros\Google_Analytics.yxmc" />
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.ControlParam.ControlParam">
+        <Position x="54" y="66" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="66" y="210" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.ControlParam.ControlParam">
+        <Position x="282" y="66" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="294" y="210" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="354" y="354" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="DateTimeParse([date],&quot;%Y%m%d&quot;)" field="Date Converted" size="10" type="Date" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[Date Converted = DateTimeParse([date],"%Y%m%d")
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="source" size="1073741823" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="medium" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="campaign" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="date" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="userType" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="country" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="deviceCategory" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="sessions" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="bounces" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="transactionRevenue" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="transactions" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="goal2Completions" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="goal5Completions" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="Date Converted" source="Formula: DateTimeParse([date],&quot;%Y%m%d&quot;)" type="Date" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="546" y="354" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="source" selected="True" size="2048" />
+            <SelectField field="medium" selected="True" />
+            <SelectField field="campaign" selected="True" />
+            <SelectField field="userType" selected="True" />
+            <SelectField field="country" selected="True" />
+            <SelectField field="deviceCategory" selected="True" />
+            <SelectField field="sessions" selected="True" type="Int32" size="4" />
+            <SelectField field="bounces" selected="True" type="Int32" size="4" />
+            <SelectField field="transactionRevenue" selected="True" type="Double" size="8" />
+            <SelectField field="transactions" selected="True" type="Int32" size="4" />
+            <SelectField field="goal2Completions" selected="True" />
+            <SelectField field="goal5Completions" selected="True" />
+            <SelectField field="Date Converted" selected="True" rename="date" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="source" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="medium" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="campaign" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="userType" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="country" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="deviceCategory" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="sessions" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="bounces" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="transactionRevenue" source="(Multiple Sources) (BatchMacro)" type="Double" />
+            <Field name="transactions" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="goal2Completions" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="goal5Completions" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="date" source="Formula: DateTimeParse([date],&quot;%Y%m%d&quot;)" type="Date" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="47">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
+        <Position x="642" y="354" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>campaign</Field>
+          <RegExExpression value="^(?:([a-z]+)_)(?:([0-9]+)_)(?:([0-9]+)_)([0-9]+)$" />
+          <CaseInsensitve value="True" />
+          <Method>ParseComplex</Method>
+          <Replace expression="">
+            <CopyUnmatched value="True" />
+          </Replace>
+          <ParseSimple>
+            <SplitToRows value="False" />
+            <RootName>campaign</RootName>
+            <NumFields value="4" />
+            <ErrorHandling>Warn</ErrorHandling>
+          </ParseSimple>
+          <ParseComplex>
+            <Field field="channel" type="V_WString" size="254" />
+            <Field field="profile id" type="V_WString" size="254" />
+            <Field field="placement id" type="V_WString" size="254" />
+            <Field field="creative id" type="V_WString" size="254" />
+          </ParseComplex>
+          <Match>
+            <Field>source_Matched</Field>
+            <ErrorUnmatched value="False" />
+          </Match>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Parse:
+^(?:([a-z]+)_)(?:([0-9]+)_)...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="source" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="medium" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="campaign" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="userType" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="country" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="deviceCategory" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="sessions" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="bounces" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="transactionRevenue" source="(Multiple Sources) (BatchMacro)" type="Double" />
+            <Field name="transactions" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="goal2Completions" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="goal5Completions" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="date" source="Formula: DateTimeParse([date],&quot;%Y%m%d&quot;)" type="Date" />
+            <Field description="RegEx: Parsed from campaign" name="channel" size="254" source="RegEx: Parsed from campaign" type="V_WString" />
+            <Field description="RegEx: Parsed from campaign" name="profile id" size="254" source="RegEx: Parsed from campaign" type="V_WString" />
+            <Field description="RegEx: Parsed from campaign" name="placement id" size="254" source="RegEx: Parsed from campaign" type="V_WString" />
+            <Field description="RegEx: Parsed from campaign" name="creative id" size="254" source="RegEx: Parsed from campaign" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
+    </Node>
+    <Node ToolID="48">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="654" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File RecordLimit="" FileFormat="23">odbc:DSN=redshift-etl|||Select prod.dm_display.display_dimcreative.creativekey As creativekey, prod.dm_display.display_dimcreative.creativeid As creativeid From prod.dm_display.display_dimcreative</File>
+          <FormatSpecificOptions>
+            <PreSQL />
+            <NoProgress>True</NoProgress>
+            <CacheData>False</CacheData>
+            <TableStyle>Quoted</TableStyle>
+            <ReadUncommitted>False</ReadUncommitted>
+            <PostSQL />
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>DSN=redshift-etl
+Table=Select prod.dm_display.display_dimcreative.creativekey As creativekey, prod.dm_display.display_dimcreative.creativeid As creativeid From prod.dm_display.display_dimcreative</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="creativekey" source="File: odbc:DSN=redshift-etl|||Select prod.dm_display.display_dimcreative.creativekey As creativekey, prod.dm_display.display_dimcreative.creativeid As creativeid From prod.dm_display.display_dimcreative" type="Int32" />
+            <Field name="creativeid" size="100" source="File: odbc:DSN=redshift-etl|||Select prod.dm_display.display_dimcreative.creativekey As creativekey, prod.dm_display.display_dimcreative.creativeid As creativeid From prod.dm_display.display_dimcreative" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="49">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="978" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File RecordLimit="" FileFormat="23">odbc:DSN=redshift-etl|||Select prod.dm_display.display_dimplacement.placementkey As placementkey, prod.dm_display.display_dimplacement.placementid As placementid From prod.dm_display.display_dimplacement</File>
+          <FormatSpecificOptions>
+            <PreSQL />
+            <NoProgress>True</NoProgress>
+            <CacheData>False</CacheData>
+            <TableStyle>Quoted</TableStyle>
+            <ReadUncommitted>False</ReadUncommitted>
+            <PostSQL />
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>DSN=redshift-etl
+Table=Select prod.dm_display.display_dimplacement.placementkey As placementkey, prod.dm_display.display_dimplacement.placementid As placementid From prod.dm_display.display_dimplacement</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="placementkey" source="File: odbc:DSN=redshift-etl|||Select prod.dm_display.display_dimplacement.placementkey As placementkey, prod.dm_display.display_dimplacement.placementid As placementid From prod.dm_display.display_dimplacement" type="Int32" />
+            <Field name="placementid" size="100" source="File: odbc:DSN=redshift-etl|||Select prod.dm_display.display_dimplacement.placementkey As placementkey, prod.dm_display.display_dimplacement.placementid As placementid From prod.dm_display.display_dimplacement" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="51">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="798" y="66" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="creativeid" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="creative id" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Right_source" selected="True" />
+                <SelectField field="Right_medium" selected="True" />
+                <SelectField field="Right_campaign" selected="True" />
+                <SelectField field="Right_userType" selected="True" />
+                <SelectField field="Right_country" selected="True" />
+                <SelectField field="Right_deviceCategory" selected="True" />
+                <SelectField field="Right_sessions" selected="True" />
+                <SelectField field="Right_bounces" selected="True" />
+                <SelectField field="Right_transactionRevenue" selected="True" />
+                <SelectField field="Right_transactions" selected="True" />
+                <SelectField field="Right_goal2Completions" selected="True" />
+                <SelectField field="Right_goal5Completions" selected="True" />
+                <SelectField field="Right_date" selected="True" />
+                <SelectField field="Right_channel" selected="True" />
+                <SelectField field="Right_profile id" selected="True" />
+                <SelectField field="Right_placement id" selected="True" />
+                <SelectField field="Right_creative id" selected="True" />
+                <SelectField field="Left_creativekey" selected="True" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Left">
+          <RecordInfo>
+            <Field name="creativekey" source="File: odbc:DSN=redshift-etl|||Select prod.dm_display.display_dimcreative.creativekey As creativekey, prod.dm_display.display_dimcreative.creativeid As creativeid From prod.dm_display.display_dimcreative" type="Int32" />
+            <Field name="creativeid" size="100" source="File: odbc:DSN=redshift-etl|||Select prod.dm_display.display_dimcreative.creativekey As creativekey, prod.dm_display.display_dimcreative.creativeid As creativeid From prod.dm_display.display_dimcreative" type="V_WString" />
+          </RecordInfo>
+          <SortInfo noProgress="True">
+            <Field field="creativeid" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="Join">
+          <RecordInfo>
+            <Field name="creativekey" source="File: odbc:DSN=redshift-etl|||Select prod.dm_display.display_dimcreative.creativekey As creativekey, prod.dm_display.display_dimcreative.creativeid As creativeid From prod.dm_display.display_dimcreative" type="Int32" />
+            <Field name="source" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="medium" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="campaign" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="userType" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="country" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="deviceCategory" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="sessions" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="bounces" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="transactionRevenue" source="(Multiple Sources) (BatchMacro)" type="Double" />
+            <Field name="transactions" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="goal2Completions" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="goal5Completions" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="date" source="Formula: DateTimeParse([date],&quot;%Y%m%d&quot;)" type="Date" />
+            <Field description="RegEx: Parsed from campaign" name="channel" size="254" source="RegEx: Parsed from campaign" type="V_WString" />
+            <Field description="RegEx: Parsed from campaign" name="profile id" size="254" source="RegEx: Parsed from campaign" type="V_WString" />
+            <Field description="RegEx: Parsed from campaign" name="placement id" size="254" source="RegEx: Parsed from campaign" type="V_WString" />
+            <Field description="RegEx: Parsed from campaign" name="creative id" size="254" source="RegEx: Parsed from campaign" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="Right">
+          <RecordInfo>
+            <Field name="source" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="medium" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="campaign" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="userType" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="country" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="deviceCategory" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="sessions" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="bounces" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="transactionRevenue" source="(Multiple Sources) (BatchMacro)" type="Double" />
+            <Field name="transactions" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="goal2Completions" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="goal5Completions" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="date" source="Formula: DateTimeParse([date],&quot;%Y%m%d&quot;)" type="Date" />
+            <Field description="RegEx: Parsed from campaign" name="channel" size="254" source="RegEx: Parsed from campaign" type="V_WString" />
+            <Field description="RegEx: Parsed from campaign" name="profile id" size="254" source="RegEx: Parsed from campaign" type="V_WString" />
+            <Field description="RegEx: Parsed from campaign" name="placement id" size="254" source="RegEx: Parsed from campaign" type="V_WString" />
+            <Field description="RegEx: Parsed from campaign" name="creative id" size="254" source="RegEx: Parsed from campaign" type="V_WString" />
+          </RecordInfo>
+          <SortInfo noProgress="True">
+            <Field field="creative id" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="52">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+        <Position x="978" y="66" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ByName_ErrorMode>Warning</ByName_ErrorMode>
+          <ByName_OutputMode>All</ByName_OutputMode>
+          <Mode>ByName</Mode>
+          <SetOutputOrder value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="creativekey" source="File: odbc:DSN=redshift-etl|||Select prod.dm_display.display_dimcreative.creativekey As creativekey, prod.dm_display.display_dimcreative.creativeid As creativeid From prod.dm_display.display_dimcreative" type="Int32" />
+            <Field name="source" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="medium" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="campaign" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="userType" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="country" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="deviceCategory" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="sessions" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="bounces" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="transactionRevenue" source="(Multiple Sources) (BatchMacro)" type="Double" />
+            <Field name="transactions" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="goal2Completions" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="goal5Completions" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="date" source="Formula: DateTimeParse([date],&quot;%Y%m%d&quot;)" type="Date" />
+            <Field description="RegEx: Parsed from campaign" name="channel" size="254" source="RegEx: Parsed from campaign" type="V_WString" />
+            <Field description="RegEx: Parsed from campaign" name="profile id" size="254" source="RegEx: Parsed from campaign" type="V_WString" />
+            <Field description="RegEx: Parsed from campaign" name="placement id" size="254" source="RegEx: Parsed from campaign" type="V_WString" />
+            <Field description="RegEx: Parsed from campaign" name="creative id" size="254" source="RegEx: Parsed from campaign" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+    </Node>
+    <Node ToolID="53">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="1098" y="102" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="placement id" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="placementid" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Left_creativekey" selected="True" />
+                <SelectField field="Left_source" selected="True" />
+                <SelectField field="Left_medium" selected="True" />
+                <SelectField field="Left_campaign" selected="True" />
+                <SelectField field="Left_userType" selected="True" />
+                <SelectField field="Left_country" selected="True" />
+                <SelectField field="Left_deviceCategory" selected="True" />
+                <SelectField field="Left_sessions" selected="True" />
+                <SelectField field="Left_bounces" selected="True" />
+                <SelectField field="Left_transactionRevenue" selected="True" />
+                <SelectField field="Left_transactions" selected="True" />
+                <SelectField field="Left_goal2Completions" selected="True" />
+                <SelectField field="Left_goal5Completions" selected="True" />
+                <SelectField field="Left_date" selected="True" />
+                <SelectField field="Left_channel" selected="True" />
+                <SelectField field="Left_profile id" selected="True" />
+                <SelectField field="Left_placement id" selected="True" />
+                <SelectField field="Left_creative id" selected="True" />
+                <SelectField field="Right_placementkey" selected="True" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Left">
+          <RecordInfo>
+            <Field name="creativekey" source="File: odbc:DSN=redshift-etl|||Select prod.dm_display.display_dimcreative.creativekey As creativekey, prod.dm_display.display_dimcreative.creativeid As creativeid From prod.dm_display.display_dimcreative" type="Int32" />
+            <Field name="source" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="medium" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="campaign" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="userType" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="country" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="deviceCategory" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="sessions" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="bounces" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="transactionRevenue" source="(Multiple Sources) (BatchMacro)" type="Double" />
+            <Field name="transactions" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="goal2Completions" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="goal5Completions" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="date" source="Formula: DateTimeParse([date],&quot;%Y%m%d&quot;)" type="Date" />
+            <Field description="RegEx: Parsed from campaign" name="channel" size="254" source="RegEx: Parsed from campaign" type="V_WString" />
+            <Field description="RegEx: Parsed from campaign" name="profile id" size="254" source="RegEx: Parsed from campaign" type="V_WString" />
+            <Field description="RegEx: Parsed from campaign" name="placement id" size="254" source="RegEx: Parsed from campaign" type="V_WString" />
+            <Field description="RegEx: Parsed from campaign" name="creative id" size="254" source="RegEx: Parsed from campaign" type="V_WString" />
+          </RecordInfo>
+          <SortInfo noProgress="True">
+            <Field field="placement id" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="Join">
+          <RecordInfo>
+            <Field name="creativekey" source="File: odbc:DSN=redshift-etl|||Select prod.dm_display.display_dimcreative.creativekey As creativekey, prod.dm_display.display_dimcreative.creativeid As creativeid From prod.dm_display.display_dimcreative" type="Int32" />
+            <Field name="source" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="medium" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="campaign" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="userType" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="country" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="deviceCategory" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="sessions" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="bounces" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="transactionRevenue" source="(Multiple Sources) (BatchMacro)" type="Double" />
+            <Field name="transactions" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="goal2Completions" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="goal5Completions" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="date" source="Formula: DateTimeParse([date],&quot;%Y%m%d&quot;)" type="Date" />
+            <Field description="RegEx: Parsed from campaign" name="channel" size="254" source="RegEx: Parsed from campaign" type="V_WString" />
+            <Field description="RegEx: Parsed from campaign" name="profile id" size="254" source="RegEx: Parsed from campaign" type="V_WString" />
+            <Field description="RegEx: Parsed from campaign" name="placement id" size="254" source="RegEx: Parsed from campaign" type="V_WString" />
+            <Field description="RegEx: Parsed from campaign" name="creative id" size="254" source="RegEx: Parsed from campaign" type="V_WString" />
+            <Field name="placementkey" source="File: odbc:DSN=redshift-etl|||Select prod.dm_display.display_dimplacement.placementkey As placementkey, prod.dm_display.display_dimplacement.placementid As placementid From prod.dm_display.display_dimplacement" type="Int32" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="placement id" order="" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="Right">
+          <RecordInfo>
+            <Field name="placementkey" source="File: odbc:DSN=redshift-etl|||Select prod.dm_display.display_dimplacement.placementkey As placementkey, prod.dm_display.display_dimplacement.placementid As placementid From prod.dm_display.display_dimplacement" type="Int32" />
+            <Field name="placementid" size="100" source="File: odbc:DSN=redshift-etl|||Select prod.dm_display.display_dimplacement.placementkey As placementkey, prod.dm_display.display_dimplacement.placementid As placementid From prod.dm_display.display_dimplacement" type="V_WString" />
+          </RecordInfo>
+          <SortInfo noProgress="True">
+            <Field field="placementid" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="54">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+        <Position x="1218" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ByName_ErrorMode>Warning</ByName_ErrorMode>
+          <ByName_OutputMode>All</ByName_OutputMode>
+          <Mode>ByName</Mode>
+          <SetOutputOrder value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="creativekey" source="File: odbc:DSN=redshift-etl|||Select prod.dm_display.display_dimcreative.creativekey As creativekey, prod.dm_display.display_dimcreative.creativeid As creativeid From prod.dm_display.display_dimcreative" type="Int32" />
+            <Field name="source" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="medium" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="campaign" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="userType" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="country" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="deviceCategory" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="sessions" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="bounces" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="transactionRevenue" source="(Multiple Sources) (BatchMacro)" type="Double" />
+            <Field name="transactions" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="goal2Completions" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="goal5Completions" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="date" source="Formula: DateTimeParse([date],&quot;%Y%m%d&quot;)" type="Date" />
+            <Field description="RegEx: Parsed from campaign" name="channel" size="254" source="RegEx: Parsed from campaign" type="V_WString" />
+            <Field description="RegEx: Parsed from campaign" name="profile id" size="254" source="RegEx: Parsed from campaign" type="V_WString" />
+            <Field description="RegEx: Parsed from campaign" name="placement id" size="254" source="RegEx: Parsed from campaign" type="V_WString" />
+            <Field description="RegEx: Parsed from campaign" name="creative id" size="254" source="RegEx: Parsed from campaign" type="V_WString" />
+            <Field name="placementkey" source="File: odbc:DSN=redshift-etl|||Select prod.dm_display.display_dimplacement.placementkey As placementkey, prod.dm_display.display_dimplacement.placementid As placementid From prod.dm_display.display_dimplacement" type="Int32" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+    </Node>
+    <Node ToolID="55">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="1362" y="102" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="profile id" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="profileid" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Left_creativekey" selected="True" />
+                <SelectField field="Left_source" selected="True" />
+                <SelectField field="Left_medium" selected="True" />
+                <SelectField field="Left_campaign" selected="True" />
+                <SelectField field="Left_userType" selected="True" />
+                <SelectField field="Left_country" selected="True" />
+                <SelectField field="Left_deviceCategory" selected="True" />
+                <SelectField field="Left_sessions" selected="True" />
+                <SelectField field="Left_bounces" selected="True" />
+                <SelectField field="Left_transactionRevenue" selected="True" />
+                <SelectField field="Left_transactions" selected="True" />
+                <SelectField field="Left_goal2Completions" selected="True" />
+                <SelectField field="Left_goal5Completions" selected="True" />
+                <SelectField field="Left_date" selected="True" />
+                <SelectField field="Left_channel" selected="True" />
+                <SelectField field="Left_profile id" selected="True" />
+                <SelectField field="Left_placement id" selected="True" />
+                <SelectField field="Left_creative id" selected="True" />
+                <SelectField field="Left_placementkey" selected="True" />
+                <SelectField field="Right_kenshooprofilekey" selected="True" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Left">
+          <RecordInfo>
+            <Field name="creativekey" source="File: odbc:DSN=redshift-etl|||Select prod.dm_display.display_dimcreative.creativekey As creativekey, prod.dm_display.display_dimcreative.creativeid As creativeid From prod.dm_display.display_dimcreative" type="Int32" />
+            <Field name="source" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="medium" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="campaign" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="userType" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="country" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="deviceCategory" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="sessions" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="bounces" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="transactionRevenue" source="(Multiple Sources) (BatchMacro)" type="Double" />
+            <Field name="transactions" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="goal2Completions" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="goal5Completions" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="date" source="Formula: DateTimeParse([date],&quot;%Y%m%d&quot;)" type="Date" />
+            <Field description="RegEx: Parsed from campaign" name="channel" size="254" source="RegEx: Parsed from campaign" type="V_WString" />
+            <Field description="RegEx: Parsed from campaign" name="profile id" size="254" source="RegEx: Parsed from campaign" type="V_WString" />
+            <Field description="RegEx: Parsed from campaign" name="placement id" size="254" source="RegEx: Parsed from campaign" type="V_WString" />
+            <Field description="RegEx: Parsed from campaign" name="creative id" size="254" source="RegEx: Parsed from campaign" type="V_WString" />
+            <Field name="placementkey" source="File: odbc:DSN=redshift-etl|||Select prod.dm_display.display_dimplacement.placementkey As placementkey, prod.dm_display.display_dimplacement.placementid As placementid From prod.dm_display.display_dimplacement" type="Int32" />
+          </RecordInfo>
+          <SortInfo noProgress="True">
+            <Field field="profile id" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="Join">
+          <RecordInfo>
+            <Field name="creativekey" source="File: odbc:DSN=redshift-etl|||Select prod.dm_display.display_dimcreative.creativekey As creativekey, prod.dm_display.display_dimcreative.creativeid As creativeid From prod.dm_display.display_dimcreative" type="Int32" />
+            <Field name="source" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="medium" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="campaign" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="userType" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="country" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="deviceCategory" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="sessions" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="bounces" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="transactionRevenue" source="(Multiple Sources) (BatchMacro)" type="Double" />
+            <Field name="transactions" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="goal2Completions" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="goal5Completions" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="date" source="Formula: DateTimeParse([date],&quot;%Y%m%d&quot;)" type="Date" />
+            <Field description="RegEx: Parsed from campaign" name="channel" size="254" source="RegEx: Parsed from campaign" type="V_WString" />
+            <Field description="RegEx: Parsed from campaign" name="profile id" size="254" source="RegEx: Parsed from campaign" type="V_WString" />
+            <Field description="RegEx: Parsed from campaign" name="placement id" size="254" source="RegEx: Parsed from campaign" type="V_WString" />
+            <Field description="RegEx: Parsed from campaign" name="creative id" size="254" source="RegEx: Parsed from campaign" type="V_WString" />
+            <Field name="placementkey" source="File: odbc:DSN=redshift-etl|||Select prod.dm_display.display_dimplacement.placementkey As placementkey, prod.dm_display.display_dimplacement.placementid As placementid From prod.dm_display.display_dimplacement" type="Int32" />
+            <Field name="kenshooprofilekey" source="File: odbc:DSN=redshift-etl|||Select prod.dm_social.dimkenshooprofile.kenshooprofilekey As kenshooprofilekey, prod.dm_social.dimkenshooprofile.profileid As profileid From prod.dm_social.dimkenshooprofile" type="Int32" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="profile id" order="" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="Right">
+          <RecordInfo>
+            <Field name="kenshooprofilekey" source="File: odbc:DSN=redshift-etl|||Select prod.dm_social.dimkenshooprofile.kenshooprofilekey As kenshooprofilekey, prod.dm_social.dimkenshooprofile.profileid As profileid From prod.dm_social.dimkenshooprofile" type="Int32" />
+            <Field name="profileid" size="54" source="File: odbc:DSN=redshift-etl|||Select prod.dm_social.dimkenshooprofile.kenshooprofilekey As kenshooprofilekey, prod.dm_social.dimkenshooprofile.profileid As profileid From prod.dm_social.dimkenshooprofile" type="V_WString" />
+          </RecordInfo>
+          <SortInfo noProgress="True">
+            <Field field="profileid" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="57">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="1218" y="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File RecordLimit="" FileFormat="23">odbc:DSN=redshift-etl|||Select prod.dm_social.dimkenshooprofile.kenshooprofilekey As kenshooprofilekey, prod.dm_social.dimkenshooprofile.profileid As profileid From prod.dm_social.dimkenshooprofile</File>
+          <FormatSpecificOptions>
+            <PreSQL />
+            <NoProgress>True</NoProgress>
+            <CacheData>False</CacheData>
+            <TableStyle>Quoted</TableStyle>
+            <ReadUncommitted>False</ReadUncommitted>
+            <PostSQL />
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>DSN=redshift-etl
+Table=Select prod.dm_social.dimkenshooprofile.kenshooprofilekey As kenshooprofilekey, prod.dm_social.dimkenshooprofile.profileid As profileid From prod.dm_social.dimkenshooprofile</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="kenshooprofilekey" source="File: odbc:DSN=redshift-etl|||Select prod.dm_social.dimkenshooprofile.kenshooprofilekey As kenshooprofilekey, prod.dm_social.dimkenshooprofile.profileid As profileid From prod.dm_social.dimkenshooprofile" type="Int32" />
+            <Field name="profileid" size="54" source="File: odbc:DSN=redshift-etl|||Select prod.dm_social.dimkenshooprofile.kenshooprofilekey As kenshooprofilekey, prod.dm_social.dimkenshooprofile.profileid As profileid From prod.dm_social.dimkenshooprofile" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="58">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+        <Position x="1494" y="102" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ByName_ErrorMode>Warning</ByName_ErrorMode>
+          <ByName_OutputMode>All</ByName_OutputMode>
+          <Mode>ByName</Mode>
+          <SetOutputOrder value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="creativekey" source="File: odbc:DSN=redshift-etl|||Select prod.dm_display.display_dimcreative.creativekey As creativekey, prod.dm_display.display_dimcreative.creativeid As creativeid From prod.dm_display.display_dimcreative" type="Int32" />
+            <Field name="source" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="medium" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="campaign" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="userType" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="country" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="deviceCategory" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="sessions" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="bounces" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="transactionRevenue" source="(Multiple Sources) (BatchMacro)" type="Double" />
+            <Field name="transactions" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="goal2Completions" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="goal5Completions" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="date" source="Formula: DateTimeParse([date],&quot;%Y%m%d&quot;)" type="Date" />
+            <Field description="RegEx: Parsed from campaign" name="channel" size="254" source="RegEx: Parsed from campaign" type="V_WString" />
+            <Field description="RegEx: Parsed from campaign" name="profile id" size="254" source="RegEx: Parsed from campaign" type="V_WString" />
+            <Field description="RegEx: Parsed from campaign" name="placement id" size="254" source="RegEx: Parsed from campaign" type="V_WString" />
+            <Field description="RegEx: Parsed from campaign" name="creative id" size="254" source="RegEx: Parsed from campaign" type="V_WString" />
+            <Field name="placementkey" source="File: odbc:DSN=redshift-etl|||Select prod.dm_display.display_dimplacement.placementkey As placementkey, prod.dm_display.display_dimplacement.placementid As placementid From prod.dm_display.display_dimplacement" type="Int32" />
+            <Field name="kenshooprofilekey" source="File: odbc:DSN=redshift-etl|||Select prod.dm_social.dimkenshooprofile.kenshooprofilekey As kenshooprofilekey, prod.dm_social.dimkenshooprofile.profileid As profileid From prod.dm_social.dimkenshooprofile" type="Int32" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+    </Node>
+    <Node ToolID="59">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1590" y="234" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="creativekey" selected="True" />
+            <SelectField field="source" selected="True" />
+            <SelectField field="medium" selected="True" />
+            <SelectField field="campaign" selected="True" />
+            <SelectField field="userType" selected="True" />
+            <SelectField field="country" selected="True" />
+            <SelectField field="deviceCategory" selected="True" />
+            <SelectField field="sessions" selected="True" />
+            <SelectField field="bounces" selected="True" />
+            <SelectField field="transactionRevenue" selected="True" />
+            <SelectField field="transactions" selected="True" />
+            <SelectField field="goal2Completions" selected="True" />
+            <SelectField field="goal5Completions" selected="True" />
+            <SelectField field="date" selected="True" />
+            <SelectField field="channel" selected="True" />
+            <SelectField field="profile id" selected="True" rename="profileid" />
+            <SelectField field="placement id" selected="True" rename="placementid" />
+            <SelectField field="creative id" selected="True" rename="creativeid" />
+            <SelectField field="placementkey" selected="True" type="V_WString" size="254" />
+            <SelectField field="kenshooprofilekey" selected="True" type="V_WString" size="254" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="creativekey" source="File: odbc:DSN=redshift-etl|||Select prod.dm_display.display_dimcreative.creativekey As creativekey, prod.dm_display.display_dimcreative.creativeid As creativeid From prod.dm_display.display_dimcreative" type="Int32" />
+            <Field name="source" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="medium" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="campaign" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="userType" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="country" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="deviceCategory" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="sessions" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="bounces" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="transactionRevenue" source="(Multiple Sources) (BatchMacro)" type="Double" />
+            <Field name="transactions" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="goal2Completions" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="goal5Completions" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="date" source="Formula: DateTimeParse([date],&quot;%Y%m%d&quot;)" type="Date" />
+            <Field description="RegEx: Parsed from campaign" name="channel" size="254" source="RegEx: Parsed from campaign" type="V_WString" />
+            <Field description="RegEx: Parsed from campaign" name="profileid" size="254" source="RegEx: Parsed from campaign" type="V_WString" />
+            <Field description="RegEx: Parsed from campaign" name="placementid" size="254" source="RegEx: Parsed from campaign" type="V_WString" />
+            <Field description="RegEx: Parsed from campaign" name="creativeid" size="254" source="RegEx: Parsed from campaign" type="V_WString" />
+            <Field name="placementkey" size="254" source="File: odbc:DSN=redshift-etl|||Select prod.dm_display.display_dimplacement.placementkey As placementkey, prod.dm_display.display_dimplacement.placementid As placementid From prod.dm_display.display_dimplacement" type="V_WString" />
+            <Field name="kenshooprofilekey" size="254" source="File: odbc:DSN=redshift-etl|||Select prod.dm_social.dimkenshooprofile.kenshooprofilekey As kenshooprofilekey, prod.dm_social.dimkenshooprofile.profileid As profileid From prod.dm_social.dimkenshooprofile" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="60">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Sample.Sample">
+        <Position x="1950" y="414" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <GroupFields orderChanged="False" />
+          <Mode>First</Mode>
+          <N>1</N>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>First 1</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="creativekey" source="In-DB:DB=Redshift ETL;" type="Int32" />
+            <Field name="source" size="2048" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="medium" size="2048" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="campaign" size="2048" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="userType" size="2048" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="country" size="2048" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="deviceCategory" size="2048" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="sessions" source="In-DB:DB=Redshift ETL;" type="Int32" />
+            <Field name="bounces" source="In-DB:DB=Redshift ETL;" type="Int32" />
+            <Field name="transactionRevenue" source="In-DB:DB=Redshift ETL;" type="Double" />
+            <Field name="transactions" source="In-DB:DB=Redshift ETL;" type="Int32" />
+            <Field name="goal2Completions" source="In-DB:DB=Redshift ETL;" type="Int32" />
+            <Field name="goal5Completions" source="In-DB:DB=Redshift ETL;" type="Int32" />
+            <Field name="date" source="In-DB:DB=Redshift ETL;" type="Date" />
+            <Field description="RegEx: Parsed from campaign" name="channel" size="254" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field description="RegEx: Parsed from campaign" name="profileid" size="254" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field description="RegEx: Parsed from campaign" name="placementid" size="254" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field description="RegEx: Parsed from campaign" name="creativeid" size="254" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="placementkey" size="254" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="kenshooprofilekey" size="254" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSample" />
+    </Node>
+    <Node ToolID="39">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="726" y="426" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="date" action="Min" rename="Min_date" />
+            <SummarizeField field="date" action="Max" rename="Max_date" />
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Min_date" source="Formula: DateTimeParse([date],&quot;%Y%m%d&quot;)" type="Date" />
+            <Field name="Max_date" source="Formula: DateTimeParse([date],&quot;%Y%m%d&quot;)" type="Date" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+    </Node>
+    <Node ToolID="40">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="834" y="426" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="&quot;delete from prod.operations.gagrasshopper &#xA;where date &gt;= '&quot; + [Min_date] + &quot;' &#xA;and date &lt;= '&quot; + [Max_date] + &quot;'&quot;" field="SQLCommand" size="500" type="V_String" />
+            <FormulaField expression="&quot;redshift-etl&quot;" field="DSN" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>SQLCommand = "delete from prod.operations.gagrasshopper 
+where date &gt;= '" + [Min...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Min_date" source="Formula: DateTimeParse([date],&quot;%Y%m%d&quot;)" type="Date" />
+            <Field name="Max_date" source="Formula: DateTimeParse([date],&quot;%Y%m%d&quot;)" type="Date" />
+            <Field name="SQLCommand" size="500" source="Formula: &quot;delete from prod.operations.gagrasshopper &#xA;where date &gt;= '&quot; + [Min_date] + &quot;' &#xA;and date &lt;= '&quot; + [Max_date] + &quot;'&quot;" type="V_String" />
+            <Field name="DSN" size="1073741823" source="Formula: &quot;redshift-etl&quot;" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="41">
+      <GuiSettings Plugin="Teknion.ODBCSQLCommand">
+        <Position x="930" y="426" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <InputType>Batch</InputType>
+          <DSNName>
+          </DSNName>
+          <SQLCommand>
+          </SQLCommand>
+          <DSNField>DSN</DSNField>
+          <CommandField>SQLCommand</CommandField>
+          <DBType>Custom</DBType>
+          <ResultQuery>
+          </ResultQuery>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>DSN: SQLCommand</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field description="ODBC Response" name="sql_command_tool_message" size="2000" source="Command Results" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="Error">
+          <RecordInfo>
+            <Field name="ErrorCode" source="ODBC Error" type="Int32" />
+            <Field name="Message" size="2000" source="ODBC Error" type="V_WString" />
+            <Field name="Source" size="2000" source="ODBC Error" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="TeknionToolsEngine.dll" EngineDllEntryPoint=".Net:TeknionToolsEngine.ExecuteCommandODBCToolEngine" />
+    </Node>
+    <Node ToolID="42">
+      <GuiSettings Plugin="LockInGui.LockInOutput.LockInOutput">
+        <Position x="1782" y="414" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Table>prod.operations.gagrasshopper</Table>
+          <CreateMode>Append</CreateMode>
+          <AppendMode>ByName</AppendMode>
+          <AppendFieldMode>All</AppendFieldMode>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Table=prod.operations.gagrasshopper</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo LockIn="True">
+            <Field name="creativekey" source="In-DB:DB=Redshift ETL;" type="Int32" />
+            <Field name="source" size="2048" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="medium" size="2048" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="campaign" size="2048" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="userType" size="2048" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="country" size="2048" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="deviceCategory" size="2048" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="sessions" source="In-DB:DB=Redshift ETL;" type="Int32" />
+            <Field name="bounces" source="In-DB:DB=Redshift ETL;" type="Int32" />
+            <Field name="transactionRevenue" source="In-DB:DB=Redshift ETL;" type="Double" />
+            <Field name="transactions" source="In-DB:DB=Redshift ETL;" type="Int32" />
+            <Field name="goal2Completions" source="In-DB:DB=Redshift ETL;" type="Int32" />
+            <Field name="goal5Completions" source="In-DB:DB=Redshift ETL;" type="Int32" />
+            <Field name="date" source="In-DB:DB=Redshift ETL;" type="Date" />
+            <Field description="RegEx: Parsed from campaign" name="channel" size="254" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field description="RegEx: Parsed from campaign" name="profileid" size="254" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field description="RegEx: Parsed from campaign" name="placementid" size="254" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field description="RegEx: Parsed from campaign" name="creativeid" size="254" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="placementkey" size="254" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="kenshooprofilekey" size="254" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInOutput" />
+    </Node>
+    <Node ToolID="43">
+      <GuiSettings Plugin="LockInGui.LockInStreamIn.LockInStreamIn">
+        <Position x="1686" y="414" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Connection>Redshift ETL</Connection>
+          <CreateMode>TempTable</CreateMode>
+          <Table />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Source=Redshift ETL
+Temporary Table</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo LockIn="True">
+            <Field name="creativekey" source="In-DB:DB=Redshift ETL;" type="Int32" />
+            <Field name="source" size="2048" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="medium" size="2048" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="campaign" size="2048" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="userType" size="2048" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="country" size="2048" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="deviceCategory" size="2048" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="sessions" source="In-DB:DB=Redshift ETL;" type="Int32" />
+            <Field name="bounces" source="In-DB:DB=Redshift ETL;" type="Int32" />
+            <Field name="transactionRevenue" source="In-DB:DB=Redshift ETL;" type="Double" />
+            <Field name="transactions" source="In-DB:DB=Redshift ETL;" type="Int32" />
+            <Field name="goal2Completions" source="In-DB:DB=Redshift ETL;" type="Int32" />
+            <Field name="goal5Completions" source="In-DB:DB=Redshift ETL;" type="Int32" />
+            <Field name="date" source="In-DB:DB=Redshift ETL;" type="Date" />
+            <Field description="RegEx: Parsed from campaign" name="channel" size="254" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field description="RegEx: Parsed from campaign" name="profileid" size="254" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field description="RegEx: Parsed from campaign" name="placementid" size="254" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field description="RegEx: Parsed from campaign" name="creativeid" size="254" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="placementkey" size="254" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="kenshooprofilekey" size="254" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInStreamIn" />
+    </Node>
+    <Node ToolID="44">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AppendFields.AppendFields">
+        <Position x="1074" y="366" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <CartesianMode>Error</CartesianMode>
+          <SelectConfiguration>
+            <Configuration outputConnection="Output">
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Target_source" selected="True" />
+                <SelectField field="Target_medium" selected="True" />
+                <SelectField field="Target_campaign" selected="True" />
+                <SelectField field="Target_userType" selected="True" />
+                <SelectField field="Target_country" selected="True" />
+                <SelectField field="Target_deviceCategory" selected="True" />
+                <SelectField field="Target_sessions" selected="True" />
+                <SelectField field="Target_bounces" selected="True" />
+                <SelectField field="Target_transactionRevenue" selected="True" />
+                <SelectField field="Target_transactions" selected="True" />
+                <SelectField field="Target_goal2Completions" selected="True" type="Int32" size="4" />
+                <SelectField field="Target_goal5Completions" selected="True" type="Int32" size="4" />
+                <SelectField field="Target_Date" selected="True" />
+                <SelectField field="Target_channel" selected="True" />
+                <SelectField field="Target_profile id" selected="True" />
+                <SelectField field="Target_placement id" selected="True" />
+                <SelectField field="Target_creative id" selected="True" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="source" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="medium" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="campaign" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="userType" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="country" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="deviceCategory" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="sessions" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="bounces" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="transactionRevenue" source="(Multiple Sources) (BatchMacro)" type="Double" />
+            <Field name="transactions" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="goal2Completions" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="goal5Completions" source="(Multiple Sources) (BatchMacro)" type="Int32" />
+            <Field name="date" source="Formula: DateTimeParse([date],&quot;%Y%m%d&quot;)" type="Date" />
+            <Field description="RegEx: Parsed from campaign" name="channel" size="254" source="RegEx: Parsed from campaign" type="V_WString" />
+            <Field description="RegEx: Parsed from campaign" name="profile id" size="254" source="RegEx: Parsed from campaign" type="V_WString" />
+            <Field description="RegEx: Parsed from campaign" name="placement id" size="254" source="RegEx: Parsed from campaign" type="V_WString" />
+            <Field description="RegEx: Parsed from campaign" name="creative id" size="254" source="RegEx: Parsed from campaign" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxAppendFields" />
+    </Node>
+    <Node ToolID="61">
+      <GuiSettings Plugin="LockInGui.LockInStreamOut.LockInStreamOut">
+        <Position x="1866" y="414" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Sort value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="creativekey" source="In-DB:DB=Redshift ETL;" type="Int32" />
+            <Field name="source" size="2048" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="medium" size="2048" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="campaign" size="2048" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="userType" size="2048" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="country" size="2048" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="deviceCategory" size="2048" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="sessions" source="In-DB:DB=Redshift ETL;" type="Int32" />
+            <Field name="bounces" source="In-DB:DB=Redshift ETL;" type="Int32" />
+            <Field name="transactionRevenue" source="In-DB:DB=Redshift ETL;" type="Double" />
+            <Field name="transactions" source="In-DB:DB=Redshift ETL;" type="Int32" />
+            <Field name="goal2Completions" source="In-DB:DB=Redshift ETL;" type="Int32" />
+            <Field name="goal5Completions" source="In-DB:DB=Redshift ETL;" type="Int32" />
+            <Field name="date" source="In-DB:DB=Redshift ETL;" type="Date" />
+            <Field description="RegEx: Parsed from campaign" name="channel" size="254" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field description="RegEx: Parsed from campaign" name="profileid" size="254" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field description="RegEx: Parsed from campaign" name="placementid" size="254" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field description="RegEx: Parsed from campaign" name="creativeid" size="254" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="placementkey" size="254" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="kenshooprofilekey" size="254" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInStreamOut" />
+    </Node>
+    <Node ToolID="65">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="450" y="354" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>!IsNull([deviceCategory])</Expression>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>IsNotNull</Operator>
+            <Field>deviceCategory</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2018-05-04 16:03:44</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>
+              </Operand>
+              <StartDate>2018-05-04 16:03:44</StartDate>
+              <EndDate>2018-05-04 16:03:44</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>!IsNull([deviceCategory])</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="source" size="1073741823" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="medium" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="campaign" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="date" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="userType" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="country" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="deviceCategory" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="sessions" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="bounces" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="transactionRevenue" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="transactions" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="goal2Completions" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="goal5Completions" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="Date Converted" source="Formula: DateTimeParse([date],&quot;%Y%m%d&quot;)" type="Date" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="source" size="1073741823" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="medium" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="campaign" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="date" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="userType" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="country" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="deviceCategory" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="sessions" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="bounces" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="transactionRevenue" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="transactions" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="goal2Completions" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="goal5Completions" size="2048" source="(Multiple Sources) (BatchMacro)" type="V_WString" />
+            <Field name="Date Converted" source="Formula: DateTimeParse([date],&quot;%Y%m%d&quot;)" type="Date" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="64">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="2009" y="358" width="217" height="140" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Container 64</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="62">
+          <GuiSettings Plugin="Teknion.ODBCSQLCommand">
+            <Position x="2034" y="414" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <InputType>Block</InputType>
+              <DSNName>redshift-etl</DSNName>
+              <SQLCommand>UNLOAD
+('select * from operations.gagrasshopper;')
+TO 's3://camelotsmm-default/Unload/operations_gagrasshopper_' 
+credentials 'aws_access_key_id=AKIAI6DEVMQ7E6KBXCRQ;aws_secret_access_key=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' 
+MANIFEST
+DELIMITER AS ',' 
+GZIP    
+ADDQUOTES 
+ESCAPE
+ALLOWOVERWRITE
+;</SQLCommand>
+              <DSNField>DSN</DSNField>
+              <CommandField>SQLCommand</CommandField>
+              <DBType>Custom</DBType>
+              <ResultQuery>SELECT GETDATE() as completiontime</ResultQuery>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="completiontime" source="Command Results" type="DateTime" />
+                <Field description="ODBC Response" name="sql_command_tool_message" size="2000" source="Command Results" type="V_WString" />
+              </RecordInfo>
+            </MetaInfo>
+            <MetaInfo connection="Error">
+              <RecordInfo>
+                <Field name="ErrorCode" source="ODBC Error" type="Int32" />
+                <Field name="Message" size="2000" source="ODBC Error" type="V_WString" />
+                <Field name="Source" size="2000" source="ODBC Error" type="V_WString" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="TeknionToolsEngine.dll" EngineDllEntryPoint=".Net:TeknionToolsEngine.ExecuteCommandODBCToolEngine" />
+        </Node>
+        <Node ToolID="63">
+          <GuiSettings Plugin="Teknion.ODBCSQLCommand">
+            <Position x="2142" y="402" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <InputType>Block</InputType>
+              <DSNName>redshift-reporting</DSNName>
+              <SQLCommand>BEGIN TRANSACTION;
+TRUNCATE TABLE operations_gagrasshopper;
+COPY operations_gagrasshopper
+FROM 's3://camelotsmm-default/Unload/operations_gagrasshopper_manifest' 
+credentials 'aws_access_key_id=AKIAI6DEVMQ7E6KBXCRQ;aws_secret_access_key=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' 
+MANIFEST
+DELIMITER AS ',' 
+GZIP    
+REMOVEQUOTES 
+ESCAPE;
+COMMIT;</SQLCommand>
+              <DSNField>DSN</DSNField>
+              <CommandField>SQLCommand</CommandField>
+              <DBType>Custom</DBType>
+              <ResultQuery>SELECT GETDATE() as completiontime</ResultQuery>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="completiontime" source="Command Results" type="DateTime" />
+                <Field description="ODBC Response" name="sql_command_tool_message" size="2000" source="Command Results" type="V_WString" />
+              </RecordInfo>
+            </MetaInfo>
+            <MetaInfo connection="Error">
+              <RecordInfo>
+                <Field name="ErrorCode" source="ODBC Error" type="Int32" />
+                <Field name="Message" size="2000" source="ODBC Error" type="V_WString" />
+                <Field name="Source" size="2000" source="ODBC Error" type="V_WString" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="TeknionToolsEngine.dll" EngineDllEntryPoint=".Net:TeknionToolsEngine.ExecuteCommandODBCToolEngine" />
+        </Node>
+      </ChildNodes>
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Data" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="3" Connection="Question" />
+      <Destination ToolID="4" Connection="Question" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="4" Connection="Action" />
+      <Destination ToolID="1" Connection="Action" />
+    </Connection>
+    <Connection name="#3">
+      <Origin ToolID="6" Connection="Action" />
+      <Destination ToolID="1" Connection="Action" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="5" Connection="Question" />
+      <Destination ToolID="6" Connection="Question" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Output" />
+      <Destination ToolID="65" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="Output" />
+      <Destination ToolID="47" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="47" Connection="Output" />
+      <Destination ToolID="44" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="41" Connection="Output" />
+      <Destination ToolID="44" Connection="Source" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="47" Connection="Output" />
+      <Destination ToolID="39" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="48" Connection="Output" />
+      <Destination ToolID="51" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="44" Connection="Output" />
+      <Destination ToolID="51" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="49" Connection="Output" />
+      <Destination ToolID="53" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="52" Connection="Output" />
+      <Destination ToolID="53" Connection="Left" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="51" Connection="Join" />
+      <Destination ToolID="52" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="51" Connection="Right" />
+      <Destination ToolID="52" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="53" Connection="Left" />
+      <Destination ToolID="54" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="53" Connection="Join" />
+      <Destination ToolID="54" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="54" Connection="Output" />
+      <Destination ToolID="55" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="57" Connection="Output" />
+      <Destination ToolID="55" Connection="Right" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="55" Connection="Join" />
+      <Destination ToolID="58" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="55" Connection="Left" />
+      <Destination ToolID="58" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="58" Connection="Output" />
+      <Destination ToolID="59" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="59" Connection="Output" />
+      <Destination ToolID="43" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="60" Connection="Output" />
+      <Destination ToolID="62" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="39" Connection="Output" />
+      <Destination ToolID="40" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="40" Connection="Output" />
+      <Destination ToolID="41" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="42" Connection="Output" />
+      <Destination ToolID="61" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="43" Connection="Output" />
+      <Destination ToolID="42" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="61" Connection="Output" />
+      <Destination ToolID="60" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="65" Connection="True" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="62" Connection="Output" />
+      <Destination ToolID="63" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <Constants>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>ControlParam.Control Parameter (3)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>ControlParam.Control Parameter (5)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+    </Constants>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>GA Grasshopper Load Macro</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="False" />
+    </Events>
+    <RuntimeProperties>
+      <Actions>
+        <NoCondition>
+          <Type>NoCondition</Type>
+          <Description>(Always Run)</Description>
+          <True>
+            <Action>
+              <Type>UpdateValue</Type>
+              <Description />
+              <ToolId value="4" />
+              <Mode>Simple</Mode>
+              <Variable />
+              <Replace value="False" />
+              <Destination>1/Value[@name='startDatePicker']</Destination>
+            </Action>
+            <Action>
+              <Type>UpdateValue</Type>
+              <Description />
+              <ToolId value="6" />
+              <Mode>Simple</Mode>
+              <Variable />
+              <Replace value="False" />
+              <Destination>1/Value[@name='endDatePicker']</Destination>
+            </Action>
+          </True>
+        </NoCondition>
+      </Actions>
+      <Questions>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Questions</Description>
+          <Name>Tab (2)</Name>
+          <ToolId value="2" />
+          <Questions>
+            <Question>
+              <Type>ControlParam</Type>
+              <Description>Start Date</Description>
+              <Name>Control Parameter (3)</Name>
+              <ToolId value="3" />
+            </Question>
+            <Question>
+              <Type>ControlParam</Type>
+              <Description>End Date</Description>
+              <Name>Control Parameter (5)</Name>
+              <ToolId value="5" />
+            </Question>
+          </Questions>
+        </Question>
+      </Questions>
+      <ModuleType>Macro</ModuleType>
+      <MacroCustomHelp value="False" />
+      <MacroDynamicOutputFields value="False" />
+      <MacroImage>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</MacroImage>
+      <MacroInputs />
+      <MacroOutputs />
+      <BatchMacro>
+        <OutputMode>AllSame</OutputMode>
+        <ControlParams>
+          <ControlParam>
+            <Name>Control Parameter (3)</Name>
+            <Description>Start Date</Description>
+          </ControlParam>
+          <ControlParam>
+            <Name>Control Parameter (5)</Name>
+            <Description>End Date</Description>
+          </ControlParam>
+        </ControlParams>
+      </BatchMacro>
+      <Wiz_CustomHelp value="False" />
+      <Wiz_CustomGraphic value="False" />
+      <Wiz_ShowOutput value="True" />
+      <Wiz_OpenOutputTools>
+        <Tool ToolId="1" Selected="True" />
+        <Tool ToolId="41" Selected="True" />
+        <Tool ToolId="62" Selected="True" />
+        <Tool ToolId="63" Selected="True" />
+      </Wiz_OpenOutputTools>
+      <Wiz_OutputMessage />
+      <Wiz_NoOutputFilesMessage />
+      <Wiz_ChainRunWizard />
+    </RuntimeProperties>
+  </Properties>
+</AlteryxDocument>

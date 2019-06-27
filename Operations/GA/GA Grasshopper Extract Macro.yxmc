@@ -1,0 +1,359 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<AlteryxDocument yxmdVer="2018.1">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="LockInGui.LockInInput.LockInInput">
+        <Position x="174" y="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Connection>Redshift ETL</Connection>
+          <Query>Select prod.operations.gagrasshopper.* From prod.operations.gagrasshopper</Query>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Source=Redshift ETL
+Table=Select prod.operations.gagrasshopper.* From prod.operations.gagrasshopper</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo LockIn="True">
+            <Field name="creativekey" source="In-DB:DB=Redshift ETL;" type="Int32" />
+            <Field name="source" size="2048" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="medium" size="2048" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="campaign" size="2048" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="usertype" size="2048" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="country" size="2048" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="devicecategory" size="2048" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="sessions" source="In-DB:DB=Redshift ETL;" type="Int32" />
+            <Field name="bounces" source="In-DB:DB=Redshift ETL;" type="Int32" />
+            <Field name="transactionrevenue" source="In-DB:DB=Redshift ETL;" type="Double" />
+            <Field name="transactions" source="In-DB:DB=Redshift ETL;" type="Int32" />
+            <Field name="goal2completions" source="In-DB:DB=Redshift ETL;" type="Int32" />
+            <Field name="goal5completions" source="In-DB:DB=Redshift ETL;" type="Int32" />
+            <Field name="date" source="In-DB:DB=Redshift ETL;" type="Date" />
+            <Field name="channel" size="254" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="profileid" size="254" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="placementid" size="254" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="creativeid" size="254" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="placementkey" size="254" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="kenshooprofilekey" size="254" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInInput" />
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="LockInGui.LockInStreamOut.LockInStreamOut">
+        <Position x="342" y="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Sort value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="creativekey" source="In-DB:DB=Redshift ETL;" type="Int32" />
+            <Field name="source" size="2048" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="medium" size="2048" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="campaign" size="2048" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="usertype" size="2048" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="country" size="2048" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="devicecategory" size="2048" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="sessions" source="In-DB:DB=Redshift ETL;" type="Int32" />
+            <Field name="bounces" source="In-DB:DB=Redshift ETL;" type="Int32" />
+            <Field name="transactionrevenue" source="In-DB:DB=Redshift ETL;" type="Double" />
+            <Field name="transactions" source="In-DB:DB=Redshift ETL;" type="Int32" />
+            <Field name="goal2completions" source="In-DB:DB=Redshift ETL;" type="Int32" />
+            <Field name="goal5completions" source="In-DB:DB=Redshift ETL;" type="Int32" />
+            <Field name="date" source="In-DB:DB=Redshift ETL;" type="Date" />
+            <Field name="channel" size="254" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="profileid" size="254" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="placementid" size="254" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="creativeid" size="254" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="placementkey" size="254" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="kenshooprofilekey" size="254" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInStreamOut" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.ControlParam.ControlParam">
+        <Position x="54" y="54" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="462" y="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="source" selected="True" rename="Source" />
+            <SelectField field="medium" selected="True" rename="Medium" />
+            <SelectField field="campaign" selected="True" rename="Campaign" />
+            <SelectField field="usertype" selected="True" rename="User Type" />
+            <SelectField field="country" selected="True" rename="Country" />
+            <SelectField field="devicecategory" selected="True" rename="Device" />
+            <SelectField field="sessions" selected="True" rename="Sessions" />
+            <SelectField field="bounces" selected="True" rename="Bounces" />
+            <SelectField field="transactionrevenue" selected="True" rename="Transaction Revenue" />
+            <SelectField field="transactions" selected="True" rename="Transactions" />
+            <SelectField field="goal2completions" selected="True" rename="Saw Purchase Flow" />
+            <SelectField field="goal5completions" selected="True" rename="Prospects" />
+            <SelectField field="date" selected="True" rename="Calendardate" />
+            <SelectField field="channel" selected="True" rename="Channel" />
+            <SelectField field="profileid" selected="True" rename="Profile ID" />
+            <SelectField field="placementid" selected="True" rename="Placement ID" />
+            <SelectField field="creativeid" selected="True" rename="Creative ID" />
+            <SelectField field="placementkey" selected="True" rename="Placement Key" />
+            <SelectField field="kenshooprofilekey" selected="True" rename="Kenshoo Profile Key" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Source" size="2048" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="Medium" size="2048" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="Campaign" size="2048" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="User Type" size="2048" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="Country" size="2048" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="Device" size="2048" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="Sessions" source="In-DB:DB=Redshift ETL;" type="Int32" />
+            <Field name="Bounces" source="In-DB:DB=Redshift ETL;" type="Int32" />
+            <Field name="Transaction Revenue" source="In-DB:DB=Redshift ETL;" type="Double" />
+            <Field name="Transactions" source="In-DB:DB=Redshift ETL;" type="Int32" />
+            <Field name="Saw Purchase Flow" source="In-DB:DB=Redshift ETL;" type="Int32" />
+            <Field name="Prospects" source="In-DB:DB=Redshift ETL;" type="Int32" />
+            <Field name="Calendardate" source="In-DB:DB=Redshift ETL;" type="Date" />
+            <Field name="Channel" size="254" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="Profile ID" size="254" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="Placement ID" size="254" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="Creative ID" size="254" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="Placement Key" size="254" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+            <Field name="Kenshoo Profile Key" size="254" source="In-DB:DB=Redshift ETL;" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="618" y="126" width="130.1579" height="128" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Container 8</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="5">
+          <GuiSettings>
+            <Position x="643" y="170" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Value name="ConnectWithURL">False</Value>
+              <Value name="Text Box (727)" />
+              <Value name="Connection Method: New Connection">True</Value>
+              <Value name="New Connection: Server URL">https://clientreports.camelotsmm.com</Value>
+              <Value name="New connection: use default site">False</Value>
+              <Value name="New Connection: site manual entry">True</Value>
+              <Value name="New Connection: site manual entry site name">logmein</Value>
+              <Value name="Connection Method: Existing Connection">False</Value>
+              <Value name="Existing Connection: selection dropdown">https://clientreports.camelotsmm.com|TXUEnergy</Value>
+              <Value name="Check Box (723)">False</Value>
+              <Value name="Credentials: username">camelotreports</Value>
+              <Value name="Credentials: password">4C9B07D3EFBB01933B4A593D3222967F77F1453F5A71EB88ADC0DDF1A5C5AC8E718BB0416D18EC8E6057F6C40188489362049EF6CAF127C9B5E09EC543DBF8508FB45F45CC1A530BF0ACBC50F6D7433A13927320B0DB7</Value>
+              <Value name="Run Mode: publish data source">True</Value>
+              <Value name="Publish: data source name">Grasshopper GA</Value>
+              <Value name="Publish: project manual entry">True</Value>
+              <Value name="Publish: project manual entry name">Grasshopper Dashboards</Value>
+              <Value name="Publish: select project">False</Value>
+              <Value name="Publish: select project dropdown" />
+              <Value name="Check Box (742)">False</Value>
+              <Value name="Drop Down (710)">OVERWRITE</Value>
+              <Value name="DataSourceFileType">hyper</Value>
+              <Value name="Radio Button (657)">False</Value>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+            <MetaInfo connection="Summary">
+              <RecordInfo>
+                <Field name="server" size="1073741823" source="Summarize: Longest - server" type="V_WString" />
+                <Field name="site" size="1073741823" source="Summarize: Longest - site" type="V_WString" />
+                <Field name="username" size="1073741823" source="Summarize: Longest - username" type="V_WString" />
+                <Field name="site_id" size="1073741823" source="Summarize: Longest - site_id" type="V_WString" />
+                <Field name="user_id" size="1073741823" source="Summarize: Longest - user_id" type="V_WString" />
+                <Field name="X-Tableau-Auth" size="1073741823" source="Summarize: Longest - X-Tableau-Auth" type="V_WString" />
+                <Field name="auth_token_status" size="8" source="Formula: If [auth_token_closed]&gt;0 Then &quot;Closed&quot;&#xA;Else &quot;Open&quot;&#xA;EndIf" type="WString" />
+                <Field name="server_site_list_updated" size="8" source="Formula: If [server_site_list_updated]&gt;0 Then &quot;Yes&quot;&#xA;Else &quot;No&quot;&#xA;EndIf" type="WString" />
+                <Field name="project_list_updated" size="8" source="Formula: If [project_list_updated]&gt;0 Then &quot;Yes&quot;&#xA;Else &quot;No&quot;&#xA;EndIf" type="WString" />
+                <Field name="project_list" size="1073741823" source="Summarize: Longest - project_list" type="V_WString" />
+                <Field name="Login_ResponseData" size="1073741823" source="Summarize: Longest - Login_ResponseData" type="V_WString" />
+                <Field name="Login_ResponseHeaders" size="1073741823" source="Summarize: Longest - Login_ResponseHeaders" type="V_WString" />
+                <Field name="GetProjects_ResponseData" size="1073741823" source="Summarize: Concat - GetProjects_ResponseData" type="V_WString" />
+                <Field name="GetProjects_ResponseHeaders" size="1073741823" source="Summarize: Concat - GetProjects_ResponseHeaders" type="V_WString" />
+                <Field name="Publish_uploadSessionID" size="256" source="Summarize: Longest - Publish_uploadSessionID" type="V_WString" />
+                <Field name="Publish_ResponseData" size="1073741823" source="Summarize: Concat - Publish_ResponseData" type="V_WString" />
+                <Field name="Publish_ResponseHeader" size="1073741823" source="Summarize: Concat - Publish_ResponseHeader" type="V_WString" />
+                <Field name="Signout_ResponseData" size="1073741823" source="Summarize: Longest - Signout_ResponseData" type="V_WString" />
+                <Field name="Signout_ResponseHeaders" size="1073741823" source="Summarize: Longest - Signout_ResponseHeaders" type="V_WString" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings Macro="PublishToTableauServer\Publish to Tableau Server.yxmc" />
+        </Node>
+      </ChildNodes>
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="5" Connection="Macro Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <Constants>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>ControlParam.Control Parameter (7)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+    </Constants>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>GA Grasshopper Extract Macro</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="False" />
+    </Events>
+    <RuntimeProperties>
+      <Actions />
+      <Questions>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Questions</Description>
+          <Name>Tab (6)</Name>
+          <ToolId value="6" />
+          <Questions>
+            <Question>
+              <Type>ControlParam</Type>
+              <Description>Control Parameter (7)</Description>
+              <Name>Control Parameter (7)</Name>
+              <ToolId value="7" />
+            </Question>
+          </Questions>
+        </Question>
+      </Questions>
+      <ModuleType>Macro</ModuleType>
+      <MacroCustomHelp value="False" />
+      <MacroDynamicOutputFields value="False" />
+      <MacroImageStd value="39" />
+      <MacroInputs />
+      <MacroOutputs />
+      <BatchMacro>
+        <OutputMode>AllSame</OutputMode>
+        <ControlParams>
+          <ControlParam>
+            <Name>Control Parameter (7)</Name>
+            <Description>Control Parameter (7)</Description>
+          </ControlParam>
+        </ControlParams>
+      </BatchMacro>
+      <Wiz_CustomHelp value="False" />
+      <Wiz_CustomGraphic value="False" />
+      <Wiz_ShowOutput value="True" />
+      <Wiz_OpenOutputTools />
+      <Wiz_OutputMessage />
+      <Wiz_NoOutputFilesMessage />
+      <Wiz_ChainRunWizard />
+    </RuntimeProperties>
+  </Properties>
+</AlteryxDocument>

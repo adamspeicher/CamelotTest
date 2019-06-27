@@ -1,0 +1,290 @@
+2018-05-08 11:30:46.964 (11280): -----------------------------------------------------------------------------
+2018-05-08 11:30:46.964 (11280): Initializing fault reporting
+2018-05-08 11:30:46.964 (11280): Fault reporting log pathname: C:\Users\aspeicher\Desktop\GA Grasshopper Load Control\tdeserver64-error_5228_18-0508-113046.log
+2018-05-08 11:30:46.965 (11280): Initializing MiniDump
+2018-05-08 11:30:46.965 (11280): Loading 'DbgHelp.dll'
+2018-05-08 11:30:46.965 (11280): Loaded 'C:\WINDOWS\SYSTEM32\dbghelp.dll'
+2018-05-08 11:30:46.966 (11280):   Product Name: Microsoft® Windows® Operating System
+2018-05-08 11:30:46.966 (11280):   File Version: 10.0.16299.15 (WinBuild.160101.0800)
+2018-05-08 11:30:46.966 (11280):   Product Version: 10.0.16299.15
+2018-05-08 11:30:46.966 (11280): Finding function 'MiniDumpWriteDump'
+2018-05-08 11:30:46.966 (11280): Success
+2018-05-08 11:30:46.966 (11280): Registering unhandled exception filter
+2018-05-08 11:30:46.966 (11280): -----------------------------------------------------------------------------
+2018-05-08 11:30:46.966 (11280): argv[0]="C:\Users\aspeicher\AppData\Local\Alteryx\bin\Tableau\tde\tdeserver64.exe"
+2018-05-08 11:30:46.966 (11280): argv[1]="--callback"
+2018-05-08 11:30:46.966 (11280): argv[2]="tab.pipe://./pipe/{23EFA9FB-45CF-4F75-B5F8-F46C32514CDC}"
+2018-05-08 11:30:46.966 (11280): argv[3]="--listen"
+2018-05-08 11:30:46.966 (11280): argv[4]="tab.pipe://./pipe/auto"
+2018-05-08 11:30:46.966 (11280): argv[5]="--desktop"
+2018-05-08 11:30:46.966 (11280): argv[6]="--log"
+2018-05-08 11:30:46.966 (11280): argv[7]="C:\Users\aspeicher\Desktop\GA Grasshopper Load Control\DataExtract.log"
+2018-05-08 11:30:46.966 (11280): pid=5228
+2018-05-08 11:30:46.966 (11280): Machine Configuration
+2018-05-08 11:30:46.966 (11280):   Max Descriptors: -1
+2018-05-08 11:30:46.966 (11280): Vectorization Support
+2018-05-08 11:30:46.966 (11280):   Supports SSE:    Yes
+2018-05-08 11:30:46.966 (11280):   Supports SSE2:   Yes
+2018-05-08 11:30:46.966 (11280):   Supports SSE3:   Yes
+2018-05-08 11:30:46.966 (11280):   Supports SSE4.1: Yes
+2018-05-08 11:30:46.966 (11280):   Supports SSE4.2: Yes
+2018-05-08 11:30:46.966 (11280):   Supports AVX:    Yes
+2018-05-08 11:30:46.966 (11280):   Supports AVX2:   Yes
+2018-05-08 11:30:46.966 (11280): Adjusted Values
+2018-05-08 11:30:46.966 (11280):   Physical RAM:              25351790592
+2018-05-08 11:30:46.966 (11280):   CPUs available to process: 8
+2018-05-08 11:30:46.966 (11280):   worker-threads:            8
+2018-05-08 11:30:46.966 (11280):   max-concurrency:           4
+2018-05-08 11:30:46.966 (11280):   query-parallelism:         4
+2018-05-08 11:30:46.966 (11280):   min-query-parallelism:     2
+2018-05-08 11:30:46.966 (11280):   work-buffer-size:          64
+2018-05-08 11:30:46.966 (11280):   TrackingMappedFiles :      1
+2018-05-08 11:30:46.966 (11280):   MemoryMapEntireFile:       1
+2018-05-08 11:30:46.966 (11280):   use-openfile-cache:        1
+2018-05-08 11:30:46.967 (11280): tdeserver: server listening for incoming connections at: tab.pipe://./pipe/{7E402F80-BECC-4988-86CE-AF24E251700F}
+2018-05-08 11:30:46.967 (11280): tdeserver: new connection, connection=tab.pipe://./pipe/{7E402F80-BECC-4988-86CE-AF24E251700F}
+2018-05-08 11:30:46.967 (1452): tdeserver: open session1, connection=tab.pipe://./pipe/{7E402F80-BECC-4988-86CE-AF24E251700F}
+2018-05-08 11:30:46.967 (17132): Session1: QueryExecute:
+2018-05-08 11:30:46.967 (17132): (create database "C:\\Users\\ASPEIC~1\\AppData\\Local\\Temp\\Engine_2756_dc38c4368c3c413391deefdcf7ed486e_\\1ec2a483b8dc46beb04f87e3f11ef327.Grasshopper_GA.tde")
+2018-05-08 11:30:47.270 (17132): Compiling query with Memory Budget=14850199552 MemoryAvailable=14850199552
+2018-05-08 11:30:47.270 (17132): Session1: QueryExecute: OK, Elapsed time:0.301s, Compilation time:0.301s, Execution time:0.000s
+2018-05-08 11:30:47.270 (19056): Session1: QueryExecute:
+2018-05-08 11:30:47.270 (19056): (create schema [Extract])
+2018-05-08 11:30:47.270 (19056): Compiling query with Memory Budget=14850195456 MemoryAvailable=14850195456
+2018-05-08 11:30:47.293 (19056): Session1: QueryExecute: OK, Elapsed time:0.023s, Compilation time:0.000s, Execution time:0.023s
+2018-05-08 11:30:47.293 (11700): Session1: QueryExecute:
+2018-05-08 11:30:47.293 (11700): (create table [Extract].[Extract])
+2018-05-08 11:30:47.293 (11700): Compiling query with Memory Budget=14849810432 MemoryAvailable=14849810432
+2018-05-08 11:30:47.317 (11700): Session1: QueryExecute: OK, Elapsed time:0.024s, Compilation time:0.000s, Execution time:0.024s
+2018-05-08 11:30:47.319 (5048): Session1: QueryExecute:
+2018-05-08 11:30:47.319 (5048): (create column [Extract].[Extract].[Source] ( ( "collation" "binary" ) ( "compression" "heap" ) ( "factory" "varchar" ) ( "ordinal" "0" ) ( "scale" "2" ) ( "storagewidth" "8" ) ))
+2018-05-08 11:30:47.321 (5048): Compiling query with Memory Budget=14849175552 MemoryAvailable=14849175552
+2018-05-08 11:30:47.348 (5048): Session1: QueryExecute: OK, Elapsed time:0.030s, Compilation time:0.003s, Execution time:0.027s
+2018-05-08 11:30:47.348 (10912): Session1: QueryExecute:
+2018-05-08 11:30:47.348 (10912): (create column [Extract].[Extract].[Medium] ( ( "collation" "binary" ) ( "compression" "heap" ) ( "factory" "varchar" ) ( "ordinal" "1" ) ( "scale" "2" ) ( "storagewidth" "8" ) ))
+2018-05-08 11:30:47.349 (10912): Compiling query with Memory Budget=14849376256 MemoryAvailable=14849376256
+2018-05-08 11:30:47.360 (10912): Session1: QueryExecute: OK, Elapsed time:0.012s, Compilation time:0.000s, Execution time:0.012s
+2018-05-08 11:30:47.361 (18288): Session1: QueryExecute:
+2018-05-08 11:30:47.361 (18288): (create column [Extract].[Extract].[Campaign] ( ( "collation" "binary" ) ( "compression" "heap" ) ( "factory" "varchar" ) ( "ordinal" "2" ) ( "scale" "2" ) ( "storagewidth" "8" ) ))
+2018-05-08 11:30:47.361 (18288): Compiling query with Memory Budget=14849114112 MemoryAvailable=14849114112
+2018-05-08 11:30:47.373 (18288): Session1: QueryExecute: OK, Elapsed time:0.012s, Compilation time:0.000s, Execution time:0.012s
+2018-05-08 11:30:47.373 (1548): Session1: QueryExecute:
+2018-05-08 11:30:47.373 (1548): (create column [Extract].[Extract].[User Type] ( ( "collation" "binary" ) ( "compression" "heap" ) ( "factory" "varchar" ) ( "ordinal" "3" ) ( "scale" "2" ) ( "storagewidth" "8" ) ))
+2018-05-08 11:30:47.373 (1548): Compiling query with Memory Budget=14848258048 MemoryAvailable=14848258048
+2018-05-08 11:30:47.385 (1548): Session1: QueryExecute: OK, Elapsed time:0.011s, Compilation time:0.000s, Execution time:0.011s
+2018-05-08 11:30:47.385 (16936): Session1: QueryExecute:
+2018-05-08 11:30:47.385 (16936): (create column [Extract].[Extract].[Country] ( ( "collation" "binary" ) ( "compression" "heap" ) ( "factory" "varchar" ) ( "ordinal" "4" ) ( "scale" "2" ) ( "storagewidth" "8" ) ))
+2018-05-08 11:30:47.385 (16936): Compiling query with Memory Budget=14847602688 MemoryAvailable=14847602688
+2018-05-08 11:30:47.396 (16936): Session1: QueryExecute: OK, Elapsed time:0.012s, Compilation time:0.000s, Execution time:0.011s
+2018-05-08 11:30:47.397 (17132): Session1: QueryExecute:
+2018-05-08 11:30:47.397 (17132): (create column [Extract].[Extract].[Device] ( ( "collation" "binary" ) ( "compression" "heap" ) ( "factory" "varchar" ) ( "ordinal" "5" ) ( "scale" "2" ) ( "storagewidth" "8" ) ))
+2018-05-08 11:30:47.397 (17132): Compiling query with Memory Budget=14848307200 MemoryAvailable=14848307200
+2018-05-08 11:30:47.408 (17132): Session1: QueryExecute: OK, Elapsed time:0.012s, Compilation time:0.000s, Execution time:0.011s
+2018-05-08 11:30:47.408 (19056): Session1: QueryExecute:
+2018-05-08 11:30:47.408 (19056): (create column [Extract].[Extract].[Sessions] ( ( "builtin" "bigint" ) ( "factory" "builtin" ) ( "ordinal" "6" ) ))
+2018-05-08 11:30:47.409 (19056): Compiling query with Memory Budget=14844616704 MemoryAvailable=14844616704
+2018-05-08 11:30:47.420 (19056): Session1: QueryExecute: OK, Elapsed time:0.012s, Compilation time:0.000s, Execution time:0.012s
+2018-05-08 11:30:47.420 (11700): Session1: QueryExecute:
+2018-05-08 11:30:47.420 (11700): (create column [Extract].[Extract].[Bounces] ( ( "builtin" "bigint" ) ( "factory" "builtin" ) ( "ordinal" "7" ) ))
+2018-05-08 11:30:47.421 (11700): Compiling query with Memory Budget=14841229312 MemoryAvailable=14841229312
+2018-05-08 11:30:47.432 (11700): Session1: QueryExecute: OK, Elapsed time:0.012s, Compilation time:0.000s, Execution time:0.012s
+2018-05-08 11:30:47.432 (5048): Session1: QueryExecute:
+2018-05-08 11:30:47.432 (5048): (create column [Extract].[Extract].[Transaction Revenue] ( ( "builtin" "double" ) ( "factory" "builtin" ) ( "ordinal" "8" ) ))
+2018-05-08 11:30:47.432 (5048): Compiling query with Memory Budget=14837506048 MemoryAvailable=14837506048
+2018-05-08 11:30:47.444 (5048): Session1: QueryExecute: OK, Elapsed time:0.011s, Compilation time:0.000s, Execution time:0.011s
+2018-05-08 11:30:47.444 (10912): Session1: QueryExecute:
+2018-05-08 11:30:47.444 (10912): (create column [Extract].[Extract].[Transactions] ( ( "builtin" "bigint" ) ( "factory" "builtin" ) ( "ordinal" "9" ) ))
+2018-05-08 11:30:47.444 (10912): Compiling query with Memory Budget=14835576832 MemoryAvailable=14835576832
+2018-05-08 11:30:47.455 (10912): Session1: QueryExecute: OK, Elapsed time:0.011s, Compilation time:0.000s, Execution time:0.011s
+2018-05-08 11:30:47.455 (18288): Session1: QueryExecute:
+2018-05-08 11:30:47.455 (18288): (create column [Extract].[Extract].[Saw Purchase Flow] ( ( "builtin" "bigint" ) ( "factory" "builtin" ) ( "ordinal" "10" ) ))
+2018-05-08 11:30:47.455 (18288): Compiling query with Memory Budget=14848315392 MemoryAvailable=14848315392
+2018-05-08 11:30:47.466 (18288): Session1: QueryExecute: OK, Elapsed time:0.011s, Compilation time:0.000s, Execution time:0.011s
+2018-05-08 11:30:47.466 (1548): Session1: QueryExecute:
+2018-05-08 11:30:47.466 (1548): (create column [Extract].[Extract].[Prospects] ( ( "builtin" "bigint" ) ( "factory" "builtin" ) ( "ordinal" "11" ) ))
+2018-05-08 11:30:47.466 (1548): Compiling query with Memory Budget=14848430080 MemoryAvailable=14848430080
+2018-05-08 11:30:47.477 (1548): Session1: QueryExecute: OK, Elapsed time:0.011s, Compilation time:0.000s, Execution time:0.011s
+2018-05-08 11:30:47.477 (16936): Session1: QueryExecute:
+2018-05-08 11:30:47.477 (16936): (create column [Extract].[Extract].[Calendardate] ( ( "builtin" "date" ) ( "factory" "builtin" ) ( "ordinal" "12" ) ))
+2018-05-08 11:30:47.477 (16936): Compiling query with Memory Budget=14848200704 MemoryAvailable=14848200704
+2018-05-08 11:30:47.488 (16936): Session1: QueryExecute: OK, Elapsed time:0.011s, Compilation time:0.000s, Execution time:0.011s
+2018-05-08 11:30:47.488 (17132): Session1: QueryExecute:
+2018-05-08 11:30:47.488 (17132): (create column [Extract].[Extract].[Channel] ( ( "collation" "binary" ) ( "compression" "heap" ) ( "factory" "varchar" ) ( "ordinal" "13" ) ( "scale" "2" ) ( "storagewidth" "8" ) ))
+2018-05-08 11:30:47.488 (17132): Compiling query with Memory Budget=14848446464 MemoryAvailable=14848446464
+2018-05-08 11:30:47.499 (17132): Session1: QueryExecute: OK, Elapsed time:0.012s, Compilation time:0.000s, Execution time:0.011s
+2018-05-08 11:30:47.500 (19056): Session1: QueryExecute:
+2018-05-08 11:30:47.500 (19056): (create column [Extract].[Extract].[Profile ID] ( ( "collation" "binary" ) ( "compression" "heap" ) ( "factory" "varchar" ) ( "ordinal" "14" ) ( "scale" "2" ) ( "storagewidth" "8" ) ))
+2018-05-08 11:30:47.500 (19056): Compiling query with Memory Budget=14848049152 MemoryAvailable=14848049152
+2018-05-08 11:30:47.512 (19056): Session1: QueryExecute: OK, Elapsed time:0.012s, Compilation time:0.000s, Execution time:0.012s
+2018-05-08 11:30:47.512 (11700): Session1: QueryExecute:
+2018-05-08 11:30:47.512 (11700): (create column [Extract].[Extract].[Placement ID] ( ( "collation" "binary" ) ( "compression" "heap" ) ( "factory" "varchar" ) ( "ordinal" "15" ) ( "scale" "2" ) ( "storagewidth" "8" ) ))
+2018-05-08 11:30:47.512 (11700): Compiling query with Memory Budget=14849044480 MemoryAvailable=14849044480
+2018-05-08 11:30:47.524 (11700): Session1: QueryExecute: OK, Elapsed time:0.012s, Compilation time:0.000s, Execution time:0.012s
+2018-05-08 11:30:47.524 (5048): Session1: QueryExecute:
+2018-05-08 11:30:47.524 (5048): (create column [Extract].[Extract].[Creative ID] ( ( "collation" "binary" ) ( "compression" "heap" ) ( "factory" "varchar" ) ( "ordinal" "16" ) ( "scale" "2" ) ( "storagewidth" "8" ) ))
+2018-05-08 11:30:47.524 (5048): Compiling query with Memory Budget=14849228800 MemoryAvailable=14849228800
+2018-05-08 11:30:47.536 (5048): Session1: QueryExecute: OK, Elapsed time:0.012s, Compilation time:0.000s, Execution time:0.012s
+2018-05-08 11:30:47.537 (10912): Session1: QueryExecute:
+2018-05-08 11:30:47.537 (10912): (create column [Extract].[Extract].[Placement Key] ( ( "collation" "binary" ) ( "compression" "heap" ) ( "factory" "varchar" ) ( "ordinal" "17" ) ( "scale" "2" ) ( "storagewidth" "8" ) ))
+2018-05-08 11:30:47.537 (10912): Compiling query with Memory Budget=14849101824 MemoryAvailable=14849101824
+2018-05-08 11:30:47.549 (10912): Session1: QueryExecute: OK, Elapsed time:0.012s, Compilation time:0.000s, Execution time:0.012s
+2018-05-08 11:30:47.549 (18288): Session1: QueryExecute:
+2018-05-08 11:30:47.549 (18288): (create column [Extract].[Extract].[Kenshoo Profile Key] ( ( "collation" "binary" ) ( "compression" "heap" ) ( "factory" "varchar" ) ( "ordinal" "18" ) ( "scale" "2" ) ( "storagewidth" "8" ) ))
+2018-05-08 11:30:47.549 (18288): Compiling query with Memory Budget=14848978944 MemoryAvailable=14848978944
+2018-05-08 11:30:47.561 (18288): Session1: QueryExecute: OK, Elapsed time:0.012s, Compilation time:0.000s, Execution time:0.012s
+2018-05-08 11:30:47.569 (1548): Session1: InsertOpen: table="Extract" schema="Extract"
+2018-05-08 11:30:47.569 (1548):   column[0]="Source"
+2018-05-08 11:30:47.569 (1548):   column[1]="Medium"
+2018-05-08 11:30:47.569 (1548):   column[2]="Campaign"
+2018-05-08 11:30:47.569 (1548):   column[3]="User Type"
+2018-05-08 11:30:47.569 (1548):   column[4]="Country"
+2018-05-08 11:30:47.569 (1548):   column[5]="Device"
+2018-05-08 11:30:47.569 (1548):   column[6]="Sessions"
+2018-05-08 11:30:47.569 (1548):   column[7]="Bounces"
+2018-05-08 11:30:47.569 (1548):   column[8]="Transaction Revenue"
+2018-05-08 11:30:47.569 (1548):   column[9]="Transactions"
+2018-05-08 11:30:47.569 (1548):   column[10]="Saw Purchase Flow"
+2018-05-08 11:30:47.569 (1548):   column[11]="Prospects"
+2018-05-08 11:30:47.569 (1548):   column[12]="Calendardate"
+2018-05-08 11:30:47.569 (1548):   column[13]="Channel"
+2018-05-08 11:30:47.569 (1548):   column[14]="Profile ID"
+2018-05-08 11:30:47.569 (1548):   column[15]="Placement ID"
+2018-05-08 11:30:47.569 (1548):   column[16]="Creative ID"
+2018-05-08 11:30:47.569 (1548):   column[17]="Placement Key"
+2018-05-08 11:30:47.569 (1548):   column[18]="Kenshoo Profile Key"
+2018-05-08 11:30:47.829 (16936): Session1: InsertPutValues: total_calls=1 total_message_size=8388624
+2018-05-08 11:30:52.138 (17132): Session1: InsertPutValues: total_calls=18 total_message_size=149479720
+2018-05-08 11:30:52.183 (8548): LogScopeTime: FlowTable::Build,0,2018-05-08 11:30:47.5700,4.61
+2018-05-08 11:30:52.371 (19056): Session1: InsertCommit: insert_guid=1 total_calls=18 total_message_size=149479720
+2018-05-08 11:30:52.371 (19056): Session1: InsertCommit: OK
+2018-05-08 11:30:52.371 (11700): Session1: InsertClose: insert_guid=1
+2018-05-08 11:30:52.371 (11700): Session1: InsertClose: OK
+2018-05-08 11:30:52.372 (5048): Session1: QueryExecute:
+2018-05-08 11:30:52.372 (5048): (package)
+2018-05-08 11:30:52.372 (5048): Compiling query with Memory Budget=14812848128 MemoryAvailable=14812848128
+2018-05-08 11:30:52.372 (5048): PackageDatabase: in-place package of "C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_2756_dc38c4368c3c413391deefdcf7ed486e_\1ec2a483b8dc46beb04f87e3f11ef327.Grasshopper_GA.tde"
+2018-05-08 11:30:52.435 (5048): PackageDatabase: finished
+2018-05-08 11:30:52.435 (5048): Session1: QueryExecute: OK, Elapsed time:0.062s, Compilation time:0.000s, Execution time:0.062s
+2018-05-08 11:30:52.435 (10912): Session1: QueryExecute:
+2018-05-08 11:30:52.435 (10912): (database "C:\\Users\\ASPEIC~1\\AppData\\Local\\Temp\\Engine_2756_dc38c4368c3c413391deefdcf7ed486e_\\1ec2a483b8dc46beb04f87e3f11ef327.Grasshopper_GA.tde")
+2018-05-08 11:30:52.436 (10912): Compiling query with Memory Budget=14815850496 MemoryAvailable=14815850496
+2018-05-08 11:30:52.436 (10912): Session1: QueryExecute: OK, Elapsed time:0.001s, Compilation time:0.001s, Execution time:0.000s
+2018-05-08 11:30:52.436 (18288): Session1: QueryExecute:
+2018-05-08 11:30:52.436 (18288): (show schemas)
+2018-05-08 11:30:52.436 (18288): Compiling query with Memory Budget=14815850496 MemoryAvailable=14815850496
+2018-05-08 11:30:52.437 (18288): Session1: QueryExecute: OK rowset_guid=2 n_columns=1, Elapsed time:0.001s, Compilation time:0.000s, Execution time:0.001s
+2018-05-08 11:30:52.437 (1548): Session1: RowsetGetValues: rowset_guid=2
+2018-05-08 11:30:52.437 (16936): Session1: RowsetGetValues: rowset_guid=2
+2018-05-08 11:30:52.437 (17132): Session1: RowsetClose: rowset_guid=2
+2018-05-08 11:30:52.438 (19056): Session1: QueryExecute:
+2018-05-08 11:30:52.438 (19056): (show tables [Extract])
+2018-05-08 11:30:52.438 (19056): Compiling query with Memory Budget=14815850496 MemoryAvailable=14815850496
+2018-05-08 11:30:52.439 (19056): Session1: QueryExecute: OK rowset_guid=3 n_columns=1, Elapsed time:0.001s, Compilation time:0.000s, Execution time:0.001s
+2018-05-08 11:30:52.439 (11700): Session1: RowsetGetValues: rowset_guid=3
+2018-05-08 11:30:52.439 (5048): Session1: RowsetGetValues: rowset_guid=3
+2018-05-08 11:30:52.439 (10912): Session1: RowsetClose: rowset_guid=3
+2018-05-08 11:30:52.439 (18288): Session1: QueryExecute:
+2018-05-08 11:30:52.439 (18288): (top (table [Extract].[Extract]) () 0)
+2018-05-08 11:30:52.448 (18288): Compiling query with DOP=4
+2018-05-08 11:30:52.449 (18288): Compiling query with Memory Budget=14815850496 MemoryAvailable=14815850496
+2018-05-08 11:30:52.451 (18288): Session1: QueryExecute: OK rowset_guid=4 n_columns=19, Elapsed time:0.011s, Compilation time:0.010s, Execution time:0.001s
+2018-05-08 11:30:52.452 (1548): Session1: RowsetClose: rowset_guid=4
+2018-05-08 11:30:52.452 (16936): Session1: QueryExecute:
+2018-05-08 11:30:52.452 (16936): (alter column [Extract].[Extract].[Source] ( ( "comparable" "comparable" ) ( "compression" "array" ) ( "storagewidth" "0" ) ) )
+2018-05-08 11:30:52.452 (16936): Compiling query with Memory Budget=14815850496 MemoryAvailable=14815850496
+2018-05-08 11:30:52.454 (16936): Session1: QueryExecute: OK, Elapsed time:0.002s, Compilation time:0.000s, Execution time:0.002s
+2018-05-08 11:30:52.454 (17132): Session1: QueryExecute:
+2018-05-08 11:30:52.454 (17132): (alter column [Extract].[Extract].[Medium] ( ( "comparable" "comparable" ) ( "compression" "array" ) ( "storagewidth" "0" ) ) )
+2018-05-08 11:30:52.454 (17132): Compiling query with Memory Budget=14815850496 MemoryAvailable=14815850496
+2018-05-08 11:30:52.455 (17132): Session1: QueryExecute: OK, Elapsed time:0.001s, Compilation time:0.000s, Execution time:0.001s
+2018-05-08 11:30:52.455 (19056): Session1: QueryExecute:
+2018-05-08 11:30:52.455 (19056): (alter column [Extract].[Extract].[Campaign] ( ( "comparable" "comparable" ) ( "compression" "array" ) ( "storagewidth" "0" ) ) )
+2018-05-08 11:30:52.455 (19056): Compiling query with Memory Budget=14815850496 MemoryAvailable=14815850496
+2018-05-08 11:30:52.456 (19056): Session1: QueryExecute: OK, Elapsed time:0.001s, Compilation time:0.000s, Execution time:0.001s
+2018-05-08 11:30:52.457 (11700): Session1: QueryExecute:
+2018-05-08 11:30:52.457 (11700): (alter column [Extract].[Extract].[User Type] ( ( "comparable" "comparable" ) ( "compression" "array" ) ( "storagewidth" "0" ) ) )
+2018-05-08 11:30:52.457 (11700): Compiling query with Memory Budget=14815850496 MemoryAvailable=14815850496
+2018-05-08 11:30:52.458 (11700): Session1: QueryExecute: OK, Elapsed time:0.001s, Compilation time:0.000s, Execution time:0.001s
+2018-05-08 11:30:52.458 (5048): Session1: QueryExecute:
+2018-05-08 11:30:52.458 (5048): (alter column [Extract].[Extract].[Country] ( ( "comparable" "comparable" ) ( "compression" "array" ) ( "storagewidth" "0" ) ) )
+2018-05-08 11:30:52.458 (5048): Compiling query with Memory Budget=14815850496 MemoryAvailable=14815850496
+2018-05-08 11:30:52.459 (5048): Session1: QueryExecute: OK, Elapsed time:0.001s, Compilation time:0.000s, Execution time:0.001s
+2018-05-08 11:30:52.459 (10912): Session1: QueryExecute:
+2018-05-08 11:30:52.459 (10912): (alter column [Extract].[Extract].[Device] ( ( "comparable" "comparable" ) ( "compression" "array" ) ( "storagewidth" "0" ) ) )
+2018-05-08 11:30:52.459 (10912): Compiling query with Memory Budget=14815850496 MemoryAvailable=14815850496
+2018-05-08 11:30:52.460 (10912): Session1: QueryExecute: OK, Elapsed time:0.001s, Compilation time:0.000s, Execution time:0.001s
+2018-05-08 11:30:52.461 (18288): Session1: QueryExecute:
+2018-05-08 11:30:52.461 (18288): (alter column [Extract].[Extract].[Sessions] ( ( "comparable" "comparable" ) ( "compression" "array" ) ( "storagewidth" "0" ) ) )
+2018-05-08 11:30:52.461 (18288): Compiling query with Memory Budget=14815850496 MemoryAvailable=14815850496
+2018-05-08 11:30:52.462 (18288): Session1: QueryExecute: OK, Elapsed time:0.002s, Compilation time:0.000s, Execution time:0.002s
+2018-05-08 11:30:52.463 (1548): Session1: QueryExecute:
+2018-05-08 11:30:52.463 (1548): (alter column [Extract].[Extract].[Bounces] ( ( "comparable" "comparable" ) ( "compression" "array" ) ( "storagewidth" "0" ) ) )
+2018-05-08 11:30:52.463 (1548): Compiling query with Memory Budget=14815850496 MemoryAvailable=14815850496
+2018-05-08 11:30:52.464 (1548): Session1: QueryExecute: OK, Elapsed time:0.001s, Compilation time:0.000s, Execution time:0.001s
+2018-05-08 11:30:52.464 (16936): Session1: QueryExecute:
+2018-05-08 11:30:52.464 (16936): (alter column [Extract].[Extract].[Transaction Revenue] ( ( "comparable" "comparable" ) ( "compression" "array" ) ( "storagewidth" "0" ) ) )
+2018-05-08 11:30:52.464 (16936): Compiling query with Memory Budget=14815850496 MemoryAvailable=14815850496
+2018-05-08 11:30:52.475 (16936): TDE error=40633; GetLastError=3(The system cannot find the path specified.)
+2018-05-08 11:30:52.475 (16936): The system cannot find the path specified.
+2018-05-08 11:30:52.475 (16936):  - OS::rename(src="C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_2756_dc38c4368c3c413391deefdcf7ed486e_\tde_5228_16936_74591864062963.tmp", dst="C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_2756_dc38c4368c3c413391deefdcf7ed486e_\1ec2a483b8dc46beb04f87e3f11ef327.Grasshopper_GA.tde\Extract\Extract\Transaction Revenue.dict")
+2018-05-08 11:30:52.489 (16936): Session1: QueryExecute: OK, Elapsed time:0.024s, Compilation time:0.000s, Execution time:0.024s
+2018-05-08 11:30:52.489 (17132): Session1: QueryExecute:
+2018-05-08 11:30:52.489 (17132): (alter column [Extract].[Extract].[Transactions] ( ( "comparable" "comparable" ) ( "compression" "array" ) ( "storagewidth" "0" ) ) )
+2018-05-08 11:30:52.489 (17132): Compiling query with Memory Budget=14815989760 MemoryAvailable=14815989760
+2018-05-08 11:30:52.504 (17132): Session1: QueryExecute: OK, Elapsed time:0.015s, Compilation time:0.000s, Execution time:0.015s
+2018-05-08 11:30:52.504 (19056): Session1: QueryExecute:
+2018-05-08 11:30:52.504 (19056): (alter column [Extract].[Extract].[Saw Purchase Flow] ( ( "comparable" "comparable" ) ( "compression" "array" ) ( "storagewidth" "0" ) ) )
+2018-05-08 11:30:52.504 (19056): Compiling query with Memory Budget=14815993856 MemoryAvailable=14815993856
+2018-05-08 11:30:52.516 (19056): Session1: QueryExecute: OK, Elapsed time:0.012s, Compilation time:0.000s, Execution time:0.012s
+2018-05-08 11:30:52.518 (11700): Session1: QueryExecute:
+2018-05-08 11:30:52.518 (11700): (alter column [Extract].[Extract].[Prospects] ( ( "comparable" "comparable" ) ( "compression" "array" ) ( "storagewidth" "0" ) ) )
+2018-05-08 11:30:52.518 (11700): Compiling query with Memory Budget=14815997952 MemoryAvailable=14815997952
+2018-05-08 11:30:52.532 (11700): Session1: QueryExecute: OK, Elapsed time:0.015s, Compilation time:0.000s, Execution time:0.014s
+2018-05-08 11:30:52.532 (5048): Session1: QueryExecute:
+2018-05-08 11:30:52.532 (5048): (alter column [Extract].[Extract].[Calendardate] ( ( "comparable" "comparable" ) ( "compression" "array" ) ( "storagewidth" "0" ) ) )
+2018-05-08 11:30:52.533 (5048): Compiling query with Memory Budget=14815993856 MemoryAvailable=14815993856
+2018-05-08 11:30:52.556 (5048): Session1: QueryExecute: OK, Elapsed time:0.024s, Compilation time:0.000s, Execution time:0.024s
+2018-05-08 11:30:52.557 (10912): Session1: QueryExecute:
+2018-05-08 11:30:52.557 (10912): (alter column [Extract].[Extract].[Channel] ( ( "comparable" "comparable" ) ( "compression" "array" ) ( "storagewidth" "0" ) ) )
+2018-05-08 11:30:52.557 (10912): Compiling query with Memory Budget=14815981568 MemoryAvailable=14815981568
+2018-05-08 11:30:52.559 (10912): Session1: QueryExecute: OK, Elapsed time:0.002s, Compilation time:0.000s, Execution time:0.002s
+2018-05-08 11:30:52.559 (18288): Session1: QueryExecute:
+2018-05-08 11:30:52.559 (18288): (alter column [Extract].[Extract].[Profile ID] ( ( "comparable" "comparable" ) ( "compression" "array" ) ( "storagewidth" "0" ) ) )
+2018-05-08 11:30:52.560 (18288): Compiling query with Memory Budget=14815981568 MemoryAvailable=14815981568
+2018-05-08 11:30:52.569 (18288): Session1: QueryExecute: OK, Elapsed time:0.009s, Compilation time:0.000s, Execution time:0.009s
+2018-05-08 11:30:52.569 (1548): Session1: QueryExecute:
+2018-05-08 11:30:52.569 (1548): (alter column [Extract].[Extract].[Placement ID] ( ( "comparable" "comparable" ) ( "compression" "array" ) ( "storagewidth" "0" ) ) )
+2018-05-08 11:30:52.569 (1548): Compiling query with Memory Budget=14815989760 MemoryAvailable=14815989760
+2018-05-08 11:30:52.580 (1548): Session1: QueryExecute: OK, Elapsed time:0.011s, Compilation time:0.000s, Execution time:0.010s
+2018-05-08 11:30:52.580 (16936): Session1: QueryExecute:
+2018-05-08 11:30:52.580 (16936): (alter column [Extract].[Extract].[Creative ID] ( ( "comparable" "comparable" ) ( "compression" "array" ) ( "storagewidth" "0" ) ) )
+2018-05-08 11:30:52.580 (16936): Compiling query with Memory Budget=14816002048 MemoryAvailable=14816002048
+2018-05-08 11:30:52.591 (16936): Session1: QueryExecute: OK, Elapsed time:0.011s, Compilation time:0.000s, Execution time:0.010s
+2018-05-08 11:30:52.591 (17132): Session1: QueryExecute:
+2018-05-08 11:30:52.591 (17132): (alter column [Extract].[Extract].[Placement Key] ( ( "comparable" "comparable" ) ( "compression" "array" ) ( "storagewidth" "0" ) ) )
+2018-05-08 11:30:52.591 (17132): Compiling query with Memory Budget=14816002048 MemoryAvailable=14816002048
+2018-05-08 11:30:52.601 (17132): Session1: QueryExecute: OK, Elapsed time:0.011s, Compilation time:0.000s, Execution time:0.011s
+2018-05-08 11:30:52.602 (19056): Session1: QueryExecute:
+2018-05-08 11:30:52.602 (19056): (alter column [Extract].[Extract].[Kenshoo Profile Key] ( ( "comparable" "comparable" ) ( "compression" "array" ) ( "storagewidth" "0" ) ) )
+2018-05-08 11:30:52.602 (19056): Compiling query with Memory Budget=14816002048 MemoryAvailable=14816002048
+2018-05-08 11:30:52.611 (19056): Session1: QueryExecute: OK, Elapsed time:0.010s, Compilation time:0.000s, Execution time:0.010s
+2018-05-08 11:30:52.612 (11700): Session1: QueryExecute:
+2018-05-08 11:30:52.612 (11700): (top (table [Extract].[Extract]) () 0)
+2018-05-08 11:30:52.613 (11700): Compiling query with DOP=4
+2018-05-08 11:30:52.614 (11700): Compiling query with Memory Budget=14815985664 MemoryAvailable=14815985664
+2018-05-08 11:30:52.617 (11700): Session1: QueryExecute: OK rowset_guid=5 n_columns=19, Elapsed time:0.005s, Compilation time:0.002s, Execution time:0.003s
+2018-05-08 11:30:52.618 (5048): Session1: RowsetClose: rowset_guid=5
+2018-05-08 11:30:52.619 (10912): Session1: QueryExecute:
+2018-05-08 11:30:52.619 (10912): (sort [Extract].[Extract] ( ( [Calendardate] asc) ( [User Type] asc) ( [Device] asc) ( [Channel] asc) ( [Profile ID] asc) ( [Medium] asc) ( [Transactions] asc) ( [Placement Key] asc) ( [Placement ID] asc) ( [Saw Purchase Flow] asc) ( [Creative ID] asc) ( [Country] asc) ( [Prospects] asc) ( [Campaign] asc) ( [Bounces] asc) ( [Sessions] asc) ( [Source] asc) ( [Transaction Revenue] asc) ) )
+2018-05-08 11:30:52.619 (10912): Compiling query with Memory Budget=14815985664 MemoryAvailable=14815985664
+2018-05-08 11:30:53.231 (10912): Session1: QueryExecute: OK, Elapsed time:0.612s, Compilation time:0.000s, Execution time:0.611s
+2018-05-08 11:30:53.231 (18288): Session1: QueryExecute:
+2018-05-08 11:30:53.231 (18288): (package)
+2018-05-08 11:30:53.231 (18288): Compiling query with Memory Budget=14810865664 MemoryAvailable=14810865664
+2018-05-08 11:30:53.231 (18288): PackageDatabase: in-place package of "C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_2756_dc38c4368c3c413391deefdcf7ed486e_\1ec2a483b8dc46beb04f87e3f11ef327.Grasshopper_GA.tde"
+2018-05-08 11:30:53.272 (18288): PackageDatabase: finished
+2018-05-08 11:30:53.272 (18288): Session1: QueryExecute: OK, Elapsed time:0.041s, Compilation time:0.000s, Execution time:0.041s
+2018-05-08 11:30:53.272 (1452): tdeserver: close session1, connection=tab.pipe://./pipe/{7E402F80-BECC-4988-86CE-AF24E251700F}
+2018-05-08 11:30:53.272 (11280): tdeserver: closing connection=tab.pipe://./pipe/{7E402F80-BECC-4988-86CE-AF24E251700F}
+2018-05-08 11:30:53.272 (1452): tdeserver: disconnected connection=tab.pipe://./pipe/{7E402F80-BECC-4988-86CE-AF24E251700F}: IPC_NamedPipeConnection::Read(len=16, connection=tab.pipe://./pipe/{7E402F80-BECC-4988-86CE-AF24E251700F}): The pipe has been ended.
+2018-05-08 11:30:53.273 (11280): tdeserver: exit (0)
