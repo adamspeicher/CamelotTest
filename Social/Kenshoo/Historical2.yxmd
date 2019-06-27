@@ -1,0 +1,545 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2018.3">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
+        <Position x="774" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UpdateField value="False" />
+          <UpdateField_Name>RecordID</UpdateField_Name>
+          <CreateField_Name>occurance</CreateField_Name>
+          <CreateField_Type>Int32</CreateField_Type>
+          <CreateField_Size>4</CreateField_Size>
+          <OtherRows>Empty</OtherRows>
+          <NumRows value="1" />
+          <Expression>[Row-1:occurance]+1</Expression>
+          <GroupByFields>
+            <Field field="Date" />
+            <Field field="Facebook Account ID" />
+            <Field field="Facebook Campaign ID" />
+            <Field field="Facebook Ad set ID" />
+            <Field field="Facebook Ad ID" />
+          </GroupByFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Set occurance</AnnotationText>
+          <DefaultAnnotationText>[Row-1:occurance]+1</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiRowFormula" />
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="870" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>[occurance] = 1</Expression>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>=</Operator>
+            <Field>occurance</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2018-11-02 11:50:53</PeriodDate>
+              <PeriodCount>0</PeriodCount>
+              <Operand>1</Operand>
+              <StartDate>2018-11-02 11:50:53</StartDate>
+              <EndDate>2018-11-02 11:50:53</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>[occurance] = 1</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+        <Position x="678" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SortInfo locale="0">
+            <Field field="FileName" order="Descending" />
+          </SortInfo>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>FileName - Descending</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="966" y="102" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_25344_baa0ba1abe49496f8e531f7960233118_\Engine_20732_489ba6090f544d48bf398e7966f017c7_.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Profile</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="966" y="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_25344_baa0ba1abe49496f8e531f7960233118_\Engine_20732_1f0e526f01614ba9bb444fb58107b238_.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Profile</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="582" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Currency" selected="True" size="20" />
+            <SelectField field="Date" selected="True" size="20" />
+            <SelectField field="Profile Name" selected="True" size="50" />
+            <SelectField field="Advertiser" selected="True" size="20" />
+            <SelectField field="Profile ID" selected="True" size="20" />
+            <SelectField field="Campaign Name" selected="True" size="50" />
+            <SelectField field="Campaign Status" selected="True" size="20" />
+            <SelectField field="Kenshoo Ad ID" selected="True" size="20" />
+            <SelectField field="Facebook Account ID" selected="True" size="50" />
+            <SelectField field="Facebook Campaign ID" selected="True" size="50" />
+            <SelectField field="Facebook Ad set ID" selected="True" size="50" />
+            <SelectField field="Facebook Ad ID" selected="True" size="50" />
+            <SelectField field="Post ID" selected="True" size="50" />
+            <SelectField field="Country" selected="True" size="20" />
+            <SelectField field="Zip Code" selected="True" size="20" />
+            <SelectField field="Min Age" selected="True" size="10" />
+            <SelectField field="Max Age" selected="True" size="10" />
+            <SelectField field="Interests" selected="True" size="50" />
+            <SelectField field="Partner Categories" selected="True" size="100000" />
+            <SelectField field="Relationship Status" selected="True" size="10" />
+            <SelectField field="Interested In" selected="True" size="10" />
+            <SelectField field="Education" selected="True" size="10" />
+            <SelectField field="College Name" selected="True" size="10" />
+            <SelectField field="College Majors" selected="True" size="10" />
+            <SelectField field="College Start Year" selected="True" size="10" />
+            <SelectField field="College End Year" selected="True" size="10" />
+            <SelectField field="Connected To" selected="True" size="10" />
+            <SelectField field="Not Connected To" selected="True" size="10" />
+            <SelectField field="Targeted Custom Audience" selected="True" size="10" />
+            <SelectField field="Publisher" selected="True" size="20" />
+            <SelectField field="Position" selected="True" size="20" />
+            <SelectField field="Device" selected="True" size="20" />
+            <SelectField field="Android Min. Version" selected="True" size="20" />
+            <SelectField field="IOS Min. Version" selected="True" size="20" />
+            <SelectField field="Mobile Device" selected="True" size="20" />
+            <SelectField field="Mobile OS" selected="True" size="20" />
+            <SelectField field="Targeted Audience" selected="True" size="20" />
+            <SelectField field="IMP" selected="True" size="10" />
+            <SelectField field="Clicks" selected="True" size="10" />
+            <SelectField field="Conversions" selected="True" size="10" />
+            <SelectField field="Cost" selected="True" size="10" />
+            <SelectField field="conversions2" selected="False" size="10" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="966" y="42" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="FileName" action="GroupBy" rename="FileName" />
+            <SummarizeField field="FileName" action="Count" rename="Count" />
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="1062" y="42" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_25344_baa0ba1abe49496f8e531f7960233118_\Engine_20732_f035e2306845486da40371a3513cba54_.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Profile</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="678" y="42" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="FileName" action="GroupBy" rename="FileName" />
+            <SummarizeField field="FileName" action="Count" rename="Count" />
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+    </Node>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="774" y="42" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_25344_baa0ba1abe49496f8e531f7960233118_\Engine_20732_f25a2b0169de42f9aad7a15a62c13e31_.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Profile</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="15">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="450" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="FileName" RecordLimit="" SearchSubDirs="False" FileFormat="0">C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv</File>
+          <FormatSpecificOptions>
+            <CodePage>28591</CodePage>
+            <Delimeter>,</Delimeter>
+            <IgnoreErrors>False</IgnoreErrors>
+            <FieldLen>400</FieldLen>
+            <AllowShareWrite>False</AllowShareWrite>
+            <HeaderRow>True</HeaderRow>
+            <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+            <ImportLine>1</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>SOC_Experian_Kenshoo_v2_*.csv</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Currency" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="Date" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="Ad Name" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="Ad set Name" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="Headline" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="Profile Name" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="Advertiser" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="Profile ID" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="Campaign Name" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="Campaign Status" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="Kenshoo Ad ID" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="Portfolio Name" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="Facebook Account ID" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="Facebook Campaign ID" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="Facebook Ad set ID" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="Facebook Ad ID" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="Body Text" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="Land URL" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="Image Name" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="Post ID" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="Country" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="Gender" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="Min Age" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="Max Age" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="Interests" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="Saved Interest List" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="BCT" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="Partner Categories" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="Workplace" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="Relationship Status" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="Interested In" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="Education" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="College Name" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="College Majors" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="College Start Year" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="College End Year" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="Connected To" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="Not Connected To" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="Friends Of Connection" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="Targeted Custom Audience" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="Android Min. Version" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="IOS Min. Version" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="Mobile Device" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="Mobile OS" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="Targeted Audience" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="Persona" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="Tags" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="Kenshoo Campaign ID" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="Kenshoo Ad Set ID" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="Campaign Objective" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="Caption" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="Product Set" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="IMP" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="Clicks" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="Conversions" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="Cost" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="fb_compreg" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="darkwebscansubmit" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="darkwebupsellconv" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="free" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="credit new free score" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="website registrations completed" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="website registrations completed_click_through" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="website registrations completed_view_through" size="400" source="File: C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\files\SOC_Experian_Kenshoo_v2_*.csv" type="V_WString" />
+            <Field name="FileName" size="254" source="File: FileName" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="1050" y="90" width="221" height="144" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Container 14</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="13">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="1159" y="134" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File FileFormat="19" MaxRecords="">C:\Users\aspeicher\Desktop\KenshooHist\2017\Experian\FullHist9.yxdb</File>
+              <Passwords />
+              <FormatSpecificOptions>
+                <NoSpatialIndex>False</NoSpatialIndex>
+                <SaveSource>True</SaveSource>
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>FullHist9.yxdb</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+        <Node ToolID="16">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="1075" y="134" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+      </ChildNodes>
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="True" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="False" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="True" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="True" />
+      <Destination ToolID="16" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="1" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="Output" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="Output" />
+      <Destination ToolID="12" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="15" Connection="Output" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="16" Connection="Output" />
+      <Destination ToolID="13" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Historical2</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>

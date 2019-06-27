@@ -1,0 +1,753 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="11.0">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
+        <Position x="54" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UseFileInput value="True" />
+          <Name>Input</Name>
+          <Abbrev>I</Abbrev>
+          <ShowFieldMap value="True" />
+          <Optional value="False" />
+          <FileInput>
+            <Configuration>
+              <Passwords />
+              <File OutputFileName="" FileFormat="19" SearchSubDirs="False" RecordLimit="">ReportRequestData.yxdb</File>
+              <FormatSpecificOptions />
+            </Configuration>
+          </FileInput>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name>Input</Name>
+          <DefaultAnnotationText>ReportRequestData.yxdb</DefaultAnnotationText>
+          <Left value="True" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="APIURL" size="100" source="TextInput:" type="String" />
+            <Field name="level" size="100" source="TextInput:" type="String" />
+            <Field name="access_token" size="200" source="TextInput:" type="String" />
+            <Field name="time_range" size="100" source="Formula: &quot;{'since':'&quot; + [StartDate] + &quot;','until':'&quot; + [EndDate] + &quot;'}&quot;" type="V_WString" />
+            <Field name="InsightsUrl" size="200" source="Formula: [APIURL] + &quot;act_&quot; + [AccountId] + &quot;/insights&quot;" type="V_WString" />
+            <Field name="ReportStatus" size="100" source="Formula: &quot;&quot;&#xA;" type="V_WString" />
+            <Field name="DownloadReportUrl" size="200" source="Formula: &quot;&quot;" type="V_WString" />
+            <Field name="fields" size="500" source="CrossTab:Header:fields:fields:Concat:" type="V_String" />
+            <Field name="ReportRunId" size="100" source="JSONParse: " type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroInput" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="186" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="IF [DownloadReportUrl] = &quot;&quot; THEN [APIURL] + [ReportRunId] + &quot;/insights&quot; ELSE DownloadReportUrl ENDIF&#xA;" field="DownloadReportUrl" size="2000" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name>FormulaReportCheckUrl</Name>
+          <AnnotationText><![CDATA[ReportCheckUrl = [APIURL] + [ReportRunId]
+]]></AnnotationText>
+          <DefaultAnnotationText>DownloadReportUrl = IF [DownloadReportUrl] = "" THEN [APIURL] + [ReportRunId] + ...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="APIURL" size="100" source="TextInput:" type="String" />
+            <Field name="level" size="100" source="TextInput:" type="String" />
+            <Field name="access_token" size="200" source="TextInput:" type="String" />
+            <Field name="time_range" size="100" source="Formula: &quot;{'since':'&quot; + [StartDate] + &quot;','until':'&quot; + [EndDate] + &quot;'}&quot;" type="V_WString" />
+            <Field name="InsightsUrl" size="200" source="Formula: [APIURL] + &quot;act_&quot; + [AccountId] + &quot;/insights&quot;" type="V_WString" />
+            <Field name="ReportStatus" size="100" source="Formula: &quot;&quot;&#xA;" type="V_WString" />
+            <Field name="DownloadReportUrl" size="200" source="Formula: IF [DownloadReportUrl] = &quot;&quot; THEN [APIURL] + [ReportRunId] + &quot;/insights&quot; ELSE DownloadReportUrl ENDIF&#xA;" type="V_WString" />
+            <Field name="fields" size="500" source="CrossTab:Header:fields:fields:Concat:" type="V_String" />
+            <Field name="ReportRunId" size="100" source="JSONParse: " type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxConnectorGui.Download.Download">
+        <Position x="306" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <URLField>DownloadReportUrl</URLField>
+          <OutputMode>String</OutputMode>
+          <CodePage>65001</CodePage>
+          <EncodeURLs value="True" />
+          <Headers>
+            <NameValues />
+            <Fields orderChanged="False">
+              <Field name="APIURL" selected="False" />
+              <Field name="level" selected="False" />
+              <Field name="access_token" selected="False" />
+              <Field name="time_range" selected="False" />
+              <Field name="InsightsUrl" selected="False" />
+              <Field name="ReportStatus" selected="False" />
+              <Field name="DownloadReportUrl" selected="False" />
+              <Field name="fields" selected="False" />
+              <Field name="ReportRunId" selected="False" />
+              <Field name="*Unknown" selected="False" />
+            </Fields>
+          </Headers>
+          <Payload>
+            <HTTPAction>GET</HTTPAction>
+            <QueryStringBodyMode>Compose</QueryStringBodyMode>
+            <ComposeNameValues />
+            <ComposeFields orderChanged="False">
+              <Field name="access_token" />
+              <Field name="APIURL" selected="False" />
+              <Field name="level" selected="False" />
+              <Field name="time_range" selected="False" />
+              <Field name="InsightsUrl" selected="False" />
+              <Field name="ReportStatus" selected="False" />
+              <Field name="DownloadReportUrl" selected="False" />
+              <Field name="fields" selected="False" />
+              <Field name="ReportRunId" selected="False" />
+              <Field name="*Unknown" selected="False" />
+            </ComposeFields>
+          </Payload>
+          <UserName />
+          <Password />
+          <numConnections>2</numConnections>
+          <Timeout>600</Timeout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name>DownloadReportCheck</Name>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="APIURL" size="100" source="TextInput:" type="String" />
+            <Field name="level" size="100" source="TextInput:" type="String" />
+            <Field name="access_token" size="200" source="TextInput:" type="String" />
+            <Field name="time_range" size="100" source="Formula: &quot;{'since':'&quot; + [StartDate] + &quot;','until':'&quot; + [EndDate] + &quot;'}&quot;" type="V_WString" />
+            <Field name="InsightsUrl" size="200" source="Formula: [APIURL] + &quot;act_&quot; + [AccountId] + &quot;/insights&quot;" type="V_WString" />
+            <Field name="ReportStatus" size="100" source="Formula: &quot;&quot;&#xA;" type="V_WString" />
+            <Field name="DownloadReportUrl" size="200" source="Formula: IF [DownloadReportUrl] = &quot;&quot; THEN [APIURL] + [ReportRunId] + &quot;/insights&quot; ELSE DownloadReportUrl ENDIF&#xA;" type="V_WString" />
+            <Field name="fields" size="500" source="CrossTab:Header:fields:fields:Concat:" type="V_String" />
+            <Field name="ReportRunId" size="100" source="JSONParse: " type="V_WString" />
+            <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxConnectorEngine.dll" EngineDllEntryPoint="AlteryxDownload" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.JSONParse.JSONParse">
+        <Position x="426" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <JSON_Field>DownloadData</JSON_Field>
+          <IncludeInOutput value="False" />
+          <SingleField value="True" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name>ParseReportCheck</Name>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="APIURL" size="100" source="TextInput:" type="String" />
+            <Field name="level" size="100" source="TextInput:" type="String" />
+            <Field name="access_token" size="200" source="TextInput:" type="String" />
+            <Field name="time_range" size="100" source="Formula: &quot;{'since':'&quot; + [StartDate] + &quot;','until':'&quot; + [EndDate] + &quot;'}&quot;" type="V_WString" />
+            <Field name="InsightsUrl" size="200" source="Formula: [APIURL] + &quot;act_&quot; + [AccountId] + &quot;/insights&quot;" type="V_WString" />
+            <Field name="ReportStatus" size="100" source="Formula: &quot;&quot;&#xA;" type="V_WString" />
+            <Field name="DownloadReportUrl" size="200" source="Formula: IF [DownloadReportUrl] = &quot;&quot; THEN [APIURL] + [ReportRunId] + &quot;/insights&quot; ELSE DownloadReportUrl ENDIF&#xA;" type="V_WString" />
+            <Field name="fields" size="500" source="CrossTab:Header:fields:fields:Concat:" type="V_String" />
+            <Field name="ReportRunId" size="100" source="JSONParse: " type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+            <Field name="JSON_Name" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="JSON_ValueString" size="1073741823" source="JSONParse: " type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJSONParse" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="534" y="222" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>[JSON_Name] = "paging.next"</Expression>
+          <Mode>Custom</Mode>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name>FilterStatusRow</Name>
+          <DefaultAnnotationText>[JSON_Name] = "paging.next"</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="APIURL" size="100" source="TextInput:" type="String" />
+            <Field name="level" size="100" source="TextInput:" type="String" />
+            <Field name="access_token" size="200" source="TextInput:" type="String" />
+            <Field name="time_range" size="100" source="Formula: &quot;{'since':'&quot; + [StartDate] + &quot;','until':'&quot; + [EndDate] + &quot;'}&quot;" type="V_WString" />
+            <Field name="InsightsUrl" size="200" source="Formula: [APIURL] + &quot;act_&quot; + [AccountId] + &quot;/insights&quot;" type="V_WString" />
+            <Field name="ReportStatus" size="100" source="Formula: &quot;&quot;&#xA;" type="V_WString" />
+            <Field name="DownloadReportUrl" size="200" source="Formula: IF [DownloadReportUrl] = &quot;&quot; THEN [APIURL] + [ReportRunId] + &quot;/insights&quot; ELSE DownloadReportUrl ENDIF&#xA;" type="V_WString" />
+            <Field name="fields" size="500" source="CrossTab:Header:fields:fields:Concat:" type="V_String" />
+            <Field name="ReportRunId" size="100" source="JSONParse: " type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+            <Field name="JSON_Name" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="JSON_ValueString" size="1073741823" source="JSONParse: " type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="APIURL" size="100" source="TextInput:" type="String" />
+            <Field name="level" size="100" source="TextInput:" type="String" />
+            <Field name="access_token" size="200" source="TextInput:" type="String" />
+            <Field name="time_range" size="100" source="Formula: &quot;{'since':'&quot; + [StartDate] + &quot;','until':'&quot; + [EndDate] + &quot;'}&quot;" type="V_WString" />
+            <Field name="InsightsUrl" size="200" source="Formula: [APIURL] + &quot;act_&quot; + [AccountId] + &quot;/insights&quot;" type="V_WString" />
+            <Field name="ReportStatus" size="100" source="Formula: &quot;&quot;&#xA;" type="V_WString" />
+            <Field name="DownloadReportUrl" size="200" source="Formula: IF [DownloadReportUrl] = &quot;&quot; THEN [APIURL] + [ReportRunId] + &quot;/insights&quot; ELSE DownloadReportUrl ENDIF&#xA;" type="V_WString" />
+            <Field name="fields" size="500" source="CrossTab:Header:fields:fields:Concat:" type="V_String" />
+            <Field name="ReportRunId" size="100" source="JSONParse: " type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+            <Field name="JSON_Name" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="JSON_ValueString" size="1073741823" source="JSONParse: " type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
+        <Position x="1182" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Name>OutputSuccess</Name>
+          <Abbrev>S</Abbrev>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name>OutputSuccess</Name>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
+        <Position x="762" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Name>OutputRetry</Name>
+          <Abbrev>R</Abbrev>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
+    </Node>
+    <Node ToolID="15">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="642" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="True" />
+          <SelectFields>
+            <SelectField field="APIURL" selected="True" />
+            <SelectField field="level" selected="True" />
+            <SelectField field="access_token" selected="True" />
+            <SelectField field="time_range" selected="True" />
+            <SelectField field="InsightsUrl" selected="True" />
+            <SelectField field="ReportStatus" selected="False" />
+            <SelectField field="JSON_ValueString" selected="True" rename="DownloadReportUrl" />
+            <SelectField field="fields" selected="True" />
+            <SelectField field="ReportRunId" selected="True" />
+            <SelectField field="DownloadHeaders" selected="False" />
+            <SelectField field="JSON_Name" selected="False" />
+            <SelectField field="DownloadReportUrl" selected="False" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="APIURL" size="100" source="TextInput:" type="String" />
+            <Field name="level" size="100" source="TextInput:" type="String" />
+            <Field name="access_token" size="200" source="TextInput:" type="String" />
+            <Field name="time_range" size="100" source="Formula: &quot;{'since':'&quot; + [StartDate] + &quot;','until':'&quot; + [EndDate] + &quot;'}&quot;" type="V_WString" />
+            <Field name="InsightsUrl" size="200" source="Formula: [APIURL] + &quot;act_&quot; + [AccountId] + &quot;/insights&quot;" type="V_WString" />
+            <Field name="DownloadReportUrl" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="fields" size="500" source="CrossTab:Header:fields:fields:Concat:" type="V_String" />
+            <Field name="ReportRunId" size="100" source="JSONParse: " type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="17">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="534" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>StartsWith([JSON_Name], "data", 0)</Expression>
+          <Mode>Custom</Mode>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>StartsWith([JSON_Name], "data", 0)</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="APIURL" size="100" source="TextInput:" type="String" />
+            <Field name="level" size="100" source="TextInput:" type="String" />
+            <Field name="access_token" size="200" source="TextInput:" type="String" />
+            <Field name="time_range" size="100" source="Formula: &quot;{'since':'&quot; + [StartDate] + &quot;','until':'&quot; + [EndDate] + &quot;'}&quot;" type="V_WString" />
+            <Field name="InsightsUrl" size="200" source="Formula: [APIURL] + &quot;act_&quot; + [AccountId] + &quot;/insights&quot;" type="V_WString" />
+            <Field name="ReportStatus" size="100" source="Formula: &quot;&quot;&#xA;" type="V_WString" />
+            <Field name="DownloadReportUrl" size="200" source="Formula: IF [DownloadReportUrl] = &quot;&quot; THEN [APIURL] + [ReportRunId] + &quot;/insights&quot; ELSE DownloadReportUrl ENDIF&#xA;" type="V_WString" />
+            <Field name="fields" size="500" source="CrossTab:Header:fields:fields:Concat:" type="V_String" />
+            <Field name="ReportRunId" size="100" source="JSONParse: " type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+            <Field name="JSON_Name" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="JSON_ValueString" size="1073741823" source="JSONParse: " type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="APIURL" size="100" source="TextInput:" type="String" />
+            <Field name="level" size="100" source="TextInput:" type="String" />
+            <Field name="access_token" size="200" source="TextInput:" type="String" />
+            <Field name="time_range" size="100" source="Formula: &quot;{'since':'&quot; + [StartDate] + &quot;','until':'&quot; + [EndDate] + &quot;'}&quot;" type="V_WString" />
+            <Field name="InsightsUrl" size="200" source="Formula: [APIURL] + &quot;act_&quot; + [AccountId] + &quot;/insights&quot;" type="V_WString" />
+            <Field name="ReportStatus" size="100" source="Formula: &quot;&quot;&#xA;" type="V_WString" />
+            <Field name="DownloadReportUrl" size="200" source="Formula: IF [DownloadReportUrl] = &quot;&quot; THEN [APIURL] + [ReportRunId] + &quot;/insights&quot; ELSE DownloadReportUrl ENDIF&#xA;" type="V_WString" />
+            <Field name="fields" size="500" source="CrossTab:Header:fields:fields:Concat:" type="V_String" />
+            <Field name="ReportRunId" size="100" source="JSONParse: " type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+            <Field name="JSON_Name" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="JSON_ValueString" size="1073741823" source="JSONParse: " type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="19">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+        <Position x="642" y="78" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>JSON_Name</Field>
+          <NumFields value="3" />
+          <ErrorHandling>Last</ErrorHandling>
+          <RootName>JSON_Name</RootName>
+          <Delimeters value="." />
+          <Flags value="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="APIURL" size="100" source="TextInput:" type="String" />
+            <Field name="level" size="100" source="TextInput:" type="String" />
+            <Field name="access_token" size="200" source="TextInput:" type="String" />
+            <Field name="time_range" size="100" source="Formula: &quot;{'since':'&quot; + [StartDate] + &quot;','until':'&quot; + [EndDate] + &quot;'}&quot;" type="V_WString" />
+            <Field name="InsightsUrl" size="200" source="Formula: [APIURL] + &quot;act_&quot; + [AccountId] + &quot;/insights&quot;" type="V_WString" />
+            <Field name="ReportStatus" size="100" source="Formula: &quot;&quot;&#xA;" type="V_WString" />
+            <Field name="DownloadReportUrl" size="200" source="Formula: IF [DownloadReportUrl] = &quot;&quot; THEN [APIURL] + [ReportRunId] + &quot;/insights&quot; ELSE DownloadReportUrl ENDIF&#xA;" type="V_WString" />
+            <Field name="fields" size="500" source="CrossTab:Header:fields:fields:Concat:" type="V_String" />
+            <Field name="ReportRunId" size="100" source="JSONParse: " type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+            <Field name="JSON_Name" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="JSON_ValueString" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field description="TextToColumns: Parsed from JSON_Name" name="JSON_Name1" size="1073741823" source="TextToColumns: Parsed from JSON_Name" type="V_WString" />
+            <Field description="TextToColumns: Parsed from JSON_Name" name="JSON_Name2" size="1073741823" source="TextToColumns: Parsed from JSON_Name" type="V_WString" />
+            <Field description="TextToColumns: Parsed from JSON_Name" name="JSON_Name3" size="1073741823" source="TextToColumns: Parsed from JSON_Name" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+    </Node>
+    <Node ToolID="20">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.CrossTab.CrossTab">
+        <Position x="762" y="78" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <GroupFields>
+            <Field field="JSON_Name2" />
+          </GroupFields>
+          <HeaderField field="JSON_Name3" />
+          <DataField field="JSON_ValueString" />
+          <Methods>
+            <Method method="Concat" />
+            <Separator>,</Separator>
+            <FieldSize value="2048" />
+          </Methods>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field description="TextToColumns: Parsed from JSON_Name" name="JSON_Name2" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
+            <Field name="account_id" size="2048" source="CrossTab:Header:JSON_Name3:account_id:Concat:" type="V_WString" />
+            <Field name="account_name" size="2048" source="CrossTab:Header:JSON_Name3:account_name:Concat:" type="V_WString" />
+            <Field name="campaign_id" size="2048" source="CrossTab:Header:JSON_Name3:campaign_id:Concat:" type="V_WString" />
+            <Field name="campaign_name" size="2048" source="CrossTab:Header:JSON_Name3:campaign_name:Concat:" type="V_WString" />
+            <Field name="date_start" size="2048" source="CrossTab:Header:JSON_Name3:date_start:Concat:" type="V_WString" />
+            <Field name="date_stop" size="2048" source="CrossTab:Header:JSON_Name3:date_stop:Concat:" type="V_WString" />
+            <Field name="frequency" size="2048" source="CrossTab:Header:JSON_Name3:frequency:Concat:" type="V_WString" />
+            <Field name="reach" size="2048" source="CrossTab:Header:JSON_Name3:reach:Concat:" type="V_WString" />
+            <Field name="social_reach" size="2048" source="CrossTab:Header:JSON_Name3:social_reach:Concat:" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="JSON_Name2" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxCrossTab" />
+    </Node>
+    <Node ToolID="21">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AppendFields.AppendFields">
+        <Position x="894" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <CartesianMode>Error</CartesianMode>
+          <SelectConfiguration>
+            <Configuration outputConnection="Output">
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="Target_JSON_Name2" selected="True" />
+                <SelectField field="Target_account_id" selected="True" />
+                <SelectField field="Target_account_name" selected="True" />
+                <SelectField field="Target_campaign_id" selected="True" />
+                <SelectField field="Target_campaign_name" selected="True" />
+                <SelectField field="Target_date_start" selected="True" />
+                <SelectField field="Target_date_stop" selected="True" />
+                <SelectField field="Target_frequency" selected="True" />
+                <SelectField field="Target_reach" selected="True" />
+                <SelectField field="Target_social_reach" selected="True" />
+                <SelectField field="Source_ReportRunId" selected="True" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field description="TextToColumns: Parsed from JSON_Name" name="JSON_Name2" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
+            <Field name="account_id" size="2048" source="CrossTab:Header:JSON_Name3:account_id:Concat:" type="V_WString" />
+            <Field name="account_name" size="2048" source="CrossTab:Header:JSON_Name3:account_name:Concat:" type="V_WString" />
+            <Field name="campaign_id" size="2048" source="CrossTab:Header:JSON_Name3:campaign_id:Concat:" type="V_WString" />
+            <Field name="campaign_name" size="2048" source="CrossTab:Header:JSON_Name3:campaign_name:Concat:" type="V_WString" />
+            <Field name="date_start" size="2048" source="CrossTab:Header:JSON_Name3:date_start:Concat:" type="V_WString" />
+            <Field name="date_stop" size="2048" source="CrossTab:Header:JSON_Name3:date_stop:Concat:" type="V_WString" />
+            <Field name="frequency" size="2048" source="CrossTab:Header:JSON_Name3:frequency:Concat:" type="V_WString" />
+            <Field name="reach" size="2048" source="CrossTab:Header:JSON_Name3:reach:Concat:" type="V_WString" />
+            <Field name="social_reach" size="2048" source="CrossTab:Header:JSON_Name3:social_reach:Concat:" type="V_WString" />
+            <Field name="ReportRunId" size="100" source="JSONParse: " type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxAppendFields" />
+    </Node>
+    <Node ToolID="22">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1074" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <SelectFields>
+            <SelectField field="account_id" selected="True" size="100" />
+            <SelectField field="account_name" selected="True" size="200" />
+            <SelectField field="campaign_id" selected="True" size="100" />
+            <SelectField field="campaign_name" selected="True" size="200" />
+            <SelectField field="date_start" selected="True" size="100" />
+            <SelectField field="date_stop" selected="True" size="100" />
+            <SelectField field="frequency" selected="True" type="Double" size="8" />
+            <SelectField field="reach" selected="True" type="Double" size="8" />
+            <SelectField field="social_reach" selected="True" type="Double" size="8" />
+            <SelectField field="ReportRunId" selected="True" type="V_String" size="100" />
+            <SelectField field="PageNumber" selected="True" type="Int32" size="4" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="account_id" size="100" source="CrossTab:Header:JSON_Name3:account_id:Concat:" type="V_WString" />
+            <Field name="account_name" size="200" source="CrossTab:Header:JSON_Name3:account_name:Concat:" type="V_WString" />
+            <Field name="campaign_id" size="100" source="CrossTab:Header:JSON_Name3:campaign_id:Concat:" type="V_WString" />
+            <Field name="campaign_name" size="200" source="CrossTab:Header:JSON_Name3:campaign_name:Concat:" type="V_WString" />
+            <Field name="date_start" size="100" source="CrossTab:Header:JSON_Name3:date_start:Concat:" type="V_WString" />
+            <Field name="date_stop" size="100" source="CrossTab:Header:JSON_Name3:date_stop:Concat:" type="V_WString" />
+            <Field name="frequency" source="CrossTab:Header:JSON_Name3:frequency:Concat:" type="Double" />
+            <Field name="reach" source="CrossTab:Header:JSON_Name3:reach:Concat:" type="Double" />
+            <Field name="social_reach" source="CrossTab:Header:JSON_Name3:social_reach:Concat:" type="Double" />
+            <Field name="ReportRunId" size="100" source="JSONParse: " type="V_String" />
+            <Field name="PageNumber" source="Formula: [Engine.IterationNumber]" type="Int32" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="23">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="978" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="[Engine.IterationNumber]" field="PageNumber" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[PageNumber = [Engine.IterationNumber]
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field description="TextToColumns: Parsed from JSON_Name" name="JSON_Name2" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
+            <Field name="account_id" size="2048" source="CrossTab:Header:JSON_Name3:account_id:Concat:" type="V_WString" />
+            <Field name="account_name" size="2048" source="CrossTab:Header:JSON_Name3:account_name:Concat:" type="V_WString" />
+            <Field name="campaign_id" size="2048" source="CrossTab:Header:JSON_Name3:campaign_id:Concat:" type="V_WString" />
+            <Field name="campaign_name" size="2048" source="CrossTab:Header:JSON_Name3:campaign_name:Concat:" type="V_WString" />
+            <Field name="date_start" size="2048" source="CrossTab:Header:JSON_Name3:date_start:Concat:" type="V_WString" />
+            <Field name="date_stop" size="2048" source="CrossTab:Header:JSON_Name3:date_stop:Concat:" type="V_WString" />
+            <Field name="frequency" size="2048" source="CrossTab:Header:JSON_Name3:frequency:Concat:" type="V_WString" />
+            <Field name="reach" size="2048" source="CrossTab:Header:JSON_Name3:reach:Concat:" type="V_WString" />
+            <Field name="social_reach" size="2048" source="CrossTab:Header:JSON_Name3:social_reach:Concat:" type="V_WString" />
+            <Field name="ReportRunId" size="100" source="JSONParse: " type="V_WString" />
+            <Field name="PageNumber" size="1073741823" source="Formula: [Engine.IterationNumber]" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="21" Connection="Source" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="20" Connection="Output" />
+      <Destination ToolID="21" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="17" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="True" />
+      <Destination ToolID="15" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="15" Connection="Output" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="17" Connection="True" />
+      <Destination ToolID="19" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="19" Connection="Output" />
+      <Destination ToolID="20" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="21" Connection="Output" />
+      <Destination ToolID="23" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="22" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="23" Connection="Output" />
+      <Destination ToolID="22" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <Constants>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Input</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>OutputSuccess</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Output (10)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+    </Constants>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>FB-ReachFrequency-03-DownloadReport</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="False" />
+    </Events>
+    <RuntimeProperties>
+      <Actions />
+      <Questions>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Questions</Description>
+          <Name>Tab (1)</Name>
+          <ToolId value="1" />
+          <Questions>
+            <Question>
+              <Type>MacroInput</Type>
+              <Description>Input</Description>
+              <Name>Input</Name>
+              <ToolId value="2" />
+            </Question>
+            <Question>
+              <Type>MacroOutput</Type>
+              <Description>OutputSuccess</Description>
+              <Name>OutputSuccess</Name>
+              <ToolId value="9" />
+            </Question>
+            <Question>
+              <Type>MacroOutput</Type>
+              <Description>Macro Output (10)</Description>
+              <Name>Macro Output (10)</Name>
+              <ToolId value="10" />
+            </Question>
+          </Questions>
+        </Question>
+      </Questions>
+      <ModuleType>Macro</ModuleType>
+      <MacroCustomHelp value="False" />
+      <MacroDynamicOutputFields value="False" />
+      <MacroImageStd value="39" />
+      <MacroInputs />
+      <MacroOutputs />
+      <IterativeMacro>
+        <Input>Input</Input>
+        <Output>OutputRetry</Output>
+        <IterationLimit value="500" />
+        <LimitBehavior>Error</LimitBehavior>
+        <OutputMode>AllSame</OutputMode>
+      </IterativeMacro>
+      <Wiz_CustomHelp value="False" />
+      <Wiz_CustomGraphic value="False" />
+      <Wiz_ShowOutput value="True" />
+      <Wiz_OpenOutputTools>
+        <Tool ToolId="2" Selected="True" />
+        <Tool ToolId="9" Selected="True" />
+        <Tool ToolId="10" Selected="True" />
+      </Wiz_OpenOutputTools>
+      <Wiz_OutputMessage />
+      <Wiz_NoOutputFilesMessage />
+      <Wiz_ChainRunWizard />
+    </RuntimeProperties>
+  </Properties>
+</AlteryxDocument>

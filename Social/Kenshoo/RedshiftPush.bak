@@ -1,0 +1,593 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2018.3">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+        <Position x="126" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <NumRows value="1" />
+          <Fields>
+            <Field name="Field1" />
+          </Fields>
+          <Data>
+            <r>
+              <c>test</c>
+            </r>
+          </Data>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="270" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="377" y="34" width="205" height="140" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>dimaccount</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="3">
+          <GuiSettings Plugin="Teknion.ODBCSQLCommand">
+            <Position x="402" y="90" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <InputType>Block</InputType>
+              <DSNName>redshift-etl</DSNName>
+              <SQLCommand>UNLOAD
+('select * from dm_Social.dimaccount')
+TO 's3://camelotsmm-default/Unload/social_dimaccount_' 
+credentials 'aws_access_key_id=AKIAI6DEVMQ7E6KBXCRQ;aws_secret_access_key=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' 
+MANIFEST
+DELIMITER AS ',' 
+GZIP    
+ADDQUOTES 
+ESCAPE
+ALLOWOVERWRITE
+;</SQLCommand>
+              <DSNField>
+              </DSNField>
+              <CommandField>
+              </CommandField>
+              <DBType>Custom</DBType>
+              <ResultQuery>SELECT GETDATE() as completiontime</ResultQuery>
+              <TeknionAlteryxToolsOptionsUid>
+              </TeknionAlteryxToolsOptionsUid>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="TeknionToolsEngine.dll" EngineDllEntryPoint=".Net:TeknionToolsEngine.ExecuteCommandODBCToolEngine" />
+        </Node>
+        <Node ToolID="4">
+          <GuiSettings Plugin="Teknion.ODBCSQLCommand">
+            <Position x="498" y="78" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <InputType>Block</InputType>
+              <DSNName>redshift-etl</DSNName>
+              <SQLCommand>BEGIN TRANSACTION;
+Delete from social_dimaccount;
+COPY social_dimaccount
+FROM 's3://camelotsmm-default/Unload/social_dimaccount_manifest' 
+credentials 'aws_access_key_id=AKIAI6DEVMQ7E6KBXCRQ;aws_secret_access_key=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' 
+MANIFEST
+DELIMITER AS ',' 
+GZIP    
+REMOVEQUOTES 
+ESCAPE;
+COMMIT;</SQLCommand>
+              <DSNField>
+              </DSNField>
+              <CommandField>
+              </CommandField>
+              <DBType>Custom</DBType>
+              <ResultQuery>SELECT GETDATE() as completiontime</ResultQuery>
+              <TeknionAlteryxToolsOptionsUid>
+              </TeknionAlteryxToolsOptionsUid>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="TeknionToolsEngine.dll" EngineDllEntryPoint=".Net:TeknionToolsEngine.ExecuteCommandODBCToolEngine" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="377" y="178" width="205" height="140" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>dimactiontype</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="5">
+          <GuiSettings Plugin="Teknion.ODBCSQLCommand">
+            <Position x="402" y="234" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <InputType>Block</InputType>
+              <DSNName>redshift-etl</DSNName>
+              <SQLCommand>UNLOAD
+('select * from dm_Social.dimactiontype')
+TO 's3://camelotsmm-default/Unload/social_dimactiontype_' 
+credentials 'aws_access_key_id=AKIAI6DEVMQ7E6KBXCRQ;aws_secret_access_key=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' 
+MANIFEST
+DELIMITER AS ',' 
+GZIP    
+ADDQUOTES 
+ESCAPE
+ALLOWOVERWRITE
+;</SQLCommand>
+              <DSNField>
+              </DSNField>
+              <CommandField>
+              </CommandField>
+              <DBType>Custom</DBType>
+              <ResultQuery>SELECT GETDATE() as completiontime</ResultQuery>
+              <TeknionAlteryxToolsOptionsUid>
+              </TeknionAlteryxToolsOptionsUid>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="TeknionToolsEngine.dll" EngineDllEntryPoint=".Net:TeknionToolsEngine.ExecuteCommandODBCToolEngine" />
+        </Node>
+        <Node ToolID="6">
+          <GuiSettings Plugin="Teknion.ODBCSQLCommand">
+            <Position x="498" y="222" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <InputType>Block</InputType>
+              <DSNName>redshift-etl</DSNName>
+              <SQLCommand>BEGIN TRANSACTION;
+Delete from social_dimactiontype;
+COPY social_dimactiontype
+FROM 's3://camelotsmm-default/Unload/social_dimactiontype_manifest' 
+credentials 'aws_access_key_id=AKIAI6DEVMQ7E6KBXCRQ;aws_secret_access_key=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' 
+MANIFEST
+DELIMITER AS ',' 
+GZIP    
+REMOVEQUOTES 
+ESCAPE;
+COMMIT;</SQLCommand>
+              <DSNField>
+              </DSNField>
+              <CommandField>
+              </CommandField>
+              <DBType>Custom</DBType>
+              <ResultQuery>SELECT GETDATE() as completiontime</ResultQuery>
+              <TeknionAlteryxToolsOptionsUid>
+              </TeknionAlteryxToolsOptionsUid>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="TeknionToolsEngine.dll" EngineDllEntryPoint=".Net:TeknionToolsEngine.ExecuteCommandODBCToolEngine" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="377" y="322" width="205" height="140" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>dimad</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="9">
+          <GuiSettings Plugin="Teknion.ODBCSQLCommand">
+            <Position x="402" y="378" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <InputType>Block</InputType>
+              <DSNName>redshift-etl</DSNName>
+              <SQLCommand>UNLOAD
+('select * from dm_Social.dimad')
+TO 's3://camelotsmm-default/Unload/social_dimad_' 
+credentials 'aws_access_key_id=AKIAI6DEVMQ7E6KBXCRQ;aws_secret_access_key=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' 
+MANIFEST
+DELIMITER AS ',' 
+GZIP    
+ADDQUOTES 
+ESCAPE
+ALLOWOVERWRITE
+;</SQLCommand>
+              <DSNField>
+              </DSNField>
+              <CommandField>
+              </CommandField>
+              <DBType>Custom</DBType>
+              <ResultQuery>SELECT GETDATE() as completiontime</ResultQuery>
+              <TeknionAlteryxToolsOptionsUid>
+              </TeknionAlteryxToolsOptionsUid>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="TeknionToolsEngine.dll" EngineDllEntryPoint=".Net:TeknionToolsEngine.ExecuteCommandODBCToolEngine" />
+        </Node>
+        <Node ToolID="10">
+          <GuiSettings Plugin="Teknion.ODBCSQLCommand">
+            <Position x="498" y="366" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <InputType>Block</InputType>
+              <DSNName>redshift-etl</DSNName>
+              <SQLCommand>BEGIN TRANSACTION;
+Delete from social_dimad;
+COPY social_dimad
+FROM 's3://camelotsmm-default/Unload/social_dimad_manifest' 
+credentials 'aws_access_key_id=AKIAI6DEVMQ7E6KBXCRQ;aws_secret_access_key=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' 
+MANIFEST
+DELIMITER AS ',' 
+GZIP    
+REMOVEQUOTES 
+ESCAPE;
+COMMIT;</SQLCommand>
+              <DSNField>
+              </DSNField>
+              <CommandField>
+              </CommandField>
+              <DBType>Custom</DBType>
+              <ResultQuery>SELECT GETDATE() as completiontime</ResultQuery>
+              <TeknionAlteryxToolsOptionsUid>
+              </TeknionAlteryxToolsOptionsUid>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="TeknionToolsEngine.dll" EngineDllEntryPoint=".Net:TeknionToolsEngine.ExecuteCommandODBCToolEngine" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="377" y="466" width="205" height="140" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>dimadset</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="12">
+          <GuiSettings Plugin="Teknion.ODBCSQLCommand">
+            <Position x="402" y="522" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <InputType>Block</InputType>
+              <DSNName>redshift-etl</DSNName>
+              <SQLCommand>UNLOAD
+('select * from dm_Social.dimadset')
+TO 's3://camelotsmm-default/Unload/social_dimadset_' 
+credentials 'aws_access_key_id=AKIAI6DEVMQ7E6KBXCRQ;aws_secret_access_key=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' 
+MANIFEST
+DELIMITER AS ',' 
+GZIP    
+ADDQUOTES 
+ESCAPE
+ALLOWOVERWRITE
+;</SQLCommand>
+              <DSNField>
+              </DSNField>
+              <CommandField>
+              </CommandField>
+              <DBType>Custom</DBType>
+              <ResultQuery>SELECT GETDATE() as completiontime</ResultQuery>
+              <TeknionAlteryxToolsOptionsUid>
+              </TeknionAlteryxToolsOptionsUid>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="TeknionToolsEngine.dll" EngineDllEntryPoint=".Net:TeknionToolsEngine.ExecuteCommandODBCToolEngine" />
+        </Node>
+        <Node ToolID="13">
+          <GuiSettings Plugin="Teknion.ODBCSQLCommand">
+            <Position x="498" y="510" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <InputType>Block</InputType>
+              <DSNName>redshift-etl</DSNName>
+              <SQLCommand>BEGIN TRANSACTION;
+Delete from social_dimadset;
+COPY social_dimadset
+FROM 's3://camelotsmm-default/Unload/social_dimadset_manifest' 
+credentials 'aws_access_key_id=AKIAI6DEVMQ7E6KBXCRQ;aws_secret_access_key=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' 
+MANIFEST
+DELIMITER AS ',' 
+GZIP    
+REMOVEQUOTES 
+ESCAPE;
+COMMIT;</SQLCommand>
+              <DSNField>
+              </DSNField>
+              <CommandField>
+              </CommandField>
+              <DBType>Custom</DBType>
+              <ResultQuery>SELECT GETDATE() as completiontime</ResultQuery>
+              <TeknionAlteryxToolsOptionsUid>
+              </TeknionAlteryxToolsOptionsUid>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="TeknionToolsEngine.dll" EngineDllEntryPoint=".Net:TeknionToolsEngine.ExecuteCommandODBCToolEngine" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="17">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="377" y="610" width="205" height="140" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>dimcampaign</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="15">
+          <GuiSettings Plugin="Teknion.ODBCSQLCommand">
+            <Position x="402" y="666" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <InputType>Block</InputType>
+              <DSNName>redshift-etl</DSNName>
+              <SQLCommand>UNLOAD
+('select * from dm_Social.dimcampaign')
+TO 's3://camelotsmm-default/Unload/social_dimcampaign_' 
+credentials 'aws_access_key_id=AKIAI6DEVMQ7E6KBXCRQ;aws_secret_access_key=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' 
+MANIFEST
+DELIMITER AS ',' 
+GZIP    
+ADDQUOTES 
+ESCAPE
+ALLOWOVERWRITE
+;</SQLCommand>
+              <DSNField>
+              </DSNField>
+              <CommandField>
+              </CommandField>
+              <DBType>Custom</DBType>
+              <ResultQuery>SELECT GETDATE() as completiontime</ResultQuery>
+              <TeknionAlteryxToolsOptionsUid>
+              </TeknionAlteryxToolsOptionsUid>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="TeknionToolsEngine.dll" EngineDllEntryPoint=".Net:TeknionToolsEngine.ExecuteCommandODBCToolEngine" />
+        </Node>
+        <Node ToolID="16">
+          <GuiSettings Plugin="Teknion.ODBCSQLCommand">
+            <Position x="498" y="654" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <InputType>Block</InputType>
+              <DSNName>redshift-etl</DSNName>
+              <SQLCommand>BEGIN TRANSACTION;
+Delete from social_dimcampaign;
+COPY social_dimcampaign
+FROM 's3://camelotsmm-default/Unload/social_dimcampaign_manifest' 
+credentials 'aws_access_key_id=AKIAI6DEVMQ7E6KBXCRQ;aws_secret_access_key=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' 
+MANIFEST
+DELIMITER AS ',' 
+GZIP    
+REMOVEQUOTES 
+ESCAPE;
+COMMIT;</SQLCommand>
+              <DSNField>
+              </DSNField>
+              <CommandField>
+              </CommandField>
+              <DBType>Custom</DBType>
+              <ResultQuery>SELECT GETDATE() as completiontime</ResultQuery>
+              <TeknionAlteryxToolsOptionsUid>
+              </TeknionAlteryxToolsOptionsUid>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="TeknionToolsEngine.dll" EngineDllEntryPoint=".Net:TeknionToolsEngine.ExecuteCommandODBCToolEngine" />
+        </Node>
+      </ChildNodes>
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="12" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="15" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="12" Connection="Output" />
+      <Destination ToolID="13" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="15" Connection="Output" />
+      <Destination ToolID="16" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>RedshiftPush</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>

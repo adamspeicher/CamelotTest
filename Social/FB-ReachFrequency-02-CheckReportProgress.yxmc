@@ -1,0 +1,554 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="11.0">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
+        <Position x="138" y="126" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UseFileInput value="True" />
+          <Name>Input</Name>
+          <Abbrev>I</Abbrev>
+          <ShowFieldMap value="True" />
+          <Optional value="False" />
+          <FileInput>
+            <Configuration>
+              <Passwords />
+              <File OutputFileName="" FileFormat="19" SearchSubDirs="False" RecordLimit="">D:\ETL\bin\Alteryx\Social\ReportRequestData.yxdb</File>
+              <FormatSpecificOptions />
+            </Configuration>
+          </FileInput>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name>Input</Name>
+          <DefaultAnnotationText>ReportRequestData.yxdb</DefaultAnnotationText>
+          <Left value="True" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="APIURL" size="32" source="TextInput:" type="String" />
+            <Field name="level" size="500" source="TextInput:" type="String" />
+            <Field name="access_token" size="500" source="TextInput:" type="String" />
+            <Field name="time_range" size="500" source="Formula: &quot;{'since':'&quot; + [StartDate] + &quot;','until':'&quot; + [EndDate] + &quot;'}&quot;" type="V_WString" />
+            <Field name="InsightsUrl" size="1073741823" source="Formula: [APIURL] + &quot;act_&quot; + [AccountId] + &quot;/insights&quot;" type="V_WString" />
+            <Field name="ReportStatus" size="2000" source="Formula: &quot;&quot;&#xA;" type="V_WString" />
+            <Field name="fields" size="4000" source="CrossTab:Header:fields:fields:Concat:" type="V_String" />
+            <Field name="ReportRunId" size="1073741823" source="JSONParse: " type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroInput" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="402" y="126" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="[APIURL] + [ReportRunId]" field="ReportCheckUrl" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name>FormulaReportCheckUrl</Name>
+          <AnnotationText><![CDATA[ReportCheckUrl = [APIURL] + [ReportRunId]
+]]></AnnotationText>
+          <DefaultAnnotationText><![CDATA[ReportCheckUrl = [APIURL] + [ReportRunId]
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="APIURL" size="32" source="TextInput: (BatchMacro)" type="String" />
+            <Field name="level" size="500" source="TextInput: (BatchMacro)" type="String" />
+            <Field name="access_token" size="500" source="TextInput: (BatchMacro)" type="String" />
+            <Field name="time_range" size="500" source="Formula: &quot;{'since':'&quot; + [StartDate] + &quot;','until':'&quot; + [EndDate] + &quot;'}&quot; (BatchMacro)" type="V_WString" />
+            <Field name="InsightsUrl" size="1073741823" source="Formula: [APIURL] + &quot;act_&quot; + [AccountId] + &quot;/insights&quot; (BatchMacro)" type="V_WString" />
+            <Field name="ReportStatus" size="2000" source="Formula: &quot;&quot;&#xA; (BatchMacro)" type="V_WString" />
+            <Field name="fields" size="4000" source="CrossTab:Header:fields:fields:Concat: (BatchMacro)" type="V_String" />
+            <Field name="ReportRunId" size="1073741823" source="JSONParse:  (BatchMacro)" type="V_WString" />
+            <Field name="ReportCheckUrl" size="1073741823" source="Formula: [APIURL] + [ReportRunId]" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxConnectorGui.Download.Download">
+        <Position x="522" y="126" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <URLField>ReportCheckUrl</URLField>
+          <OutputMode>String</OutputMode>
+          <CodePage>65001</CodePage>
+          <EncodeURLs value="True" />
+          <Headers>
+            <NameValues />
+            <Fields orderChanged="False">
+              <Field name="APIURL" selected="False" />
+              <Field name="level" selected="False" />
+              <Field name="access_token" selected="False" />
+              <Field name="time_range" selected="False" />
+              <Field name="InsightsUrl" selected="False" />
+              <Field name="ReportStatus" selected="False" />
+              <Field name="fields" selected="False" />
+              <Field name="ReportRunId" selected="False" />
+              <Field name="ReportCheckUrl" selected="False" />
+              <Field name="*Unknown" selected="False" />
+            </Fields>
+          </Headers>
+          <Payload>
+            <HTTPAction>GET</HTTPAction>
+            <QueryStringBodyMode>Compose</QueryStringBodyMode>
+            <ComposeNameValues />
+            <ComposeFields orderChanged="False">
+              <Field name="access_token" />
+              <Field name="APIURL" selected="False" />
+              <Field name="level" selected="False" />
+              <Field name="time_range" selected="False" />
+              <Field name="InsightsUrl" selected="False" />
+              <Field name="ReportStatus" selected="False" />
+              <Field name="fields" selected="False" />
+              <Field name="ReportRunId" selected="False" />
+              <Field name="ReportCheckUrl" selected="False" />
+              <Field name="*Unknown" selected="False" />
+            </ComposeFields>
+          </Payload>
+          <UserName />
+          <Password />
+          <numConnections>2</numConnections>
+          <Timeout>600</Timeout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name>DownloadReportCheck</Name>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="APIURL" size="32" source="TextInput: (BatchMacro)" type="String" />
+            <Field name="level" size="500" source="TextInput: (BatchMacro)" type="String" />
+            <Field name="access_token" size="500" source="TextInput: (BatchMacro)" type="String" />
+            <Field name="time_range" size="500" source="Formula: &quot;{'since':'&quot; + [StartDate] + &quot;','until':'&quot; + [EndDate] + &quot;'}&quot; (BatchMacro)" type="V_WString" />
+            <Field name="InsightsUrl" size="1073741823" source="Formula: [APIURL] + &quot;act_&quot; + [AccountId] + &quot;/insights&quot; (BatchMacro)" type="V_WString" />
+            <Field name="ReportStatus" size="2000" source="Formula: &quot;&quot;&#xA; (BatchMacro)" type="V_WString" />
+            <Field name="fields" size="4000" source="CrossTab:Header:fields:fields:Concat: (BatchMacro)" type="V_String" />
+            <Field name="ReportRunId" size="1073741823" source="JSONParse:  (BatchMacro)" type="V_WString" />
+            <Field name="ReportCheckUrl" size="1073741823" source="Formula: [APIURL] + [ReportRunId]" type="V_WString" />
+            <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxConnectorEngine.dll" EngineDllEntryPoint="AlteryxDownload" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.JSONParse.JSONParse">
+        <Position x="642" y="126" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <JSON_Field>DownloadData</JSON_Field>
+          <IncludeInOutput value="False" />
+          <SingleField value="True" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name>ParseReportCheck</Name>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="APIURL" size="32" source="TextInput: (BatchMacro)" type="String" />
+            <Field name="level" size="500" source="TextInput: (BatchMacro)" type="String" />
+            <Field name="access_token" size="500" source="TextInput: (BatchMacro)" type="String" />
+            <Field name="time_range" size="500" source="Formula: &quot;{'since':'&quot; + [StartDate] + &quot;','until':'&quot; + [EndDate] + &quot;'}&quot; (BatchMacro)" type="V_WString" />
+            <Field name="InsightsUrl" size="1073741823" source="Formula: [APIURL] + &quot;act_&quot; + [AccountId] + &quot;/insights&quot; (BatchMacro)" type="V_WString" />
+            <Field name="ReportStatus" size="2000" source="Formula: &quot;&quot;&#xA; (BatchMacro)" type="V_WString" />
+            <Field name="fields" size="4000" source="CrossTab:Header:fields:fields:Concat: (BatchMacro)" type="V_String" />
+            <Field name="ReportRunId" size="1073741823" source="JSONParse:  (BatchMacro)" type="V_WString" />
+            <Field name="ReportCheckUrl" size="1073741823" source="Formula: [APIURL] + [ReportRunId]" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+            <Field name="JSON_Name" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="JSON_ValueString" size="1073741823" source="JSONParse: " type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJSONParse" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="738" y="126" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>[JSON_Name] = "async_status"</Expression>
+          <Mode>Custom</Mode>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name>FilterStatusRow</Name>
+          <DefaultAnnotationText>[JSON_Name] = "async_status"</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="APIURL" size="32" source="TextInput: (BatchMacro)" type="String" />
+            <Field name="level" size="500" source="TextInput: (BatchMacro)" type="String" />
+            <Field name="access_token" size="500" source="TextInput: (BatchMacro)" type="String" />
+            <Field name="time_range" size="500" source="Formula: &quot;{'since':'&quot; + [StartDate] + &quot;','until':'&quot; + [EndDate] + &quot;'}&quot; (BatchMacro)" type="V_WString" />
+            <Field name="InsightsUrl" size="1073741823" source="Formula: [APIURL] + &quot;act_&quot; + [AccountId] + &quot;/insights&quot; (BatchMacro)" type="V_WString" />
+            <Field name="ReportStatus" size="2000" source="Formula: &quot;&quot;&#xA; (BatchMacro)" type="V_WString" />
+            <Field name="fields" size="4000" source="CrossTab:Header:fields:fields:Concat: (BatchMacro)" type="V_String" />
+            <Field name="ReportRunId" size="1073741823" source="JSONParse:  (BatchMacro)" type="V_WString" />
+            <Field name="ReportCheckUrl" size="1073741823" source="Formula: [APIURL] + [ReportRunId]" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+            <Field name="JSON_Name" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="JSON_ValueString" size="1073741823" source="JSONParse: " type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="APIURL" size="32" source="TextInput: (BatchMacro)" type="String" />
+            <Field name="level" size="500" source="TextInput: (BatchMacro)" type="String" />
+            <Field name="access_token" size="500" source="TextInput: (BatchMacro)" type="String" />
+            <Field name="time_range" size="500" source="Formula: &quot;{'since':'&quot; + [StartDate] + &quot;','until':'&quot; + [EndDate] + &quot;'}&quot; (BatchMacro)" type="V_WString" />
+            <Field name="InsightsUrl" size="1073741823" source="Formula: [APIURL] + &quot;act_&quot; + [AccountId] + &quot;/insights&quot; (BatchMacro)" type="V_WString" />
+            <Field name="ReportStatus" size="2000" source="Formula: &quot;&quot;&#xA; (BatchMacro)" type="V_WString" />
+            <Field name="fields" size="4000" source="CrossTab:Header:fields:fields:Concat: (BatchMacro)" type="V_String" />
+            <Field name="ReportRunId" size="1073741823" source="JSONParse:  (BatchMacro)" type="V_WString" />
+            <Field name="ReportCheckUrl" size="1073741823" source="Formula: [APIURL] + [ReportRunId]" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+            <Field name="JSON_Name" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="JSON_ValueString" size="1073741823" source="JSONParse: " type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="954" y="126" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Field>ReportStatus</Field>
+            <Operator>=</Operator>
+            <Operands>
+              <Operand>Job Completed</Operand>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name>FilterJobCompleted</Name>
+          <DefaultAnnotationText>[ReportStatus] = "Job Completed"</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="APIURL" size="32" source="TextInput: (BatchMacro)" type="String" />
+            <Field name="level" size="500" source="TextInput: (BatchMacro)" type="String" />
+            <Field name="access_token" size="500" source="TextInput: (BatchMacro)" type="String" />
+            <Field name="time_range" size="500" source="Formula: &quot;{'since':'&quot; + [StartDate] + &quot;','until':'&quot; + [EndDate] + &quot;'}&quot; (BatchMacro)" type="V_WString" />
+            <Field name="InsightsUrl" size="1073741823" source="Formula: [APIURL] + &quot;act_&quot; + [AccountId] + &quot;/insights&quot; (BatchMacro)" type="V_WString" />
+            <Field name="ReportStatus" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="fields" size="4000" source="CrossTab:Header:fields:fields:Concat: (BatchMacro)" type="V_String" />
+            <Field name="ReportRunId" size="1073741823" source="JSONParse:  (BatchMacro)" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="APIURL" size="32" source="TextInput: (BatchMacro)" type="String" />
+            <Field name="level" size="500" source="TextInput: (BatchMacro)" type="String" />
+            <Field name="access_token" size="500" source="TextInput: (BatchMacro)" type="String" />
+            <Field name="time_range" size="500" source="Formula: &quot;{'since':'&quot; + [StartDate] + &quot;','until':'&quot; + [EndDate] + &quot;'}&quot; (BatchMacro)" type="V_WString" />
+            <Field name="InsightsUrl" size="1073741823" source="Formula: [APIURL] + &quot;act_&quot; + [AccountId] + &quot;/insights&quot; (BatchMacro)" type="V_WString" />
+            <Field name="ReportStatus" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="fields" size="4000" source="CrossTab:Header:fields:fields:Concat: (BatchMacro)" type="V_String" />
+            <Field name="ReportRunId" size="1073741823" source="JSONParse:  (BatchMacro)" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
+        <Position x="1134" y="114" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Name>OutputSuccess</Name>
+          <Abbrev>S</Abbrev>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name>OutputSuccess</Name>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
+        <Position x="1134" y="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Name>OutputRetry</Name>
+          <Abbrev>R</Abbrev>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
+    </Node>
+    <Node ToolID="15">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="846" y="126" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="True" />
+          <SelectFields>
+            <SelectField field="APIURL" selected="True" />
+            <SelectField field="level" selected="True" />
+            <SelectField field="access_token" selected="True" />
+            <SelectField field="time_range" selected="True" />
+            <SelectField field="InsightsUrl" selected="True" />
+            <SelectField field="ReportStatus" selected="False" />
+            <SelectField field="JSON_ValueString" selected="True" rename="ReportStatus" />
+            <SelectField field="ReportCheckUrl" selected="False" />
+            <SelectField field="fields" selected="True" />
+            <SelectField field="ReportRunId" selected="True" />
+            <SelectField field="DownloadHeaders" selected="False" />
+            <SelectField field="JSON_Name" selected="False" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="APIURL" size="32" source="TextInput: (BatchMacro)" type="String" />
+            <Field name="level" size="500" source="TextInput: (BatchMacro)" type="String" />
+            <Field name="access_token" size="500" source="TextInput: (BatchMacro)" type="String" />
+            <Field name="time_range" size="500" source="Formula: &quot;{'since':'&quot; + [StartDate] + &quot;','until':'&quot; + [EndDate] + &quot;'}&quot; (BatchMacro)" type="V_WString" />
+            <Field name="InsightsUrl" size="1073741823" source="Formula: [APIURL] + &quot;act_&quot; + [AccountId] + &quot;/insights&quot; (BatchMacro)" type="V_WString" />
+            <Field name="ReportStatus" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="fields" size="4000" source="CrossTab:Header:fields:fields:Concat: (BatchMacro)" type="V_String" />
+            <Field name="ReportRunId" size="1073741823" source="JSONParse:  (BatchMacro)" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="16">
+      <GuiSettings>
+        <Position x="270" y="126" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="Numeric Up Down (12)">1</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name>Wait A Second</Name>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output8">
+          <RecordInfo>
+            <Field name="APIURL" size="32" source="TextInput: (BatchMacro)" type="String" />
+            <Field name="level" size="500" source="TextInput: (BatchMacro)" type="String" />
+            <Field name="access_token" size="500" source="TextInput: (BatchMacro)" type="String" />
+            <Field name="time_range" size="500" source="Formula: &quot;{'since':'&quot; + [StartDate] + &quot;','until':'&quot; + [EndDate] + &quot;'}&quot; (BatchMacro)" type="V_WString" />
+            <Field name="InsightsUrl" size="1073741823" source="Formula: [APIURL] + &quot;act_&quot; + [AccountId] + &quot;/insights&quot; (BatchMacro)" type="V_WString" />
+            <Field name="ReportStatus" size="2000" source="Formula: &quot;&quot;&#xA; (BatchMacro)" type="V_WString" />
+            <Field name="fields" size="4000" source="CrossTab:Header:fields:fields:Concat: (BatchMacro)" type="V_String" />
+            <Field name="ReportRunId" size="1073741823" source="JSONParse:  (BatchMacro)" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="CReW_WaitASecond.yxmc" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="16" Connection="Input7" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="True" />
+      <Destination ToolID="15" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="True" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="False" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="15" Connection="Output" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="16" Connection="Output8" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <Constants>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Input</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>OutputSuccess</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Output (10)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+    </Constants>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>FB-ReachFrequency-02-CheckReportProgress</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="False" />
+    </Events>
+    <RuntimeProperties>
+      <Actions />
+      <Questions>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Questions</Description>
+          <Name>Tab (1)</Name>
+          <ToolId value="1" />
+          <Questions>
+            <Question>
+              <Type>MacroInput</Type>
+              <Description>Input</Description>
+              <Name>Input</Name>
+              <ToolId value="2" />
+            </Question>
+            <Question>
+              <Type>MacroOutput</Type>
+              <Description>OutputSuccess</Description>
+              <Name>OutputSuccess</Name>
+              <ToolId value="9" />
+            </Question>
+            <Question>
+              <Type>MacroOutput</Type>
+              <Description>Macro Output (10)</Description>
+              <Name>Macro Output (10)</Name>
+              <ToolId value="10" />
+            </Question>
+          </Questions>
+        </Question>
+      </Questions>
+      <ModuleType>Macro</ModuleType>
+      <MacroCustomHelp value="False" />
+      <MacroDynamicOutputFields value="False" />
+      <MacroImageStd value="39" />
+      <MacroInputs />
+      <MacroOutputs />
+      <IterativeMacro>
+        <Input>Input</Input>
+        <Output>OutputRetry</Output>
+        <IterationLimit value="500" />
+        <LimitBehavior>Error</LimitBehavior>
+        <OutputMode>AutoByName</OutputMode>
+      </IterativeMacro>
+      <Wiz_CustomHelp value="False" />
+      <Wiz_CustomGraphic value="False" />
+      <Wiz_ShowOutput value="True" />
+      <Wiz_OpenOutputTools>
+        <Tool ToolId="2" Selected="True" />
+        <Tool ToolId="9" Selected="True" />
+        <Tool ToolId="10" Selected="True" />
+        <Tool ToolId="16" Selected="True" />
+      </Wiz_OpenOutputTools>
+      <Wiz_OutputMessage />
+      <Wiz_NoOutputFilesMessage />
+      <Wiz_ChainRunWizard />
+    </RuntimeProperties>
+  </Properties>
+</AlteryxDocument>

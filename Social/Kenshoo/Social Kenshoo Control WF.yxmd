@@ -1,0 +1,1041 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2018.2">
+  <Nodes>
+    <Node ToolID="86">
+      <GuiSettings>
+        <Position x="1626" y="834" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="Drop Down (9)">322</Value>
+          <Value name="Text Box (11)">%temp%\auditkey.yxdb</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings Macro="Audit Start.yxmc" />
+    </Node>
+    <Node ToolID="29">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="1722" y="378" width="646" height="292" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Container 29</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="13">
+          <GuiSettings Plugin="LockInGui.LockInStreamIn.LockInStreamIn">
+            <Position x="2133" y="422" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Connection>Redshift Etl</Connection>
+              <CreateMode>TempTable</CreateMode>
+              <Table />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name>Data Stream In Processed Files</Name>
+              <DefaultAnnotationText>Source=Redshift Etl
+Temporary Table</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInStreamIn" />
+        </Node>
+        <Node ToolID="14">
+          <GuiSettings Plugin="LockInGui.LockInOutput.LockInOutput">
+            <Position x="2239" y="426" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Table>etldb.social_kenshoo_filelog</Table>
+              <CreateMode>Append</CreateMode>
+              <AppendMode>ByName</AppendMode>
+              <AppendFieldMode>All</AppendFieldMode>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name>Append etldb.search_kenshoo_filelog</Name>
+              <DefaultAnnotationText>Table=etldb.social_kenshoo_filelog</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInOutput" />
+        </Node>
+        <Node ToolID="15">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="1975" y="438" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="key" selected="True" />
+                <SelectField field="LastModified" selected="True" rename="modified" />
+                <SelectField field="size" selected="True" />
+                <SelectField field="ClientKey" selected="True" />
+                <SelectField field="SourceSystemKey" selected="True" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name>Select File Info</Name>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="20">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="2193" y="554" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File FileFormat="19" MaxRecords="">D:\ETL\Files\DM_Social\Kenshoo\most_recent_files_processed.yxdb</File>
+              <Passwords />
+              <FormatSpecificOptions>
+                <NoSpatialIndex>False</NoSpatialIndex>
+                <SaveSource>True</SaveSource>
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name>Output Diagnostics</Name>
+              <DefaultAnnotationText>most_recent_files_processed.yxdb</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+        <Node ToolID="80">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AppendFields.AppendFields">
+            <Position x="1903" y="438" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <CartesianMode>Error</CartesianMode>
+              <SelectConfiguration>
+                <Configuration outputConnection="Output">
+                  <OrderChanged value="False" />
+                  <CommaDecimal value="False" />
+                  <SelectFields>
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxAppendFields" />
+        </Node>
+        <Node ToolID="81">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="2011" y="570" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_12552_4154334cdf974c9d9a9de4acafb5d082_\Engine_12180_7520ab398f6f463ea82d1901d7d51d89_.yxdb</TempFile>
+              <TempFileDataProfiling />
+              <Layout>
+                <ViewMode>Single</ViewMode>
+                <ViewSize value="100" />
+                <View1>
+                  <DefaultTab>Profile</DefaultTab>
+                  <Hints>
+                    <Table />
+                  </Hints>
+                </View1>
+                <View2 />
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="61">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+            <Position x="1747" y="438" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SummarizeFields>
+                <SummarizeField field="key" action="Count" rename="Files To Process" />
+              </SummarizeFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+        </Node>
+        <Node ToolID="89">
+          <GuiSettings>
+            <Position x="1831" y="438" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Value name="BatchMacroGroupBy" />
+              <Value name="Input.FileToProcess"><![CDATA[Key=Key
+Size=Size
+ClientKey=ClientKey
+SourceSystemKey=SourceSystemKey
+mod_dt=LastModified
+DestinationPath=DestinationPath
+modified=modified
+]]></Value>
+              <Value name="ControlParams"><![CDATA[Control Parameter Files To Process=Files To Process
+]]></Value>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name>Social Kenshoo Ad Load (75)</Name>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+            <MetaInfo connection="Output200">
+              <RecordInfo>
+                <Field name="message" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_12552_4154334cdf974c9d9a9de4acafb5d082_\command.out (BatchMacro) (BatchMacro)" type="V_WString" />
+                <Field name="pid" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_12552_4154334cdf974c9d9a9de4acafb5d082_\command.out (BatchMacro) (BatchMacro)" type="Int32" />
+                <Field name="userid" source="File: odbc:DSN=redshift-etl|||Select s.userid, s.query, s.label, s.xid, s.pid, s.database, s.querytxt, sw.task, sw.service_class, sw.slot_count, sw.service_class_start_time, sw.queue_start_time, sw.queue_end_time, sw.total_queue_time, sw.exec_start_time, sw.exec_end_time, sw.total_exec_time, sw.service_class_end_time, sw.final_state From stl_query As s Inner Join stl_wlm_query As sw On s.userid = sw.userid And s.xid = sw.xid And s.query = sw.query Where s.pid = 31271 Order By s.pid, s.query, sw.task (BatchMacro) (BatchMacro)" type="Int32" />
+                <Field name="query" source="File: odbc:DSN=redshift-etl|||Select s.userid, s.query, s.label, s.xid, s.pid, s.database, s.querytxt, sw.task, sw.service_class, sw.slot_count, sw.service_class_start_time, sw.queue_start_time, sw.queue_end_time, sw.total_queue_time, sw.exec_start_time, sw.exec_end_time, sw.total_exec_time, sw.service_class_end_time, sw.final_state From stl_query As s Inner Join stl_wlm_query As sw On s.userid = sw.userid And s.xid = sw.xid And s.query = sw.query Where s.pid = 31271 Order By s.pid, s.query, sw.task (BatchMacro) (BatchMacro)" type="Int32" />
+                <Field name="label" size="30" source="File: odbc:DSN=redshift-etl|||Select s.userid, s.query, s.label, s.xid, s.pid, s.database, s.querytxt, sw.task, sw.service_class, sw.slot_count, sw.service_class_start_time, sw.queue_start_time, sw.queue_end_time, sw.total_queue_time, sw.exec_start_time, sw.exec_end_time, sw.total_exec_time, sw.service_class_end_time, sw.final_state From stl_query As s Inner Join stl_wlm_query As sw On s.userid = sw.userid And s.xid = sw.xid And s.query = sw.query Where s.pid = 31271 Order By s.pid, s.query, sw.task (BatchMacro) (BatchMacro)" type="WString" />
+                <Field name="xid" source="File: odbc:DSN=redshift-etl|||Select s.userid, s.query, s.label, s.xid, s.pid, s.database, s.querytxt, sw.task, sw.service_class, sw.slot_count, sw.service_class_start_time, sw.queue_start_time, sw.queue_end_time, sw.total_queue_time, sw.exec_start_time, sw.exec_end_time, sw.total_exec_time, sw.service_class_end_time, sw.final_state From stl_query As s Inner Join stl_wlm_query As sw On s.userid = sw.userid And s.xid = sw.xid And s.query = sw.query Where s.pid = 31271 Order By s.pid, s.query, sw.task (BatchMacro) (BatchMacro)" type="Int64" />
+                <Field name="database" size="32" source="File: odbc:DSN=redshift-etl|||Select s.userid, s.query, s.label, s.xid, s.pid, s.database, s.querytxt, sw.task, sw.service_class, sw.slot_count, sw.service_class_start_time, sw.queue_start_time, sw.queue_end_time, sw.total_queue_time, sw.exec_start_time, sw.exec_end_time, sw.total_exec_time, sw.service_class_end_time, sw.final_state From stl_query As s Inner Join stl_wlm_query As sw On s.userid = sw.userid And s.xid = sw.xid And s.query = sw.query Where s.pid = 31271 Order By s.pid, s.query, sw.task (BatchMacro) (BatchMacro)" type="WString" />
+                <Field name="querytxt" size="4000" source="File: odbc:DSN=redshift-etl|||Select s.userid, s.query, s.label, s.xid, s.pid, s.database, s.querytxt, sw.task, sw.service_class, sw.slot_count, sw.service_class_start_time, sw.queue_start_time, sw.queue_end_time, sw.total_queue_time, sw.exec_start_time, sw.exec_end_time, sw.total_exec_time, sw.service_class_end_time, sw.final_state From stl_query As s Inner Join stl_wlm_query As sw On s.userid = sw.userid And s.xid = sw.xid And s.query = sw.query Where s.pid = 31271 Order By s.pid, s.query, sw.task (BatchMacro) (BatchMacro)" type="V_WString" />
+                <Field name="task" source="File: odbc:DSN=redshift-etl|||Select s.userid, s.query, s.label, s.xid, s.pid, s.database, s.querytxt, sw.task, sw.service_class, sw.slot_count, sw.service_class_start_time, sw.queue_start_time, sw.queue_end_time, sw.total_queue_time, sw.exec_start_time, sw.exec_end_time, sw.total_exec_time, sw.service_class_end_time, sw.final_state From stl_query As s Inner Join stl_wlm_query As sw On s.userid = sw.userid And s.xid = sw.xid And s.query = sw.query Where s.pid = 31271 Order By s.pid, s.query, sw.task (BatchMacro) (BatchMacro)" type="Int32" />
+                <Field name="service_class" source="File: odbc:DSN=redshift-etl|||Select s.userid, s.query, s.label, s.xid, s.pid, s.database, s.querytxt, sw.task, sw.service_class, sw.slot_count, sw.service_class_start_time, sw.queue_start_time, sw.queue_end_time, sw.total_queue_time, sw.exec_start_time, sw.exec_end_time, sw.total_exec_time, sw.service_class_end_time, sw.final_state From stl_query As s Inner Join stl_wlm_query As sw On s.userid = sw.userid And s.xid = sw.xid And s.query = sw.query Where s.pid = 31271 Order By s.pid, s.query, sw.task (BatchMacro) (BatchMacro)" type="Int32" />
+                <Field name="slot_count" source="File: odbc:DSN=redshift-etl|||Select s.userid, s.query, s.label, s.xid, s.pid, s.database, s.querytxt, sw.task, sw.service_class, sw.slot_count, sw.service_class_start_time, sw.queue_start_time, sw.queue_end_time, sw.total_queue_time, sw.exec_start_time, sw.exec_end_time, sw.total_exec_time, sw.service_class_end_time, sw.final_state From stl_query As s Inner Join stl_wlm_query As sw On s.userid = sw.userid And s.xid = sw.xid And s.query = sw.query Where s.pid = 31271 Order By s.pid, s.query, sw.task (BatchMacro) (BatchMacro)" type="Int32" />
+                <Field name="service_class_start_time" source="File: odbc:DSN=redshift-etl|||Select s.userid, s.query, s.label, s.xid, s.pid, s.database, s.querytxt, sw.task, sw.service_class, sw.slot_count, sw.service_class_start_time, sw.queue_start_time, sw.queue_end_time, sw.total_queue_time, sw.exec_start_time, sw.exec_end_time, sw.total_exec_time, sw.service_class_end_time, sw.final_state From stl_query As s Inner Join stl_wlm_query As sw On s.userid = sw.userid And s.xid = sw.xid And s.query = sw.query Where s.pid = 31271 Order By s.pid, s.query, sw.task (BatchMacro) (BatchMacro)" type="DateTime" />
+                <Field name="queue_start_time" source="File: odbc:DSN=redshift-etl|||Select s.userid, s.query, s.label, s.xid, s.pid, s.database, s.querytxt, sw.task, sw.service_class, sw.slot_count, sw.service_class_start_time, sw.queue_start_time, sw.queue_end_time, sw.total_queue_time, sw.exec_start_time, sw.exec_end_time, sw.total_exec_time, sw.service_class_end_time, sw.final_state From stl_query As s Inner Join stl_wlm_query As sw On s.userid = sw.userid And s.xid = sw.xid And s.query = sw.query Where s.pid = 31271 Order By s.pid, s.query, sw.task (BatchMacro) (BatchMacro)" type="DateTime" />
+                <Field name="queue_end_time" source="File: odbc:DSN=redshift-etl|||Select s.userid, s.query, s.label, s.xid, s.pid, s.database, s.querytxt, sw.task, sw.service_class, sw.slot_count, sw.service_class_start_time, sw.queue_start_time, sw.queue_end_time, sw.total_queue_time, sw.exec_start_time, sw.exec_end_time, sw.total_exec_time, sw.service_class_end_time, sw.final_state From stl_query As s Inner Join stl_wlm_query As sw On s.userid = sw.userid And s.xid = sw.xid And s.query = sw.query Where s.pid = 31271 Order By s.pid, s.query, sw.task (BatchMacro) (BatchMacro)" type="DateTime" />
+                <Field name="total_queue_time" source="File: odbc:DSN=redshift-etl|||Select s.userid, s.query, s.label, s.xid, s.pid, s.database, s.querytxt, sw.task, sw.service_class, sw.slot_count, sw.service_class_start_time, sw.queue_start_time, sw.queue_end_time, sw.total_queue_time, sw.exec_start_time, sw.exec_end_time, sw.total_exec_time, sw.service_class_end_time, sw.final_state From stl_query As s Inner Join stl_wlm_query As sw On s.userid = sw.userid And s.xid = sw.xid And s.query = sw.query Where s.pid = 31271 Order By s.pid, s.query, sw.task (BatchMacro) (BatchMacro)" type="Int64" />
+                <Field name="exec_start_time" source="File: odbc:DSN=redshift-etl|||Select s.userid, s.query, s.label, s.xid, s.pid, s.database, s.querytxt, sw.task, sw.service_class, sw.slot_count, sw.service_class_start_time, sw.queue_start_time, sw.queue_end_time, sw.total_queue_time, sw.exec_start_time, sw.exec_end_time, sw.total_exec_time, sw.service_class_end_time, sw.final_state From stl_query As s Inner Join stl_wlm_query As sw On s.userid = sw.userid And s.xid = sw.xid And s.query = sw.query Where s.pid = 31271 Order By s.pid, s.query, sw.task (BatchMacro) (BatchMacro)" type="DateTime" />
+                <Field name="exec_end_time" source="File: odbc:DSN=redshift-etl|||Select s.userid, s.query, s.label, s.xid, s.pid, s.database, s.querytxt, sw.task, sw.service_class, sw.slot_count, sw.service_class_start_time, sw.queue_start_time, sw.queue_end_time, sw.total_queue_time, sw.exec_start_time, sw.exec_end_time, sw.total_exec_time, sw.service_class_end_time, sw.final_state From stl_query As s Inner Join stl_wlm_query As sw On s.userid = sw.userid And s.xid = sw.xid And s.query = sw.query Where s.pid = 31271 Order By s.pid, s.query, sw.task (BatchMacro) (BatchMacro)" type="DateTime" />
+                <Field name="total_exec_time" source="File: odbc:DSN=redshift-etl|||Select s.userid, s.query, s.label, s.xid, s.pid, s.database, s.querytxt, sw.task, sw.service_class, sw.slot_count, sw.service_class_start_time, sw.queue_start_time, sw.queue_end_time, sw.total_queue_time, sw.exec_start_time, sw.exec_end_time, sw.total_exec_time, sw.service_class_end_time, sw.final_state From stl_query As s Inner Join stl_wlm_query As sw On s.userid = sw.userid And s.xid = sw.xid And s.query = sw.query Where s.pid = 31271 Order By s.pid, s.query, sw.task (BatchMacro) (BatchMacro)" type="Int64" />
+                <Field name="service_class_end_time" source="File: odbc:DSN=redshift-etl|||Select s.userid, s.query, s.label, s.xid, s.pid, s.database, s.querytxt, sw.task, sw.service_class, sw.slot_count, sw.service_class_start_time, sw.queue_start_time, sw.queue_end_time, sw.total_queue_time, sw.exec_start_time, sw.exec_end_time, sw.total_exec_time, sw.service_class_end_time, sw.final_state From stl_query As s Inner Join stl_wlm_query As sw On s.userid = sw.userid And s.xid = sw.xid And s.query = sw.query Where s.pid = 31271 Order By s.pid, s.query, sw.task (BatchMacro) (BatchMacro)" type="DateTime" />
+                <Field name="final_state" size="16" source="File: odbc:DSN=redshift-etl|||Select s.userid, s.query, s.label, s.xid, s.pid, s.database, s.querytxt, sw.task, sw.service_class, sw.slot_count, sw.service_class_start_time, sw.queue_start_time, sw.queue_end_time, sw.total_queue_time, sw.exec_start_time, sw.exec_end_time, sw.total_exec_time, sw.service_class_end_time, sw.final_state From stl_query As s Inner Join stl_wlm_query As sw On s.userid = sw.userid And s.xid = sw.xid And s.query = sw.query Where s.pid = 31271 Order By s.pid, s.query, sw.task (BatchMacro) (BatchMacro)" type="WString" />
+                <Field name="host_name" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_12552_4154334cdf974c9d9a9de4acafb5d082_\testcommand.out (BatchMacro) (BatchMacro)" type="V_WString" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings Macro="Kenshoo\Social Kenshoo Ad Load.yxmc" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="92">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="1830" y="738" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="DateTimeToUTC([LastModified])" field="LastModified" size="19" type="DateTime" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[LastModified = DateTimeToUTC([LastModified])
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="93">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="1938" y="738" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_12552_4154334cdf974c9d9a9de4acafb5d082_\Engine_12180_91a3ed036392458699116a82eea8ab53_.yxdb</TempFile>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="30">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="52.99999" y="370" width="1645" height="427" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>List Files for Processing</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="59">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="704" y="498" width="120" height="108" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>Sort by Last Modified Date</Text>
+              <Font name="Segoe UI" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="4" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="53">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+            <Position x="1182" y="534" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SortInfo locale="0">
+                <Field field="LastModified" order="Descending" />
+              </SortInfo>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name>Sort by Modification Date</Name>
+              <AnnotationText />
+              <DefaultAnnotationText>LastModified - Descending</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+        </Node>
+        <Node ToolID="52">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="1374" y="534" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="FileAddPaths([Engine.TempFilePath], [key])" field="DestinationPath" size="1073741823" type="V_WString" />
+                <FormulaField expression="[LastModified]" field="modified" size="1073741823" type="V_WString" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>DestinationPath = FileAddPaths([Engine.TempFilePath], [key])
+modified = [LastMod...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="51">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="836" y="498" width="60" height="108" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>Report Throttle</Text>
+              <Font name="Segoe UI" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="4" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="48">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="1566" y="414" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="'List Files for Processing'" field="LogSource" size="1073741823" type="V_WString" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name>LogSource Files</Name>
+              <AnnotationText><![CDATA[LogSource = 'List Files for Processing'
+]]></AnnotationText>
+              <DefaultAnnotationText><![CDATA[LogSource = 'List Files for Processing'
+]]></DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="25">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="918" y="534" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Expression>1</Expression>
+              <Mode>Custom</Mode>
+              <Simple>
+                <Operator>=</Operator>
+                <Field>
+                </Field>
+                <Operands>
+                  <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+                  <DateType>fixed</DateType>
+                  <PeriodDate>2018-05-09 11:37:17</PeriodDate>
+                  <PeriodType>
+                  </PeriodType>
+                  <PeriodCount>0</PeriodCount>
+                  <Operand>
+                  </Operand>
+                  <StartDate>2018-05-09 11:37:17</StartDate>
+                  <EndDate>2018-05-09 11:37:17</EndDate>
+                </Operands>
+              </Simple>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name>Customt Filter</Name>
+              <AnnotationText>Optional Filter</AnnotationText>
+              <DefaultAnnotationText>1</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="1">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="78.99999" y="654.0001" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <File RecordLimit="" FileFormat="18">odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID</File>
+              <FormatSpecificOptions>
+                <PreSQL />
+                <PreSQLOnConfig>True</PreSQLOnConfig>
+                <NoProgress>True</NoProgress>
+                <CacheData>False</CacheData>
+                <TableStyle>Quoted</TableStyle>
+                <ReadUncommitted>False</ReadUncommitted>
+                <PostSQL />
+              </FormatSpecificOptions>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name>Active Kenshoo Social Reports</Name>
+              <AnnotationText>Active Kenshoo Social Reports</AnnotationText>
+              <DefaultAnnotationText>Source=sqlprod1
+Table=Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="SocialKenshooKey" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+                <Field name="ClientSourceSystemID" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+                <Field name="FTP_Directory" size="50" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_String" />
+                <Field name="Report_FileMask" size="50" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_String" />
+                <Field name="IsActive" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Bool" />
+                <Field name="ReportStart" size="10" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_WString" />
+                <Field name="ReportEnd" size="10" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_WString" />
+                <Field name="CreateDT" size="27" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_WString" />
+                <Field name="UpdateDT" size="27" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_WString" />
+                <Field name="ClientKey" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+                <Field name="SourceSystemKey" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="5">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="606" y="534" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="Replace(Replace([Report_FileMask],'.','\.'),'*','.*')" field="match_exp" size="1073741823" type="V_WString" />
+                <FormulaField expression="REGEX_Match([key], [match_exp])" field="matchmade" size="1" type="Bool" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name>Find Matches</Name>
+              <AnnotationText>File Mask</AnnotationText>
+              <DefaultAnnotationText>match_exp = Replace(Replace([Report_FileMask],'.','\.'),'*','.*')
+matchmade = RE...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="33">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="1566" y="666" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File FileFormat="19" MaxRecords="">D:\ETL\Files\DM_Social\Kenshoo\most_recent_files_for_processing.yxdb</File>
+              <Passwords />
+              <FormatSpecificOptions>
+                <NoSpatialIndex>False</NoSpatialIndex>
+                <SaveSource>True</SaveSource>
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name>Ouput List Diagnostics</Name>
+              <DefaultAnnotationText>most_recent_files_for_processing.yxdb</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+        <Node ToolID="31">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Message.Message">
+            <Position x="1470" y="534" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <When>Filter</When>
+              <Filter>1</Filter>
+              <Type>Message</Type>
+              <Priority>High</Priority>
+              <Transient>False</Transient>
+              <MessageExpression>DateTimeFormat(DateTimeNow(),'%Y-%m-%d %H:%M:%S | ') + PADLEFT(ToString([_RecordNumber_]),5,'0') + ' | ' + [key] + ' | Queued.'</MessageExpression>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name>List Files Message</Name>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMessage" />
+        </Node>
+        <Node ToolID="28">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="834" y="534" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Expression>1</Expression>
+              <Mode>Custom</Mode>
+              <Simple>
+                <Operator>=</Operator>
+                <Field>
+                </Field>
+                <Operands>
+                  <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+                  <DateType>fixed</DateType>
+                  <PeriodDate>2018-05-09 11:36:54</PeriodDate>
+                  <PeriodType>
+                  </PeriodType>
+                  <PeriodCount>0</PeriodCount>
+                  <Operand>
+                  </Operand>
+                  <StartDate>2018-05-09 11:36:54</StartDate>
+                  <EndDate>2018-05-09 11:36:54</EndDate>
+                </Operands>
+              </Simple>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name>Key Filter</Name>
+              <AnnotationText>Key Filter</AnnotationText>
+              <DefaultAnnotationText>1</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="17">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="414" y="510" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="key" />
+                <Field field="size" />
+                <Field field="modified" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="Key" />
+                <Field field="Size" />
+                <Field field="LastModified" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="False" />
+                  <CommaDecimal value="False" />
+                  <SelectFields>
+                    <SelectField field="Right_key" selected="True" rename="Right_key" />
+                    <SelectField field="Right_LastModified" selected="True" />
+                    <SelectField field="Right_size" selected="True" rename="Right_size" />
+                    <SelectField field="Right_modified" selected="True" rename="Right_modified" />
+                    <SelectField field="*Unknown" selected="False" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name>Only Unprocessed</Name>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="16">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="77.99999" y="414.0001" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <File RecordLimit="" FileFormat="23">odbc:DSN=redshift-etl|||Select * From prod.etldb.social_kenshoo_filelog</File>
+              <FormatSpecificOptions>
+                <PreSQL />
+                <PreSQLOnConfig>True</PreSQLOnConfig>
+                <NoProgress>True</NoProgress>
+                <CacheData>False</CacheData>
+                <TableStyle>Quoted</TableStyle>
+                <ReadUncommitted>False</ReadUncommitted>
+                <PostSQL />
+              </FormatSpecificOptions>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name>Input Data etldb.search_kenshoo_filelog</Name>
+              <AnnotationText>Previously Processed</AnnotationText>
+              <DefaultAnnotationText>DSN=redshift-etl
+Table=Select * From prod.etldb.social_kenshoo_filelog</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="key" size="1024" source="File: odbc:DSN=redshift-etl|||Select * From prod.etldb.social_kenshoo_filelog" type="V_WString" />
+                <Field name="size" source="File: odbc:DSN=redshift-etl|||Select * From prod.etldb.social_kenshoo_filelog" type="Int64" />
+                <Field name="modified" source="File: odbc:DSN=redshift-etl|||Select * From prod.etldb.social_kenshoo_filelog" type="DateTime" />
+                <Field name="bucketname" size="1024" source="File: odbc:DSN=redshift-etl|||Select * From prod.etldb.social_kenshoo_filelog" type="V_WString" />
+                <Field name="clientkey" source="File: odbc:DSN=redshift-etl|||Select * From prod.etldb.social_kenshoo_filelog" type="Int32" />
+                <Field name="sourcesystemkey" source="File: odbc:DSN=redshift-etl|||Select * From prod.etldb.social_kenshoo_filelog" type="Int32" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="7">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="990" y="534" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="key" selected="True" />
+                <SelectField field="LastModified" selected="True" />
+                <SelectField field="size" selected="True" />
+                <SelectField field="ClientKey" selected="True" />
+                <SelectField field="SourceSystemKey" selected="True" />
+                <SelectField field="modified" selected="True" />
+                <SelectField field="ReportGrainName" selected="True" />
+                <SelectField field="Bucket_Name" selected="True" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name>List Select</Name>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="6">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="738" y="534" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Expression>[matchmade] = 1</Expression>
+              <Mode>Simple</Mode>
+              <Simple>
+                <Operator>IsTrue</Operator>
+                <Field>matchmade</Field>
+                <Operands>
+                  <IgnoreTimeInDateTime>False</IgnoreTimeInDateTime>
+                  <DateType>fixed</DateType>
+                  <PeriodDate>2018-08-20 12:26:01</PeriodDate>
+                  <PeriodType>
+                  </PeriodType>
+                  <PeriodCount>0</PeriodCount>
+                  <Operand>
+                  </Operand>
+                  <StartDate>2018-08-20 12:26:01</StartDate>
+                  <EndDate>2018-08-20 12:26:01</EndDate>
+                </Operands>
+              </Simple>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name>Filter Matches</Name>
+              <AnnotationText>matched</AnnotationText>
+              <DefaultAnnotationText>[matchmade] = 1</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="55">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Sample.Sample">
+            <Position x="1278" y="534" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <GroupFields orderChanged="False" />
+              <Mode>First</Mode>
+              <N>5000</N>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>First 5000</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSample" />
+        </Node>
+        <Node ToolID="27">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="258.0001" y="414.0001" width="396" height="35.99997" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>Only want (R)ight side keys in the join below, because they do not match one previously processed as listed in "etldb"."search_kenshoo_filelog".</Text>
+              <Font name="Segoe UI" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="1" />
+              <Justification Justification="4" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="76">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AppendFields.AppendFields">
+            <Position x="510" y="534" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <CartesianMode>Allow</CartesianMode>
+              <SelectConfiguration>
+                <Configuration outputConnection="Output">
+                  <OrderChanged value="False" />
+                  <CommaDecimal value="False" />
+                  <SelectFields>
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxAppendFields" />
+        </Node>
+        <Node ToolID="83">
+          <GuiSettings Plugin="Teknion.AWS_S3">
+            <Position x="78" y="533.9999" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <InputType>Block</InputType>
+              <BucketName>camelotsmm-kenshoo</BucketName>
+              <Region>us-west-2</Region>
+              <Action>List</Action>
+              <Prefix>
+              </Prefix>
+              <SourceKey>
+              </SourceKey>
+              <DestinationKey>
+              </DestinationKey>
+              <SourceKeyField>DestinationFullName</SourceKeyField>
+              <DestinationKeyField>Destination</DestinationKeyField>
+              <RemoveKey>
+              </RemoveKey>
+              <RemoveKeyField>
+              </RemoveKeyField>
+              <TeknionAlteryxToolsOptionsUid>27EC5F98-9D0D-4515-B81B-3939FABF7096</TeknionAlteryxToolsOptionsUid>
+              <AWSAccessKey>4A482D10E2167F26D2F99E0F88384BBDE61C5ED1F5ADEAD234686B9EF41E1531B90AC2D0C70CCAF3416DD5F646ED871C6A07ECFB9C833F45FDC13FF666B589BDB41C2D703BEA5F1185883F50AC466303855EFDC489BAC6DE67A1ECBAC79A119AAA76019C1783972E7D792E630C7AF02942D515638BC3B4FFD3C733422AC846C20E6CBBF8431A893B097A8E6D84F145F7829B68678E19BB5693DAFE92C9D50E5F2B69D08D06FFDADCF083C9EF44535A5D66213CE0FC123</AWSAccessKey>
+              <AWSSecretKey>4DAE8CBA7D8F54A9CF54DB3C32F9940E164670C23C165CF016835401D0CBEC8A80D7F44040EE192E355DD8F8B9B573D361F1F34EB859FBC50908538EDFFA60A212D843EBD5F8C15948A005B7394A5DED5CABB25779CBCBD2E05A41A0919D1F66E8E16948B9B77E68B296553256E9341C6C987FDBC8A9DFBC8277A8AF7E03DAC48C7084E0BD6F8B338EC1FE883BBBE1A2475C5F70C806DA8EA434A302BAE8CD2C44328BCDAF069466AADA3887AAFA583F2E97B44EF37A821085205EC8A711EBA4E1658F7FAC9B77916A114C7551CB8447701DD5D49B3BB12F4CDEB394330A279263CA218BE5767B8E4F1FABFF2F6543A23EA354C3D2BBD1EAD5E7D4865B6BF1318C980C780736D3F1E1A505D4853FC6C7F3F146996635F5BCA60B61C1FF6C9BF1DE1906A801852362150E8BA9ED94CA3C43E3BBAB165DB3B5B4EB319E7AFA1CE377549149CDE7599DF4EB613B8DB87C515888DBFF3CEF9</AWSSecretKey>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>S3 Objects</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="TeknionToolsEngine.dll" EngineDllEntryPoint=".Net:TeknionToolsEngine.AWS_S3" />
+        </Node>
+        <Node ToolID="84">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="174" y="534" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="85">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="222" y="474" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="90">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="258" y="533.9999" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="DateTimeToUTC([LastModified])" field="LastModified" size="19" type="DateTime" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText><![CDATA[LastModified = DateTimeToUTC([LastModified])
+]]></DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+      </ChildNodes>
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="13" Connection="Output" />
+      <Destination ToolID="14" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="15" Connection="Output" />
+      <Destination ToolID="20" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="15" Connection="Output" />
+      <Destination ToolID="13" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="80" Connection="Output" />
+      <Destination ToolID="81" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="80" Connection="Output" />
+      <Destination ToolID="15" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="61" Connection="Output" />
+      <Destination ToolID="89" Connection="Control" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="31" Connection="Output" />
+      <Destination ToolID="89" Connection="FileToProcess" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="89" Connection="Output200" />
+      <Destination ToolID="80" Connection="Source" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="31" Connection="Output" />
+      <Destination ToolID="80" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="92" Connection="Output" />
+      <Destination ToolID="93" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="53" Connection="Output" />
+      <Destination ToolID="55" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="52" Connection="Output" />
+      <Destination ToolID="31" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="25" Connection="True" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="76" Connection="Source" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="17" Connection="Right" />
+      <Destination ToolID="76" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="31" Connection="Output" />
+      <Destination ToolID="33" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="31" Connection="Output" />
+      <Destination ToolID="48" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="31" Connection="Output" />
+      <Destination ToolID="61" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="31" Connection="Output" />
+      <Destination ToolID="92" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="28" Connection="True" />
+      <Destination ToolID="25" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="16" Connection="Output" />
+      <Destination ToolID="85" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="Output" />
+      <Destination ToolID="53" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="True" />
+      <Destination ToolID="28" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="55" Connection="Output" />
+      <Destination ToolID="52" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="76" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="83" Connection="Output" />
+      <Destination ToolID="84" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="84" Connection="Output" />
+      <Destination ToolID="90" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="85" Connection="Output" />
+      <Destination ToolID="17" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="90" Connection="Output" />
+      <Destination ToolID="17" Connection="Right" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Social Kenshoo Control WF</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>

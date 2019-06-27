@@ -1,0 +1,290 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2018.3">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="Teknion.AWS_S3">
+        <Position x="54" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <InputType>Block</InputType>
+          <BucketName>camelotsmm-kenshoo</BucketName>
+          <Region>us-west-2</Region>
+          <Action>List</Action>
+          <Prefix>
+          </Prefix>
+          <SourceKey>
+          </SourceKey>
+          <DestinationKey>
+          </DestinationKey>
+          <SourceKeyField>DestinationFullName</SourceKeyField>
+          <DestinationKeyField>Destination</DestinationKeyField>
+          <RemoveKey>
+          </RemoveKey>
+          <RemoveKeyField>
+          </RemoveKeyField>
+          <TeknionAlteryxToolsOptionsUid>27EC5F98-9D0D-4515-B81B-3939FABF7096</TeknionAlteryxToolsOptionsUid>
+          <AWSAccessKey>4FF62263354561A5BD12C74A392264C51B4B0FC52CFCFA4BBAD2ED3BA9711BFFBBFC4155461DF25C197853BB31DB792C856985924632683B29B6E0A9A3749096794B1C1A3E6AE434B370A9AF0A2C1616C9EA1B65175D8CC67D945D854CD9C2AE83216874533FE12F1A660F3EFA5359243F4DC30BA18F8179820A74ECA9CD8470A83874614F8333D30985DD285C9FB46CBC32B70B911AD9BD6460D71110C26AAFE65F6B013C6DA53330879D743E1EA5D8C8F6D7279D586</AWSAccessKey>
+          <AWSSecretKey>47DB28FB2EAD6617A5287C6F859DDE1BFB0E306FC6952BD51A5223DDA1184E0A32B142E204F473159E1E96C05B5D0F0EF64BF69F1BBED76C0856CB90B3524057CC89A1086E12273A8C4E95C63788657B44ACA97A1B530774FF03562FE3B91E2CBB19C1416C87D1CB44C9CA9F5EEBE568F72D92F101CBD9EC505FAFC2ECEC5E158DECC4C1587EA74CA646B82349CA29770BE0206D4AACAB08B06CAC8E81678F2C3CD01DBCA233B6C4FB613FB3399921F9EEC1DA8C7686B3DB89D4048C2BDE8A4C16E9E9FAD8224F7F1A6154A01222A030DCEDE8B441C8BBE214F970D68815731D6936841A4931120A0C7E6089838585B46867FA7E789600974172C061A89D8D80806932909B7B84355F865EE12E179A1DD8C9B8791E769AC8D6EBEC241C5203C761930A7A25D59478932A6A49BA9643667F1E46AD858EEFD5F3B563B536C96371E077A1F910CED498A366FDD77324E9CA8E28BEB99B82C</AWSSecretKey>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>S3 Objects</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="TeknionToolsEngine.dll" EngineDllEntryPoint=".Net:TeknionToolsEngine.AWS_S3" />
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+        <Position x="126" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SortInfo locale="0">
+            <Field field="BucketName" order="Ascending" />
+          </SortInfo>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>BucketName - Ascending</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
+        <Position x="318" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldName>RecordID</FieldName>
+          <StartValue>1</StartValue>
+          <FieldType>Int32</FieldType>
+          <FieldSize>6</FieldSize>
+          <Position>0</Position>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRecordID" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="414" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>Contains([Key],"History")</Expression>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>Contains</Operator>
+            <Field>Key</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2018-10-25 15:35:56</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>History</Operand>
+              <StartDate>2018-10-25 15:35:56</StartDate>
+              <EndDate>2018-10-25 15:35:56</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Contains([Key],"History")</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="510" y="78" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>!Contains([Key],"History_")</Expression>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>NotContains</Operator>
+            <Field>Key</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2018-10-25 15:45:10</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>History_</Operand>
+              <StartDate>2018-10-25 15:45:10</StartDate>
+              <EndDate>2018-10-25 15:45:10</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>!Contains([Key],"History_")</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="606" y="66" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>Contains([Key],"turbotax")</Expression>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>Contains</Operator>
+            <Field>Key</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2018-10-25 15:46:04</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>turbotax</Operand>
+              <StartDate>2018-10-25 15:46:04</StartDate>
+              <EndDate>2018-10-25 15:46:04</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Contains([Key],"turbotax")</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="677" y="10" width="130.1579" height="19" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Container 9</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="True" />
+          <Folded value="True" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="8">
+          <GuiSettings Plugin="Teknion.AWS_S3">
+            <Position x="702" y="54" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <InputType>Batch</InputType>
+              <BucketName>camelotsmm-kenshoo</BucketName>
+              <Region>us-west-2</Region>
+              <Action>Download</Action>
+              <Prefix>
+              </Prefix>
+              <SourceKey>
+              </SourceKey>
+              <DestinationKey>
+              </DestinationKey>
+              <SourceKeyField>DestinationFullName</SourceKeyField>
+              <DestinationKeyField>Destination</DestinationKeyField>
+              <RemoveKey>
+              </RemoveKey>
+              <RemoveKeyField>Key</RemoveKeyField>
+              <TeknionAlteryxToolsOptionsUid>27EC5F98-9D0D-4515-B81B-3939FABF7096</TeknionAlteryxToolsOptionsUid>
+              <AWSAccessKey>4FF62263354561A5BD12C74A392264C51B4B0FC52CFCFA4BBAD2ED3BA9711BFFBBFC4155461DF25C197853BB31DB792C856985924632683B29B6E0A9A3749096794B1C1A3E6AE434B370A9AF0A2C1616C9EA1B65175D8CC67D945D854CD9C2AE83216874533FE12F1A660F3EFA5359243F4DC30BA18F8179820A74ECA9CD8470A83874614F8333D30985DD285C9FB46CBC32B70B911AD9BD6460D71110C26AAFE65F6B013C6DA53330879D743E1EA5D8C8F6D7279D586</AWSAccessKey>
+              <AWSSecretKey>47DB28FB2EAD6617A5287C6F859DDE1BFB0E306FC6952BD51A5223DDA1184E0A32B142E204F473159E1E96C05B5D0F0EF64BF69F1BBED76C0856CB90B3524057CC89A1086E12273A8C4E95C63788657B44ACA97A1B530774FF03562FE3B91E2CBB19C1416C87D1CB44C9CA9F5EEBE568F72D92F101CBD9EC505FAFC2ECEC5E158DECC4C1587EA74CA646B82349CA29770BE0206D4AACAB08B06CAC8E81678F2C3CD01DBCA233B6C4FB613FB3399921F9EEC1DA8C7686B3DB89D4048C2BDE8A4C16E9E9FAD8224F7F1A6154A01222A030DCEDE8B441C8BBE214F970D68815731D6936841A4931120A0C7E6089838585B46867FA7E789600974172C061A89D8D80806932909B7B84355F865EE12E179A1DD8C9B8791E769AC8D6EBEC241C5203C761930A7A25D59478932A6A49BA9643667F1E46AD858EEFD5F3B563B536C96371E077A1F910CED498A366FDD77324E9CA8E28BEB99B82C</AWSSecretKey>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>S3 Objects</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="TeknionToolsEngine.dll" EngineDllEntryPoint=".Net:TeknionToolsEngine.AWS_S3" />
+        </Node>
+      </ChildNodes>
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="True" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="True" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="True" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>S3 Tool</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>

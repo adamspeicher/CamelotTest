@@ -1,0 +1,1042 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="11.0">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+        <Position x="138" y="270" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <NumRows value="1" />
+          <Fields>
+            <Field name="APIURL" />
+            <Field name="AccountId" />
+            <Field name="StartDate" />
+            <Field name="EndDate" />
+            <Field name="level" />
+            <Field name="access_token" />
+          </Fields>
+          <Data>
+            <r>
+              <c>https://graph.facebook.com/v2.7/</c>
+              <c>1456982927894302</c>
+              <c>2017-03-01</c>
+              <c>2017-03-31</c>
+              <c>campaign</c>
+              <c>CAAF5GrnqPlYBADDQSGz7h6swfUz7THG2x4akGGMErSkq1CPK8Kek8xZBKTuMdP2pKZBGWeGoOk0mHZCxulAYTVlnXC0QB3470pXrih2pnCpCZBMWH9lsxQffKATgn4Lc8XZCMQJrnJb8GupQbMOtxiKijaOpv3ZCL4aEVSbU3a1J2wK8GVbp6pBgiLRt6d5PIZD</c>
+            </r>
+          </Data>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name>Filters</Name>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="APIURL" size="32" source="TextInput:" type="String" />
+            <Field name="AccountId" source="TextInput:" type="Int64" />
+            <Field name="StartDate" source="TextInput:" type="Date" />
+            <Field name="EndDate" source="TextInput:" type="Date" />
+            <Field name="level" size="8" source="TextInput:" type="String" />
+            <Field name="access_token" size="196" source="TextInput:" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+        <Position x="138" y="414" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <NumRows value="13" />
+          <Fields>
+            <Field name="fields" />
+            <Field name="Field" />
+          </Fields>
+          <Data>
+            <r>
+              <c>fields</c>
+              <c>account_id</c>
+            </r>
+            <r>
+              <c>fields</c>
+              <c>account_name</c>
+            </r>
+            <r>
+              <c>fields</c>
+              <c>campaign_id</c>
+            </r>
+            <r>
+              <c>fields</c>
+              <c>campaign_name</c>
+            </r>
+            <r>
+              <c>fields</c>
+              <c>adset_id</c>
+            </r>
+            <r>
+              <c>fields</c>
+              <c>adset_name</c>
+            </r>
+            <r>
+              <c>fields</c>
+              <c>ad_id</c>
+            </r>
+            <r>
+              <c>fields</c>
+              <c>ad_name</c>
+            </r>
+            <r>
+              <c>fields</c>
+              <c>date_start</c>
+            </r>
+            <r>
+              <c>fields</c>
+              <c>date_stop</c>
+            </r>
+            <r>
+              <c>fields</c>
+              <c>frequency</c>
+            </r>
+            <r>
+              <c>fields</c>
+              <c>reach</c>
+            </r>
+            <r>
+              <c>fields</c>
+              <c>social_reach</c>
+            </r>
+          </Data>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name>Fields</Name>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="fields" size="6" source="TextInput:" type="String" />
+            <Field name="Field" size="13" source="TextInput:" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="330" y="270" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="&quot;{'since':'&quot; + [StartDate] + &quot;','until':'&quot; + [EndDate] + &quot;'}&quot;" field="time_range" size="1073741823" type="V_WString" />
+            <FormulaField expression="[APIURL] + &quot;act_&quot; + [AccountId] + &quot;/insights&quot;" field="InsightsUrl" size="1073741823" type="V_WString" />
+            <FormulaField expression="&quot;&quot;&#xA;" field="ReportStatus" size="2000" type="V_WString" />
+            <FormulaField expression="&quot;&quot;" field="DownloadReportUrl" size="2000" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name>GenerateColumns</Name>
+          <AnnotationText><![CDATA[time_range = "{'since':'" + [StartDate] + "','until':'" + [EndDate] + "'}"
+]]></AnnotationText>
+          <DefaultAnnotationText>time_range = "{'since':'" + [StartDate] + "','until':'" + [EndDate] + "'}"
+Insig...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="APIURL" size="32" source="TextInput:" type="String" />
+            <Field name="AccountId" size="500" source="TextInput:" type="V_String" />
+            <Field name="StartDate" source="TextInput:" type="Date" />
+            <Field name="EndDate" source="TextInput:" type="Date" />
+            <Field name="level" size="500" source="TextInput:" type="String" />
+            <Field name="access_token" size="500" source="TextInput:" type="String" />
+            <Field name="time_range" size="1073741823" source="Formula: &quot;{'since':'&quot; + [StartDate] + &quot;','until':'&quot; + [EndDate] + &quot;'}&quot;" type="V_WString" />
+            <Field name="InsightsUrl" size="1073741823" source="Formula: [APIURL] + &quot;act_&quot; + [AccountId] + &quot;/insights&quot;" type="V_WString" />
+            <Field name="ReportStatus" size="2000" source="Formula: &quot;&quot;&#xA;" type="V_WString" />
+            <Field name="DownloadReportUrl" size="2000" source="Formula: &quot;&quot;" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.CrossTab.CrossTab">
+        <Position x="234" y="414" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <GroupFields>
+            <Field field="fields" />
+          </GroupFields>
+          <HeaderField field="fields" />
+          <DataField field="Field" />
+          <Methods>
+            <Method method="Concat" />
+            <Separator>,</Separator>
+            <FieldSize value="4000" />
+          </Methods>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name>PivotFields</Name>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="fields" size="6" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="fields2" size="4000" source="CrossTab:Header:fields:fields:Concat:" type="V_String" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="fields" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxCrossTab" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="426" y="270" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <SelectFields>
+            <SelectField field="APIURL" selected="True" />
+            <SelectField field="level" selected="True" />
+            <SelectField field="access_token" selected="True" />
+            <SelectField field="time_range" selected="True" size="500" />
+            <SelectField field="InsightsUrl" selected="True" />
+            <SelectField field="ReportStatus" selected="True" />
+            <SelectField field="DownloadReportUrl" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name>SelectRelevantFields</Name>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="APIURL" size="32" source="TextInput:" type="String" />
+            <Field name="level" size="500" source="TextInput:" type="String" />
+            <Field name="access_token" size="500" source="TextInput:" type="String" />
+            <Field name="time_range" size="500" source="Formula: &quot;{'since':'&quot; + [StartDate] + &quot;','until':'&quot; + [EndDate] + &quot;'}&quot;" type="V_WString" />
+            <Field name="InsightsUrl" size="1073741823" source="Formula: [APIURL] + &quot;act_&quot; + [AccountId] + &quot;/insights&quot;" type="V_WString" />
+            <Field name="ReportStatus" size="2000" source="Formula: &quot;&quot;&#xA;" type="V_WString" />
+            <Field name="DownloadReportUrl" size="2000" source="Formula: &quot;&quot;" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="330" y="414" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <SelectFields>
+            <SelectField field="fields" selected="False" type="V_String" size="500" />
+            <SelectField field="fields2" selected="True" rename="fields" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name>SelectPivotedFields</Name>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="fields" size="4000" source="CrossTab:Header:fields:fields:Concat:" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="234" y="270" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <SelectFields>
+            <SelectField field="APIURL" selected="True" />
+            <SelectField field="AccountId" selected="True" type="V_String" size="500" />
+            <SelectField field="StartDate" selected="True" />
+            <SelectField field="EndDate" selected="True" />
+            <SelectField field="level" selected="True" size="500" />
+            <SelectField field="access_token" selected="True" size="500" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name>SelectChangeDataTypes</Name>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="APIURL" size="32" source="TextInput:" type="String" />
+            <Field name="AccountId" size="500" source="TextInput:" type="V_String" />
+            <Field name="StartDate" source="TextInput:" type="Date" />
+            <Field name="EndDate" source="TextInput:" type="Date" />
+            <Field name="level" size="500" source="TextInput:" type="String" />
+            <Field name="access_token" size="500" source="TextInput:" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="15">
+      <GuiSettings Plugin="AlteryxConnectorGui.Download.Download">
+        <Position x="654" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <URLField>InsightsUrl</URLField>
+          <OutputMode>String</OutputMode>
+          <CodePage>65001</CodePage>
+          <EncodeURLs value="True" />
+          <Headers>
+            <NameValues />
+            <Fields orderChanged="False">
+              <Field name="APIURL" selected="False" />
+              <Field name="level" selected="False" />
+              <Field name="access_token" selected="False" />
+              <Field name="time_range" selected="False" />
+              <Field name="InsightsUrl" selected="False" />
+              <Field name="ReportStatus" selected="False" />
+              <Field name="DownloadReportUrl" selected="False" />
+              <Field name="fields" selected="False" />
+              <Field name="*Unknown" selected="False" />
+            </Fields>
+          </Headers>
+          <Payload>
+            <HTTPAction>POST</HTTPAction>
+            <QueryStringBodyMode>Compose</QueryStringBodyMode>
+            <ComposeNameValues />
+            <ComposeFields orderChanged="False">
+              <Field name="level" />
+              <Field name="access_token" />
+              <Field name="time_range" />
+              <Field name="fields" />
+              <Field name="APIURL" selected="False" />
+              <Field name="InsightsUrl" selected="False" />
+              <Field name="ReportStatus" selected="False" />
+              <Field name="DownloadReportUrl" selected="False" />
+              <Field name="*Unknown" selected="False" />
+            </ComposeFields>
+            <ContentType>Urlencoded</ContentType>
+          </Payload>
+          <UserName />
+          <Password />
+          <numConnections>2</numConnections>
+          <Timeout>600</Timeout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name>RequestReport</Name>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="APIURL" size="32" source="TextInput:" type="String" />
+            <Field name="level" size="500" source="TextInput:" type="String" />
+            <Field name="access_token" size="500" source="TextInput:" type="String" />
+            <Field name="time_range" size="500" source="Formula: &quot;{'since':'&quot; + [StartDate] + &quot;','until':'&quot; + [EndDate] + &quot;'}&quot;" type="V_WString" />
+            <Field name="InsightsUrl" size="1073741823" source="Formula: [APIURL] + &quot;act_&quot; + [AccountId] + &quot;/insights&quot;" type="V_WString" />
+            <Field name="ReportStatus" size="2000" source="Formula: &quot;&quot;&#xA;" type="V_WString" />
+            <Field name="DownloadReportUrl" size="2000" source="Formula: &quot;&quot;" type="V_WString" />
+            <Field name="fields" size="4000" source="CrossTab:Header:fields:fields:Concat:" type="V_String" />
+            <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxConnectorEngine.dll" EngineDllEntryPoint="AlteryxDownload" />
+    </Node>
+    <Node ToolID="16">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AppendFields.AppendFields">
+        <Position x="534" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <CartesianMode>Error</CartesianMode>
+          <SelectConfiguration>
+            <Configuration outputConnection="Output">
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="Target_APIURL" selected="True" />
+                <SelectField field="Target_level" selected="True" />
+                <SelectField field="Target_access_token" selected="True" />
+                <SelectField field="Target_time_range" selected="True" />
+                <SelectField field="Target_InsightsUrl" selected="True" />
+                <SelectField field="Target_ReportStatus" selected="True" />
+                <SelectField field="Target_DownloadReportUrl" selected="True" />
+                <SelectField field="Source_fields" selected="True" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name>AppendFields</Name>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="APIURL" size="32" source="TextInput:" type="String" />
+            <Field name="level" size="500" source="TextInput:" type="String" />
+            <Field name="access_token" size="500" source="TextInput:" type="String" />
+            <Field name="time_range" size="500" source="Formula: &quot;{'since':'&quot; + [StartDate] + &quot;','until':'&quot; + [EndDate] + &quot;'}&quot;" type="V_WString" />
+            <Field name="InsightsUrl" size="1073741823" source="Formula: [APIURL] + &quot;act_&quot; + [AccountId] + &quot;/insights&quot;" type="V_WString" />
+            <Field name="ReportStatus" size="2000" source="Formula: &quot;&quot;&#xA;" type="V_WString" />
+            <Field name="DownloadReportUrl" size="2000" source="Formula: &quot;&quot;" type="V_WString" />
+            <Field name="fields" size="4000" source="CrossTab:Header:fields:fields:Concat:" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxAppendFields" />
+    </Node>
+    <Node ToolID="19">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.JSONParse.JSONParse">
+        <Position x="774" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <JSON_Field>DownloadData</JSON_Field>
+          <IncludeInOutput value="False" />
+          <SingleField value="True" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name>ParseReportResponse</Name>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="APIURL" size="32" source="TextInput:" type="String" />
+            <Field name="level" size="500" source="TextInput:" type="String" />
+            <Field name="access_token" size="500" source="TextInput:" type="String" />
+            <Field name="time_range" size="500" source="Formula: &quot;{'since':'&quot; + [StartDate] + &quot;','until':'&quot; + [EndDate] + &quot;'}&quot;" type="V_WString" />
+            <Field name="InsightsUrl" size="1073741823" source="Formula: [APIURL] + &quot;act_&quot; + [AccountId] + &quot;/insights&quot;" type="V_WString" />
+            <Field name="ReportStatus" size="2000" source="Formula: &quot;&quot;&#xA;" type="V_WString" />
+            <Field name="DownloadReportUrl" size="2000" source="Formula: &quot;&quot;" type="V_WString" />
+            <Field name="fields" size="4000" source="CrossTab:Header:fields:fields:Concat:" type="V_String" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+            <Field name="JSON_Name" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="JSON_ValueString" size="1073741823" source="JSONParse: " type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJSONParse" />
+    </Node>
+    <Node ToolID="20">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="882" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <SelectFields>
+            <SelectField field="APIURL" selected="True" size="100" />
+            <SelectField field="level" selected="True" size="100" />
+            <SelectField field="access_token" selected="True" size="200" />
+            <SelectField field="time_range" selected="True" size="100" />
+            <SelectField field="InsightsUrl" selected="True" size="200" />
+            <SelectField field="ReportStatus" selected="True" size="100" />
+            <SelectField field="DownloadReportUrl" selected="True" size="200" />
+            <SelectField field="fields" selected="True" size="500" />
+            <SelectField field="JSON_ValueString" selected="True" rename="ReportRunId" size="100" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="APIURL" size="100" source="TextInput:" type="String" />
+            <Field name="level" size="100" source="TextInput:" type="String" />
+            <Field name="access_token" size="200" source="TextInput:" type="String" />
+            <Field name="time_range" size="100" source="Formula: &quot;{'since':'&quot; + [StartDate] + &quot;','until':'&quot; + [EndDate] + &quot;'}&quot;" type="V_WString" />
+            <Field name="InsightsUrl" size="200" source="Formula: [APIURL] + &quot;act_&quot; + [AccountId] + &quot;/insights&quot;" type="V_WString" />
+            <Field name="ReportStatus" size="100" source="Formula: &quot;&quot;&#xA;" type="V_WString" />
+            <Field name="DownloadReportUrl" size="200" source="Formula: &quot;&quot;" type="V_WString" />
+            <Field name="fields" size="500" source="CrossTab:Header:fields:fields:Concat:" type="V_String" />
+            <Field name="ReportRunId" size="100" source="JSONParse: " type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="21">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="1002" y="246" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">ReportRequestData.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>ReportRequestData.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="28">
+      <GuiSettings>
+        <Position x="1002" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="Input.Input"><![CDATA[APIURL=APIURL
+level=level
+access_token=access_token
+time_range=time_range
+InsightsUrl=InsightsUrl
+ReportStatus=ReportStatus
+fields=fields
+ReportRunId=ReportRunId
+]]></Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Check report progress</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="OutputSuccess">
+          <RecordInfo>
+            <Field name="APIURL" size="100" source="TextInput: (BatchMacro)" type="String" />
+            <Field name="level" size="100" source="TextInput: (BatchMacro)" type="String" />
+            <Field name="access_token" size="200" source="TextInput: (BatchMacro)" type="String" />
+            <Field name="time_range" size="100" source="Formula: &quot;{'since':'&quot; + [StartDate] + &quot;','until':'&quot; + [EndDate] + &quot;'}&quot; (BatchMacro)" type="V_WString" />
+            <Field name="InsightsUrl" size="200" source="Formula: [APIURL] + &quot;act_&quot; + [AccountId] + &quot;/insights&quot; (BatchMacro)" type="V_WString" />
+            <Field name="ReportStatus" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="fields" size="500" source="CrossTab:Header:fields:fields:Concat: (BatchMacro)" type="V_String" />
+            <Field name="ReportRunId" size="100" source="JSONParse:  (BatchMacro)" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="OutputRetry">
+          <RecordInfo>
+            <Field name="APIURL" size="100" source="TextInput: (BatchMacro) (BatchMacro)" type="String" />
+            <Field name="level" size="100" source="TextInput: (BatchMacro) (BatchMacro)" type="String" />
+            <Field name="access_token" size="200" source="TextInput: (BatchMacro) (BatchMacro)" type="String" />
+            <Field name="time_range" size="100" source="Formula: &quot;{'since':'&quot; + [StartDate] + &quot;','until':'&quot; + [EndDate] + &quot;'}&quot; (BatchMacro) (BatchMacro)" type="V_WString" />
+            <Field name="InsightsUrl" size="200" source="Formula: [APIURL] + &quot;act_&quot; + [AccountId] + &quot;/insights&quot; (BatchMacro) (BatchMacro)" type="V_WString" />
+            <Field name="ReportStatus" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="fields" size="500" source="CrossTab:Header:fields:fields:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
+            <Field name="ReportRunId" size="100" source="JSONParse:  (BatchMacro) (BatchMacro)" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro=".\FB-ReachFrequency-02-CheckReportProgress.yxmc" />
+    </Node>
+    <Node ToolID="29">
+      <GuiSettings>
+        <Position x="1230" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="Input.Input"><![CDATA[APIURL=APIURL
+level=level
+access_token=access_token
+time_range=time_range
+InsightsUrl=InsightsUrl
+ReportStatus=ReportStatus
+DownloadReportUrl=DownloadReportUrl
+fields=fields
+ReportRunId=ReportRunId
+]]></Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name>FB-ReachFrequency-03-DownloadReport</Name>
+          <AnnotationText>Download report</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="OutputSuccess">
+          <RecordInfo>
+            <Field name="account_id" size="100" source="CrossTab:Header:JSON_Name3:account_id:Concat: (BatchMacro) (BatchMacro)" type="V_WString" />
+            <Field name="account_name" size="200" source="CrossTab:Header:JSON_Name3:account_name:Concat: (BatchMacro) (BatchMacro)" type="V_WString" />
+            <Field name="campaign_id" size="100" source="CrossTab:Header:JSON_Name3:campaign_id:Concat: (BatchMacro) (BatchMacro)" type="V_WString" />
+            <Field name="campaign_name" size="200" source="CrossTab:Header:JSON_Name3:campaign_name:Concat: (BatchMacro) (BatchMacro)" type="V_WString" />
+            <Field name="date_start" size="100" source="CrossTab:Header:JSON_Name3:date_start:Concat: (BatchMacro) (BatchMacro)" type="V_WString" />
+            <Field name="date_stop" size="100" source="CrossTab:Header:JSON_Name3:date_stop:Concat: (BatchMacro) (BatchMacro)" type="V_WString" />
+            <Field name="frequency" source="CrossTab:Header:JSON_Name3:frequency:Concat: (BatchMacro) (BatchMacro)" type="Double" />
+            <Field name="reach" source="CrossTab:Header:JSON_Name3:reach:Concat: (BatchMacro) (BatchMacro)" type="Double" />
+            <Field name="social_reach" source="CrossTab:Header:JSON_Name3:social_reach:Concat: (BatchMacro) (BatchMacro)" type="Double" />
+            <Field name="ReportRunId" size="100" source="JSONParse:  (BatchMacro) (BatchMacro) (BatchMacro)" type="V_String" />
+            <Field name="PageNumber" source="Formula: [Engine.IterationNumber] (BatchMacro) (BatchMacro)" type="Int32" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="OutputRetry">
+          <RecordInfo>
+            <Field name="APIURL" size="100" source="TextInput: (BatchMacro)" type="String" />
+            <Field name="level" size="100" source="TextInput: (BatchMacro)" type="String" />
+            <Field name="access_token" size="200" source="TextInput: (BatchMacro)" type="String" />
+            <Field name="time_range" size="100" source="Formula: &quot;{'since':'&quot; + [StartDate] + &quot;','until':'&quot; + [EndDate] + &quot;'}&quot; (BatchMacro)" type="V_WString" />
+            <Field name="InsightsUrl" size="200" source="Formula: [APIURL] + &quot;act_&quot; + [AccountId] + &quot;/insights&quot; (BatchMacro)" type="V_WString" />
+            <Field name="DownloadReportUrl" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="fields" size="500" source="CrossTab:Header:fields:fields:Concat: (BatchMacro)" type="V_String" />
+            <Field name="ReportRunId" size="100" source="JSONParse:  (BatchMacro)" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro=".\FB-ReachFrequency-03-DownloadReport.yxmc" />
+    </Node>
+    <Node ToolID="30">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="1122" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="&quot;&quot;" field="DownloadReportUrl" size="2000" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[DownloadReportUrl = ""
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="APIURL" size="100" source="TextInput: (BatchMacro)" type="String" />
+            <Field name="level" size="100" source="TextInput: (BatchMacro)" type="String" />
+            <Field name="access_token" size="200" source="TextInput: (BatchMacro)" type="String" />
+            <Field name="time_range" size="100" source="Formula: &quot;{'since':'&quot; + [StartDate] + &quot;','until':'&quot; + [EndDate] + &quot;'}&quot; (BatchMacro)" type="V_WString" />
+            <Field name="InsightsUrl" size="200" source="Formula: [APIURL] + &quot;act_&quot; + [AccountId] + &quot;/insights&quot; (BatchMacro)" type="V_WString" />
+            <Field name="ReportStatus" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="fields" size="500" source="CrossTab:Header:fields:fields:Concat: (BatchMacro)" type="V_String" />
+            <Field name="ReportRunId" size="100" source="JSONParse:  (BatchMacro)" type="V_WString" />
+            <Field name="DownloadReportUrl" size="2000" source="Formula: &quot;&quot;" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="31">
+      <GuiSettings Plugin="LockInGui.LockInStreamIn.LockInStreamIn">
+        <Position x="1350" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Connection>Redshift Reporting</Connection>
+          <CreateMode>Overwrite</CreateMode>
+          <Table>social_fb_reachfrequency_stg</Table>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Source=Redshift Reporting
+Table=social_fb_reachfrequency_stg</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo LockIn="True">
+            <Field name="account_id" size="100" source="In-DB:DB=Redshift Reporting;" type="V_WString" />
+            <Field name="account_name" size="200" source="In-DB:DB=Redshift Reporting;" type="V_WString" />
+            <Field name="campaign_id" size="100" source="In-DB:DB=Redshift Reporting;" type="V_WString" />
+            <Field name="campaign_name" size="200" source="In-DB:DB=Redshift Reporting;" type="V_WString" />
+            <Field name="date_start" size="100" source="In-DB:DB=Redshift Reporting;" type="V_WString" />
+            <Field name="date_stop" size="100" source="In-DB:DB=Redshift Reporting;" type="V_WString" />
+            <Field name="frequency" source="In-DB:DB=Redshift Reporting;" type="Double" />
+            <Field name="reach" source="In-DB:DB=Redshift Reporting;" type="Double" />
+            <Field name="social_reach" source="In-DB:DB=Redshift Reporting;" type="Double" />
+            <Field name="ReportRunId" size="100" source="In-DB:DB=Redshift Reporting;" type="V_String" />
+            <Field name="PageNumber" source="In-DB:DB=Redshift Reporting;" type="Int32" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInStreamIn" />
+    </Node>
+    <Node ToolID="32">
+      <GuiSettings Plugin="LockInGui.LockInOutput.LockInOutput">
+        <Position x="1458" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Table>social_fb_reachfrequency</Table>
+          <CreateMode>Append</CreateMode>
+          <AppendMode>ByName</AppendMode>
+          <AppendFieldMode>All</AppendFieldMode>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Table=social_fb_reachfrequency</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo LockIn="True">
+            <Field name="account_id" size="100" source="In-DB:DB=Redshift Reporting;" type="V_WString" />
+            <Field name="account_name" size="200" source="In-DB:DB=Redshift Reporting;" type="V_WString" />
+            <Field name="campaign_id" size="100" source="In-DB:DB=Redshift Reporting;" type="V_WString" />
+            <Field name="campaign_name" size="200" source="In-DB:DB=Redshift Reporting;" type="V_WString" />
+            <Field name="date_start" size="100" source="In-DB:DB=Redshift Reporting;" type="V_WString" />
+            <Field name="date_stop" size="100" source="In-DB:DB=Redshift Reporting;" type="V_WString" />
+            <Field name="frequency" source="In-DB:DB=Redshift Reporting;" type="Double" />
+            <Field name="reach" source="In-DB:DB=Redshift Reporting;" type="Double" />
+            <Field name="social_reach" source="In-DB:DB=Redshift Reporting;" type="Double" />
+            <Field name="ReportRunId" size="100" source="In-DB:DB=Redshift Reporting;" type="V_String" />
+            <Field name="PageNumber" source="In-DB:DB=Redshift Reporting;" type="Int32" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInOutput" />
+    </Node>
+    <Node ToolID="33">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="36">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
+        <Position x="54" y="54" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name>AccountId</Name>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="37">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="54" y="150" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name>UpdateAccountId</Name>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="38">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
+        <Position x="222" y="54" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name>StartDate</Name>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="39">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="222" y="150" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name>UpdateStartDate</Name>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="40">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
+        <Position x="378" y="54" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name>EndDate</Name>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="41">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="378" y="150" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name>UpdateEndDate</Name>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="14" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="Output" />
+      <Destination ToolID="16" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="Output" />
+      <Destination ToolID="16" Connection="Source" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="15" Connection="Output" />
+      <Destination ToolID="19" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="16" Connection="Output" />
+      <Destination ToolID="15" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="19" Connection="Output" />
+      <Destination ToolID="20" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="20" Connection="Output" />
+      <Destination ToolID="21" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="20" Connection="Output" />
+      <Destination ToolID="28" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="28" Connection="OutputSuccess" />
+      <Destination ToolID="30" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="29" Connection="OutputSuccess" />
+      <Destination ToolID="31" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="30" Connection="Output" />
+      <Destination ToolID="29" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="31" Connection="Output" />
+      <Destination ToolID="32" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="36" Connection="Question" />
+      <Destination ToolID="37" Connection="Question" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="37" Connection="Action" />
+      <Destination ToolID="1" Connection="Action" />
+    </Connection>
+    <Connection name="#3">
+      <Origin ToolID="39" Connection="Action" />
+      <Destination ToolID="1" Connection="Action" />
+    </Connection>
+    <Connection name="#4">
+      <Origin ToolID="41" Connection="Action" />
+      <Destination ToolID="1" Connection="Action" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="38" Connection="Question" />
+      <Destination ToolID="39" Connection="Question" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="40" Connection="Question" />
+      <Destination ToolID="41" Connection="Question" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <Constants>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>AccountId</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>StartDate</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>EndDate</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+    </Constants>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>FB-ReachFrequency-01-Batch</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="False" />
+    </Events>
+    <RuntimeProperties>
+      <Actions>
+        <NoCondition>
+          <Type>NoCondition</Type>
+          <Description>(Always Run)</Description>
+          <True>
+            <Action>
+              <Type>UpdateValue</Type>
+              <Description />
+              <ToolId value="37" />
+              <Mode>Simple</Mode>
+              <Variable />
+              <Replace value="False" />
+              <Destination>1/Data/r/c[2]</Destination>
+            </Action>
+            <Action>
+              <Type>UpdateValue</Type>
+              <Description />
+              <ToolId value="39" />
+              <Mode>Simple</Mode>
+              <Variable />
+              <Replace value="False" />
+              <Destination>1/Data/r/c[3]</Destination>
+            </Action>
+            <Action>
+              <Type>UpdateValue</Type>
+              <Description />
+              <ToolId value="41" />
+              <Mode>Simple</Mode>
+              <Variable />
+              <Replace value="False" />
+              <Destination>1/Data/r/c[4]</Destination>
+            </Action>
+          </True>
+        </NoCondition>
+      </Actions>
+      <Questions>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Questions</Description>
+          <Name>Tab (33)</Name>
+          <ToolId value="33" />
+          <Questions>
+            <Question>
+              <Type>TextBox</Type>
+              <Description>AccountId</Description>
+              <Name>AccountId</Name>
+              <ToolId value="36" />
+              <Default>1456982927894302</Default>
+              <Password value="False" />
+              <Multiline value="False" />
+              <Hidden value="False" />
+            </Question>
+            <Question>
+              <Type>TextBox</Type>
+              <Description>StartDate</Description>
+              <Name>StartDate</Name>
+              <ToolId value="38" />
+              <Default>2017-03-01</Default>
+              <Password value="False" />
+              <Multiline value="False" />
+              <Hidden value="False" />
+            </Question>
+            <Question>
+              <Type>TextBox</Type>
+              <Description>EndDate</Description>
+              <Name>EndDate</Name>
+              <ToolId value="40" />
+              <Default>2017-03-31</Default>
+              <Password value="False" />
+              <Multiline value="False" />
+              <Hidden value="False" />
+            </Question>
+          </Questions>
+        </Question>
+      </Questions>
+      <ModuleType>Wizard</ModuleType>
+      <MacroCustomHelp value="False" />
+      <MacroDynamicOutputFields value="False" />
+      <MacroImageStd value="0" />
+      <MacroInputs />
+      <MacroOutputs />
+      <Wiz_CustomHelp value="False" />
+      <Wiz_CustomGraphic value="False" />
+      <Wiz_ShowOutput value="True" />
+      <Wiz_OpenOutputTools>
+        <Tool ToolId="21" Selected="True" />
+        <Tool ToolId="28" Selected="True" />
+        <Tool ToolId="29" Selected="True" />
+      </Wiz_OpenOutputTools>
+      <Wiz_OutputMessage />
+      <Wiz_NoOutputFilesMessage />
+      <Wiz_ChainRunWizard />
+    </RuntimeProperties>
+  </Properties>
+</AlteryxDocument>

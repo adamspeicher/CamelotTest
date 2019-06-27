@@ -1,0 +1,1532 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2018.2">
+  <Nodes>
+    <Node ToolID="36">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="44">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
+        <Position x="1124" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Name>Output44</Name>
+          <Abbrev />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name>Final Output</Name>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
+    </Node>
+    <Node ToolID="45">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+        <Position x="1064" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ByName_ErrorMode>Ignore</ByName_ErrorMode>
+          <ByName_OutputMode>All</ByName_OutputMode>
+          <Mode>ByName</Mode>
+          <SetOutputOrder value="True" />
+          <OutputOrder>
+            <Connection>#2</Connection>
+            <Connection>#1</Connection>
+          </OutputOrder>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name>Union All Processing</Name>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="key" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+            <Field name="size" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+            <Field name="modified" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+            <Field name="ClientKey" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+            <Field name="SourceSystemKey" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+            <Field name="mod_dt" source="DateTime: To %m/%d/%Y %I:%M:%S %p" type="DateTime" />
+            <Field name="DestinationPath" size="1073741823" source="Formula: FileAddPaths([Engine.TempFilePath], [key])" type="V_WString" />
+            <Field name="LogSource" size="1073741823" source="Formula: 'List Files for Processing'" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+    </Node>
+    <Node ToolID="61">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="1278" y="546" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="key" action="Count" rename="Files To Process" />
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Files To Process" source="Summarize: Count - key" type="Int64" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+    </Node>
+    <Node ToolID="78">
+      <GuiSettings>
+        <Position x="1470" y="558" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="BatchMacroGroupBy" />
+          <Value name="Input.FileToProcess"><![CDATA[key=key
+size=size
+modified=modified
+ClientKey=ClientKey
+SourceSystemKey=SourceSystemKey
+mod_dt=mod_dt
+DestinationPath=DestinationPath
+]]></Value>
+          <Value name="ControlParams"><![CDATA[Control Parameter Files To Process=Files To Process
+]]></Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name>Social Kenshoo Ad Load (75)</Name>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings Macro="Kenshoo\Social Kenshoo Ad Load.yxmc" />
+    </Node>
+    <Node ToolID="58">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="55.99999" y="54" width="640" height="224.0001" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Interface</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="46">
+          <GuiSettings Plugin="AlteryxGuiToolkit.Questions.CheckBoxGroup.CheckBoxGroup">
+            <Position x="525" y="98.00003" width="59" height="59" />
+          </GuiSettings>
+          <Properties>
+            <Configuration />
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="47">
+          <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+            <Position x="524" y="194" width="59" height="59" />
+          </GuiSettings>
+          <Properties>
+            <Configuration />
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="56">
+          <GuiSettings Plugin="AlteryxGuiToolkit.Questions.NumericUpDown.NumericUpDown">
+            <Position x="368" y="98" width="59" height="59" />
+          </GuiSettings>
+          <Properties>
+            <Configuration />
+            <Annotation DisplayMode="0">
+              <Name>Max Files To Process</Name>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="57">
+          <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+            <Position x="368" y="194.0001" width="59" height="59" />
+          </GuiSettings>
+          <Properties>
+            <Configuration />
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="42">
+          <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
+            <Position x="225" y="98.00011" width="59" height="59" />
+          </GuiSettings>
+          <Properties>
+            <Configuration />
+            <Annotation DisplayMode="0">
+              <Name>Key Filter Text Box</Name>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="43">
+          <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+            <Position x="225" y="194" width="59" height="59" />
+          </GuiSettings>
+          <Properties>
+            <Configuration />
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="40">
+          <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
+            <Position x="81.00001" y="98.00002" width="59" height="59" />
+          </GuiSettings>
+          <Properties>
+            <Configuration />
+            <Annotation DisplayMode="0">
+              <Name>Custom Filter Text Box</Name>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="41">
+          <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+            <Position x="80.99999" y="194" width="59" height="59" />
+          </GuiSettings>
+          <Properties>
+            <Configuration />
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="30">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="54" y="369.9998" width="1130" height="427.0002" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>List Files for Processing</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="59">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="704" y="498" width="120" height="108" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>Sort by Last Modified Date</Text>
+              <Font name="Segoe UI" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="4" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="54">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DateTime.DateTime">
+            <Position x="704" y="534" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <IsFrom value="False" />
+              <InputFieldName>modified</InputFieldName>
+              <Format>%m/%d/%Y %I:%M:%S %p</Format>
+              <OutputFieldName>mod_dt</OutputFieldName>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name>Convert Modified Date</Name>
+              <AnnotationText />
+              <DefaultAnnotationText>Convert modified From:
+Custom</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="key" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+                <Field name="size" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+                <Field name="modified" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+                <Field name="ClientKey" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+                <Field name="SourceSystemKey" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+                <Field name="mod_dt" source="DateTime: To %m/%d/%Y %I:%M:%S %p" type="DateTime" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDateTime" />
+        </Node>
+        <Node ToolID="53">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+            <Position x="764" y="534" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SortInfo locale="0">
+                <Field field="mod_dt" order="Descending" />
+              </SortInfo>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name>Sort by Modification Date</Name>
+              <AnnotationText />
+              <DefaultAnnotationText>mod_dt - Descending</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="key" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+                <Field name="size" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+                <Field name="modified" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+                <Field name="ClientKey" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+                <Field name="SourceSystemKey" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+                <Field name="mod_dt" source="DateTime: To %m/%d/%Y %I:%M:%S %p" type="DateTime" />
+              </RecordInfo>
+              <SortInfo locale="0">
+                <Field field="mod_dt" order="Descending" />
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+        </Node>
+        <Node ToolID="52">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="908" y="534" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="FileAddPaths([Engine.TempFilePath], [key])" field="DestinationPath" size="1073741823" type="V_WString" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText><![CDATA[DestinationPath = FileAddPaths([Engine.TempFilePath], [key])
+]]></DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="key" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+                <Field name="size" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+                <Field name="modified" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+                <Field name="ClientKey" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+                <Field name="SourceSystemKey" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+                <Field name="mod_dt" source="DateTime: To %m/%d/%Y %I:%M:%S %p" type="DateTime" />
+                <Field name="DestinationPath" size="1073741823" source="Formula: FileAddPaths([Engine.TempFilePath], [key])" type="V_WString" />
+              </RecordInfo>
+              <SortInfo locale="0">
+                <Field field="mod_dt" order="Descending" />
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="51">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="836" y="498" width="60" height="108" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>Report Throttle</Text>
+              <Font name="Segoe UI" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="4" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="48">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="1052" y="414" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="'List Files for Processing'" field="LogSource" size="1073741823" type="V_WString" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name>LogSource Files</Name>
+              <AnnotationText><![CDATA[LogSource = 'List Files for Processing'
+]]></AnnotationText>
+              <DefaultAnnotationText><![CDATA[LogSource = 'List Files for Processing'
+]]></DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="key" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+                <Field name="size" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+                <Field name="modified" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+                <Field name="ClientKey" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+                <Field name="SourceSystemKey" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+                <Field name="mod_dt" source="DateTime: To %m/%d/%Y %I:%M:%S %p" type="DateTime" />
+                <Field name="DestinationPath" size="1073741823" source="Formula: FileAddPaths([Engine.TempFilePath], [key])" type="V_WString" />
+                <Field name="LogSource" size="1073741823" source="Formula: 'List Files for Processing'" type="V_WString" />
+              </RecordInfo>
+              <SortInfo locale="0">
+                <Field field="mod_dt" order="Descending" />
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="25">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="560" y="534" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Expression>1</Expression>
+              <Mode>Custom</Mode>
+              <Simple>
+                <Operator>=</Operator>
+                <Operands>
+                  <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+                  <DateType>fixed</DateType>
+                  <PeriodDate>2018-05-09 11:37:17</PeriodDate>
+                  <PeriodType>
+                  </PeriodType>
+                  <PeriodCount>0</PeriodCount>
+                  <StartDate>2018-05-09 11:37:17</StartDate>
+                  <EndDate>2018-05-09 11:37:17</EndDate>
+                  <Operand>
+                  </Operand>
+                </Operands>
+              </Simple>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name>Customt Filter</Name>
+              <AnnotationText>Optional Filter</AnnotationText>
+              <DefaultAnnotationText>1</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="True">
+              <RecordInfo>
+                <Field name="key" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+                <Field name="size" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+                <Field name="modified" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+                <Field name="SocialKenshooKey" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+                <Field name="ClientSourceSystemID" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+                <Field name="FTP_Directory" size="50" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_String" />
+                <Field name="Report_FileMask" size="50" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_String" />
+                <Field name="IsActive" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Bool" />
+                <Field name="ReportStart" size="10" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_WString" />
+                <Field name="ReportEnd" size="10" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_WString" />
+                <Field name="CreateDT" size="27" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_WString" />
+                <Field name="UpdateDT" size="27" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_WString" />
+                <Field name="ClientKey" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+                <Field name="SourceSystemKey" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+                <Field name="match_exp" size="1073741823" source="Formula: Replace(Replace([Report_FileMask],'.','\.'),'*','.*')" type="V_WString" />
+                <Field name="matchmade" source="Formula: REGEX_Match([key], [match_exp])" type="Bool" />
+              </RecordInfo>
+            </MetaInfo>
+            <MetaInfo connection="False">
+              <RecordInfo>
+                <Field name="key" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+                <Field name="size" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+                <Field name="modified" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+                <Field name="SocialKenshooKey" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+                <Field name="ClientSourceSystemID" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+                <Field name="FTP_Directory" size="50" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_String" />
+                <Field name="Report_FileMask" size="50" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_String" />
+                <Field name="IsActive" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Bool" />
+                <Field name="ReportStart" size="10" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_WString" />
+                <Field name="ReportEnd" size="10" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_WString" />
+                <Field name="CreateDT" size="27" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_WString" />
+                <Field name="UpdateDT" size="27" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_WString" />
+                <Field name="ClientKey" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+                <Field name="SourceSystemKey" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+                <Field name="match_exp" size="1073741823" source="Formula: Replace(Replace([Report_FileMask],'.','\.'),'*','.*')" type="V_WString" />
+                <Field name="matchmade" source="Formula: REGEX_Match([key], [match_exp])" type="Bool" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="1">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="79.00005" y="654.0002" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <File RecordLimit="" FileFormat="18">odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID</File>
+              <FormatSpecificOptions>
+                <PreSQL />
+                <PreSQLOnConfig>True</PreSQLOnConfig>
+                <NoProgress>True</NoProgress>
+                <CacheData>False</CacheData>
+                <TableStyle>Quoted</TableStyle>
+                <ReadUncommitted>False</ReadUncommitted>
+                <PostSQL />
+              </FormatSpecificOptions>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name>Active Kenshoo Social Reports</Name>
+              <AnnotationText>Active Kenshoo Social Reports</AnnotationText>
+              <DefaultAnnotationText>Source=sqlprod1
+Table=Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="SocialKenshooKey" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+                <Field name="ClientSourceSystemID" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+                <Field name="FTP_Directory" size="50" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_String" />
+                <Field name="Report_FileMask" size="50" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_String" />
+                <Field name="IsActive" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Bool" />
+                <Field name="ReportStart" size="10" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_WString" />
+                <Field name="ReportEnd" size="10" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_WString" />
+                <Field name="CreateDT" size="27" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_WString" />
+                <Field name="UpdateDT" size="27" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_WString" />
+                <Field name="ClientKey" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+                <Field name="SourceSystemKey" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="5">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="356" y="534" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="Replace(Replace([Report_FileMask],'.','\.'),'*','.*')" field="match_exp" size="1073741823" type="V_WString" />
+                <FormulaField expression="REGEX_Match([key], [match_exp])" field="matchmade" size="1" type="Bool" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name>Find Matches</Name>
+              <AnnotationText>File Mask</AnnotationText>
+              <DefaultAnnotationText>match_exp = Replace(Replace([Report_FileMask],'.','\.'),'*','.*')
+matchmade = RE...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="key" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+                <Field name="size" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+                <Field name="modified" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+                <Field name="SocialKenshooKey" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+                <Field name="ClientSourceSystemID" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+                <Field name="FTP_Directory" size="50" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_String" />
+                <Field name="Report_FileMask" size="50" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_String" />
+                <Field name="IsActive" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Bool" />
+                <Field name="ReportStart" size="10" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_WString" />
+                <Field name="ReportEnd" size="10" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_WString" />
+                <Field name="CreateDT" size="27" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_WString" />
+                <Field name="UpdateDT" size="27" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_WString" />
+                <Field name="ClientKey" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+                <Field name="SourceSystemKey" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+                <Field name="match_exp" size="1073741823" source="Formula: Replace(Replace([Report_FileMask],'.','\.'),'*','.*')" type="V_WString" />
+                <Field name="matchmade" source="Formula: REGEX_Match([key], [match_exp])" type="Bool" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="33">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="1052" y="666" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File FileFormat="19" MaxRecords="">D:\ETL\Files\DM_Social\Kenshoo\most_recent_files_for_processing.yxdb</File>
+              <Passwords />
+              <FormatSpecificOptions>
+                <NoSpatialIndex>False</NoSpatialIndex>
+                <SaveSource>True</SaveSource>
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name>Ouput List Diagnostics</Name>
+              <DefaultAnnotationText>most_recent_files_for_processing.yxdb</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+        <Node ToolID="31">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Message.Message">
+            <Position x="967" y="534" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <When>Filter</When>
+              <Filter>1</Filter>
+              <Type>Message</Type>
+              <Priority>High</Priority>
+              <Transient>False</Transient>
+              <MessageExpression>DateTimeFormat(DateTimeNow(),'%Y-%m-%d %H:%M:%S | ') + PADLEFT(ToString([_RecordNumber_]),5,'0') + ' | ' + [key] + ' | Queued.'</MessageExpression>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name>List Files Message</Name>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="key" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+                <Field name="size" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+                <Field name="modified" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+                <Field name="ClientKey" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+                <Field name="SourceSystemKey" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+                <Field name="mod_dt" source="DateTime: To %m/%d/%Y %I:%M:%S %p" type="DateTime" />
+                <Field name="DestinationPath" size="1073741823" source="Formula: FileAddPaths([Engine.TempFilePath], [key])" type="V_WString" />
+              </RecordInfo>
+              <SortInfo locale="0">
+                <Field field="mod_dt" order="Descending" />
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMessage" />
+        </Node>
+        <Node ToolID="28">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="488" y="534" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Expression>1</Expression>
+              <Mode>Custom</Mode>
+              <Simple>
+                <Operator>=</Operator>
+                <Field>
+                </Field>
+                <Operands>
+                  <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+                  <DateType>fixed</DateType>
+                  <PeriodDate>2018-05-09 11:36:54</PeriodDate>
+                  <PeriodType>
+                  </PeriodType>
+                  <PeriodCount>0</PeriodCount>
+                  <Operand>
+                  </Operand>
+                  <StartDate>2018-05-09 11:36:54</StartDate>
+                  <EndDate>2018-05-09 11:36:54</EndDate>
+                </Operands>
+              </Simple>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name>Key Filter</Name>
+              <AnnotationText>Key Filter</AnnotationText>
+              <DefaultAnnotationText>1</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="True">
+              <RecordInfo>
+                <Field name="key" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+                <Field name="size" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+                <Field name="modified" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+                <Field name="SocialKenshooKey" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+                <Field name="ClientSourceSystemID" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+                <Field name="FTP_Directory" size="50" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_String" />
+                <Field name="Report_FileMask" size="50" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_String" />
+                <Field name="IsActive" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Bool" />
+                <Field name="ReportStart" size="10" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_WString" />
+                <Field name="ReportEnd" size="10" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_WString" />
+                <Field name="CreateDT" size="27" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_WString" />
+                <Field name="UpdateDT" size="27" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_WString" />
+                <Field name="ClientKey" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+                <Field name="SourceSystemKey" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+                <Field name="match_exp" size="1073741823" source="Formula: Replace(Replace([Report_FileMask],'.','\.'),'*','.*')" type="V_WString" />
+                <Field name="matchmade" source="Formula: REGEX_Match([key], [match_exp])" type="Bool" />
+              </RecordInfo>
+            </MetaInfo>
+            <MetaInfo connection="False">
+              <RecordInfo>
+                <Field name="key" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+                <Field name="size" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+                <Field name="modified" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+                <Field name="SocialKenshooKey" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+                <Field name="ClientSourceSystemID" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+                <Field name="FTP_Directory" size="50" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_String" />
+                <Field name="Report_FileMask" size="50" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_String" />
+                <Field name="IsActive" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Bool" />
+                <Field name="ReportStart" size="10" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_WString" />
+                <Field name="ReportEnd" size="10" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_WString" />
+                <Field name="CreateDT" size="27" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_WString" />
+                <Field name="UpdateDT" size="27" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_WString" />
+                <Field name="ClientKey" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+                <Field name="SourceSystemKey" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+                <Field name="match_exp" size="1073741823" source="Formula: Replace(Replace([Report_FileMask],'.','\.'),'*','.*')" type="V_WString" />
+                <Field name="matchmade" source="Formula: REGEX_Match([key], [match_exp])" type="Bool" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="17">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="187" y="510" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="key" />
+                <Field field="size" />
+                <Field field="modified" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="key" />
+                <Field field="size" />
+                <Field field="modified" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="False" />
+                  <CommaDecimal value="False" />
+                  <SelectFields>
+                    <SelectField field="Right_key" selected="True" rename="Right_key" />
+                    <SelectField field="Right_size" selected="True" rename="Right_size" />
+                    <SelectField field="Right_modified" selected="True" rename="Right_modified" />
+                    <SelectField field="*Unknown" selected="False" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name>Only Unprocessed</Name>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Left">
+              <RecordInfo>
+                <Field name="key" size="5004" source="File: odbc:DSN=redshift-etl|||Select * From prod.etldb.social_kenshoo_filelog" type="V_WString" />
+                <Field name="size" size="5004" source="File: odbc:DSN=redshift-etl|||Select * From prod.etldb.social_kenshoo_filelog" type="V_WString" />
+                <Field name="modified" size="5004" source="File: odbc:DSN=redshift-etl|||Select * From prod.etldb.social_kenshoo_filelog" type="V_WString" />
+              </RecordInfo>
+              <SortInfo noProgress="True">
+                <Field field="key" />
+                <Field field="size" />
+                <Field field="modified" />
+              </SortInfo>
+            </MetaInfo>
+            <MetaInfo connection="Join">
+              <RecordInfo>
+                <Field name="Right_key" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+                <Field name="Right_size" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+                <Field name="Right_modified" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+              </RecordInfo>
+            </MetaInfo>
+            <MetaInfo connection="Right">
+              <RecordInfo>
+                <Field name="key" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+                <Field name="size" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+                <Field name="modified" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+              </RecordInfo>
+              <SortInfo noProgress="True">
+                <Field field="key" />
+                <Field field="size" />
+                <Field field="modified" />
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="16">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="80.00001" y="413.9998" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <File RecordLimit="" FileFormat="23">odbc:DSN=redshift-etl|||Select * From prod.etldb.social_kenshoo_filelog</File>
+              <FormatSpecificOptions>
+                <PreSQL />
+                <PreSQLOnConfig>True</PreSQLOnConfig>
+                <NoProgress>True</NoProgress>
+                <CacheData>False</CacheData>
+                <TableStyle>Quoted</TableStyle>
+                <ReadUncommitted>False</ReadUncommitted>
+                <PostSQL />
+              </FormatSpecificOptions>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name>Input Data etldb.search_kenshoo_filelog</Name>
+              <AnnotationText>Previously Processed</AnnotationText>
+              <DefaultAnnotationText>DSN=redshift-etl
+Table=Select * From prod.etldb.social_kenshoo_filelog</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="key" size="5004" source="File: odbc:DSN=redshift-etl|||Select * From prod.etldb.social_kenshoo_filelog" type="V_WString" />
+                <Field name="size" size="5004" source="File: odbc:DSN=redshift-etl|||Select * From prod.etldb.social_kenshoo_filelog" type="V_WString" />
+                <Field name="modified" size="5004" source="File: odbc:DSN=redshift-etl|||Select * From prod.etldb.social_kenshoo_filelog" type="V_WString" />
+                <Field name="bucket_name" size="104" source="File: odbc:DSN=redshift-etl|||Select * From prod.etldb.social_kenshoo_filelog" type="V_WString" />
+                <Field name="clientkey" source="File: odbc:DSN=redshift-etl|||Select * From prod.etldb.social_kenshoo_filelog" type="Int32" />
+                <Field name="sourcesystemkey" source="File: odbc:DSN=redshift-etl|||Select * From prod.etldb.social_kenshoo_filelog" type="Int32" />
+                <Field name="reportgrainname" size="54" source="File: odbc:DSN=redshift-etl|||Select * From prod.etldb.social_kenshoo_filelog" type="V_WString" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="11">
+          <GuiSettings>
+            <Position x="79.99999" y="534.0002" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Value name="Text Box (2)">camelotsmm-kenshoo</Value>
+              <Value name="Text Box (3)">4A482D10E2167F26D2F99E0F88384BBDE61C5ED1F5ADEAD234686B9EF41E1531B90AC2D0C70CCAF3416DD5F646ED871C6A07ECFB9C833F45FDC13FF666B589BDB41C2D703BEA5F1185883F50AC466303855EFDC489BAC6DE67A1ECBAC79A119AAA76019C1783972E7D792E630C7AF02942D515638BC3B4FFD3C733422AC846C20E6CBBF8431A893B097A8E6D84F145F7829B68678E19BB5693DAFE92C9D50E5F2B69D08D06FFDADCF083C9EF44535A5D66213CE0FC123</Value>
+              <Value name="Text Box (4)">4DAE8CBA7D8F54A9CF54DB3C32F9940E164670C23C165CF016835401D0CBEC8A80D7F44040EE192E355DD8F8B9B573D361F1F34EB859FBC50908538EDFFA60A212D843EBD5F8C15948A005B7394A5DED5CABB25779CBCBD2E05A41A0919D1F66E8E16948B9B77E68B296553256E9341C6C987FDBC8A9DFBC8277A8AF7E03DAC48C7084E0BD6F8B338EC1FE883BBBE1A2475C5F70C806DA8EA434A302BAE8CD2C44328BCDAF069466AADA3887AAFA583F2E97B44EF37A821085205EC8A711EBA4E1658F7FAC9B77916A114C7551CB8447701DD5D49B3BB12F4CDEB394330A279263CA218BE5767B8E4F1FABFF2F6543A23EA354C3D2BBD1EAD5E7D4865B6BF1318C980C780736D3F1E1A505D4853FC6C7F3F146996635F5BCA60B61C1FF6C9BF1DE1906A801852362150E8BA9ED94CA3C43E3BBAB165DB3B5B4EB319E7AFA1CE377549149CDE7599DF4EB613B8DB87C515888DBFF3CEF9</Value>
+              <Value name="Text Box (5)" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name>S3 Keys camelotsmm-kenshoo</Name>
+              <AnnotationText>S3 Keys camelotsmm-kenshoo</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="keylist">
+              <RecordInfo>
+                <Field name="key" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+                <Field name="size" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+                <Field name="modified" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings Macro="S3_List_Bucket.yxmc" />
+        </Node>
+        <Node ToolID="7">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="632" y="534" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="key" selected="True" />
+                <SelectField field="size" selected="True" />
+                <SelectField field="modified" selected="True" />
+                <SelectField field="ClientKey" selected="True" />
+                <SelectField field="SourceSystemKey" selected="True" />
+                <SelectField field="ReportGrainName" selected="True" />
+                <SelectField field="Bucket_Name" selected="True" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name>List Select</Name>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="key" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+                <Field name="size" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+                <Field name="modified" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+                <Field name="ClientKey" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+                <Field name="SourceSystemKey" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="6">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="416" y="534" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Mode>Simple</Mode>
+              <Simple>
+                <Field>matchmade</Field>
+                <Operator>IsTrue</Operator>
+              </Simple>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name>Filter Matches</Name>
+              <AnnotationText>matched</AnnotationText>
+              <DefaultAnnotationText>[matchmade] = 1</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="True">
+              <RecordInfo>
+                <Field name="key" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+                <Field name="size" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+                <Field name="modified" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+                <Field name="SocialKenshooKey" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+                <Field name="ClientSourceSystemID" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+                <Field name="FTP_Directory" size="50" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_String" />
+                <Field name="Report_FileMask" size="50" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_String" />
+                <Field name="IsActive" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Bool" />
+                <Field name="ReportStart" size="10" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_WString" />
+                <Field name="ReportEnd" size="10" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_WString" />
+                <Field name="CreateDT" size="27" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_WString" />
+                <Field name="UpdateDT" size="27" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_WString" />
+                <Field name="ClientKey" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+                <Field name="SourceSystemKey" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+                <Field name="match_exp" size="1073741823" source="Formula: Replace(Replace([Report_FileMask],'.','\.'),'*','.*')" type="V_WString" />
+                <Field name="matchmade" source="Formula: REGEX_Match([key], [match_exp])" type="Bool" />
+              </RecordInfo>
+            </MetaInfo>
+            <MetaInfo connection="False">
+              <RecordInfo>
+                <Field name="key" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+                <Field name="size" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+                <Field name="modified" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+                <Field name="SocialKenshooKey" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+                <Field name="ClientSourceSystemID" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+                <Field name="FTP_Directory" size="50" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_String" />
+                <Field name="Report_FileMask" size="50" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_String" />
+                <Field name="IsActive" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Bool" />
+                <Field name="ReportStart" size="10" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_WString" />
+                <Field name="ReportEnd" size="10" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_WString" />
+                <Field name="CreateDT" size="27" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_WString" />
+                <Field name="UpdateDT" size="27" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_WString" />
+                <Field name="ClientKey" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+                <Field name="SourceSystemKey" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+                <Field name="match_exp" size="1073741823" source="Formula: Replace(Replace([Report_FileMask],'.','\.'),'*','.*')" type="V_WString" />
+                <Field name="matchmade" source="Formula: REGEX_Match([key], [match_exp])" type="Bool" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="55">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Sample.Sample">
+            <Position x="836" y="534" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <GroupFields orderChanged="False" />
+              <Mode>First</Mode>
+              <N>5000</N>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>First 5000</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="key" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+                <Field name="size" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+                <Field name="modified" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+                <Field name="ClientKey" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+                <Field name="SourceSystemKey" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+                <Field name="mod_dt" source="DateTime: To %m/%d/%Y %I:%M:%S %p" type="DateTime" />
+              </RecordInfo>
+              <SortInfo locale="0">
+                <Field field="mod_dt" order="Descending" />
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSample" />
+        </Node>
+        <Node ToolID="27">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="151.9999" y="426.0002" width="396" height="35.99997" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>Only want (R)ight side keys in the join below, because they do not match one previously processed as listed in "etldb"."search_kenshoo_filelog".</Text>
+              <Font name="Segoe UI" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="1" />
+              <Justification Justification="4" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="76">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AppendFields.AppendFields">
+            <Position x="283" y="534" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <CartesianMode>Allow</CartesianMode>
+              <SelectConfiguration>
+                <Configuration outputConnection="Output">
+                  <OrderChanged value="False" />
+                  <CommaDecimal value="False" />
+                  <SelectFields>
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="key" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+                <Field name="size" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+                <Field name="modified" size="5000" source="File: C:\Users\ASPEIC~1\AppData\Local\Temp\Engine_19984_4f695998a8324e22ad4ce6b9eb5a3bbd_\bucketlist.out" type="V_WString" />
+                <Field name="SocialKenshooKey" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+                <Field name="ClientSourceSystemID" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+                <Field name="FTP_Directory" size="50" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_String" />
+                <Field name="Report_FileMask" size="50" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_String" />
+                <Field name="IsActive" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Bool" />
+                <Field name="ReportStart" size="10" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_WString" />
+                <Field name="ReportEnd" size="10" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_WString" />
+                <Field name="CreateDT" size="27" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_WString" />
+                <Field name="UpdateDT" size="27" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="V_WString" />
+                <Field name="ClientKey" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+                <Field name="SourceSystemKey" source="File: odb:Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Data Source=sqlprod1;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=TDS-W540-AS;Use Encryption for Data=False;Tag with column collation when possible=False|||Select ETLDB.config.SocialKenshoo_v2.*, ETLDB.config.ClientSourceSystems.ClientKey, ETLDB.config.ClientSourceSystems.SourceSystemKey From ETLDB.config.SocialKenshoo_v2 Inner Join ETLDB.config.ClientSourceSystems On ETLDB.config.SocialKenshoo_v2.ClientSourceSystemID = ETLDB.config.ClientSourceSystems.ID" type="Int32" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxAppendFields" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="29">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="1686" y="366" width="410" height="412" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Process Files Into Warehouse</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="13">
+          <GuiSettings Plugin="LockInGui.LockInStreamIn.LockInStreamIn">
+            <Position x="1904" y="530" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Connection>Redshift Etl</Connection>
+              <CreateMode>TempTable</CreateMode>
+              <Table />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name>Data Stream In Processed Files</Name>
+              <DefaultAnnotationText>Source=Redshift Etl
+Temporary Table</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInStreamIn" />
+        </Node>
+        <Node ToolID="14">
+          <GuiSettings Plugin="LockInGui.LockInOutput.LockInOutput">
+            <Position x="1964" y="530" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Table>etldb.social_kenshoo_filelog</Table>
+              <CreateMode>Append</CreateMode>
+              <AppendMode>ByName</AppendMode>
+              <AppendFieldMode>All</AppendFieldMode>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name>Append etldb.search_kenshoo_filelog</Name>
+              <DefaultAnnotationText>Table=etldb.social_kenshoo_filelog</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInOutput" />
+        </Node>
+        <Node ToolID="15">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="1711" y="590" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="key" selected="True" />
+                <SelectField field="size" selected="True" />
+                <SelectField field="modified" selected="True" />
+                <SelectField field="Bucket_Name" selected="True" />
+                <SelectField field="ClientKey" selected="True" />
+                <SelectField field="SourceSystemKey" selected="True" />
+                <SelectField field="ReportGrainName" selected="True" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name>Select File Info</Name>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="key" size="5000" source="File: D:\ProgramData\Alteryx\Temp\Engine_30660_41361fec412449a1bc61c4ffa98b4043_\bucketlist.out (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="V_WString" />
+                <Field name="size" size="5000" source="File: D:\ProgramData\Alteryx\Temp\Engine_30660_41361fec412449a1bc61c4ffa98b4043_\bucketlist.out (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="V_WString" />
+                <Field name="modified" size="5000" source="File: D:\ProgramData\Alteryx\Temp\Engine_30660_41361fec412449a1bc61c4ffa98b4043_\bucketlist.out (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="V_WString" />
+                <Field name="Bucket_Name" size="100" source="File: aka:dbdev|||Select config.SearchKenshoo.Bucket_Name, config.SearchKenshoo.Report_FileMask, config.ClientSourceSystems.ClientKey, config.ClientSourceSystems.SourceSystemKey, config.ReportGrain.ReportGrainName From config.SearchKenshoo Inner Join config.ClientSourceSystems On config.ClientSourceSystems.ID = config.SearchKenshoo.ClientSourceSystemID Inner Join config.SearchKenshooReportGrain On config.SearchKenshoo.SearchKenshooKey = config.SearchKenshooReportGrain.SearchKenshooKey Inner Join config.ReportGrain On config.ReportGrain.ReportGrainKey = config.SearchKenshooReportGrain.ReportGrainKey Where config.SearchKenshoo.IsActive = 1 And config.ClientSourceSystems.IsActive = 1 (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="V_String" />
+                <Field name="ClientKey" source="File: aka:dbdev|||Select config.SearchKenshoo.Bucket_Name, config.SearchKenshoo.Report_FileMask, config.ClientSourceSystems.ClientKey, config.ClientSourceSystems.SourceSystemKey, config.ReportGrain.ReportGrainName From config.SearchKenshoo Inner Join config.ClientSourceSystems On config.ClientSourceSystems.ID = config.SearchKenshoo.ClientSourceSystemID Inner Join config.SearchKenshooReportGrain On config.SearchKenshoo.SearchKenshooKey = config.SearchKenshooReportGrain.SearchKenshooKey Inner Join config.ReportGrain On config.ReportGrain.ReportGrainKey = config.SearchKenshooReportGrain.ReportGrainKey Where config.SearchKenshoo.IsActive = 1 And config.ClientSourceSystems.IsActive = 1 (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Int32" />
+                <Field name="SourceSystemKey" source="File: aka:dbdev|||Select config.SearchKenshoo.Bucket_Name, config.SearchKenshoo.Report_FileMask, config.ClientSourceSystems.ClientKey, config.ClientSourceSystems.SourceSystemKey, config.ReportGrain.ReportGrainName From config.SearchKenshoo Inner Join config.ClientSourceSystems On config.ClientSourceSystems.ID = config.SearchKenshoo.ClientSourceSystemID Inner Join config.SearchKenshooReportGrain On config.SearchKenshoo.SearchKenshooKey = config.SearchKenshooReportGrain.SearchKenshooKey Inner Join config.ReportGrain On config.ReportGrain.ReportGrainKey = config.SearchKenshooReportGrain.ReportGrainKey Where config.SearchKenshoo.IsActive = 1 And config.ClientSourceSystems.IsActive = 1 (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Int32" />
+                <Field name="ReportGrainName" size="50" source="File: aka:dbdev|||Select config.SearchKenshoo.Bucket_Name, config.SearchKenshoo.Report_FileMask, config.ClientSourceSystems.ClientKey, config.ClientSourceSystems.SourceSystemKey, config.ReportGrain.ReportGrainName From config.SearchKenshoo Inner Join config.ClientSourceSystems On config.ClientSourceSystems.ID = config.SearchKenshoo.ClientSourceSystemID Inner Join config.SearchKenshooReportGrain On config.SearchKenshoo.SearchKenshooKey = config.SearchKenshooReportGrain.SearchKenshooKey Inner Join config.ReportGrain On config.ReportGrain.ReportGrainKey = config.SearchKenshooReportGrain.ReportGrainKey Where config.SearchKenshoo.IsActive = 1 And config.ClientSourceSystems.IsActive = 1 (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="V_String" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="20">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="1964" y="662" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File FileFormat="19" MaxRecords="">D:\ETL\Files\DM_Social\Kenshoo\most_recent_files_processed.yxdb</File>
+              <Passwords />
+              <FormatSpecificOptions>
+                <NoSpatialIndex>False</NoSpatialIndex>
+                <SaveSource>True</SaveSource>
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name>Output Diagnostics</Name>
+              <DefaultAnnotationText>most_recent_files_processed.yxdb</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+        <Node ToolID="49">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="1964" y="410" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="'Process Into Warehouse'" field="LogSource" size="1073741823" type="V_WString" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name>LogSource Processed</Name>
+              <AnnotationText><![CDATA[LogSource = 'Process Into Warehouse'
+]]></AnnotationText>
+              <DefaultAnnotationText><![CDATA[LogSource = 'Process Into Warehouse'
+]]></DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="key" size="5000" source="File: D:\ProgramData\Alteryx\Temp\Engine_30660_41361fec412449a1bc61c4ffa98b4043_\bucketlist.out (BatchMacro) (BatchMacro) (BatchMacro)" type="V_WString" />
+                <Field name="size" size="5000" source="File: D:\ProgramData\Alteryx\Temp\Engine_30660_41361fec412449a1bc61c4ffa98b4043_\bucketlist.out (BatchMacro) (BatchMacro) (BatchMacro)" type="V_WString" />
+                <Field name="modified" size="5000" source="File: D:\ProgramData\Alteryx\Temp\Engine_30660_41361fec412449a1bc61c4ffa98b4043_\bucketlist.out (BatchMacro) (BatchMacro) (BatchMacro)" type="V_WString" />
+                <Field name="Bucket_Name" size="100" source="File: aka:dbdev|||Select config.SearchKenshoo.Bucket_Name, config.SearchKenshoo.Report_FileMask, config.ClientSourceSystems.ClientKey, config.ClientSourceSystems.SourceSystemKey, config.ReportGrain.ReportGrainName From config.SearchKenshoo Inner Join config.ClientSourceSystems On config.ClientSourceSystems.ID = config.SearchKenshoo.ClientSourceSystemID Inner Join config.SearchKenshooReportGrain On config.SearchKenshoo.SearchKenshooKey = config.SearchKenshooReportGrain.SearchKenshooKey Inner Join config.ReportGrain On config.ReportGrain.ReportGrainKey = config.SearchKenshooReportGrain.ReportGrainKey Where config.SearchKenshoo.IsActive = 1 And config.ClientSourceSystems.IsActive = 1 (BatchMacro) (BatchMacro) (BatchMacro)" type="V_String" />
+                <Field name="ClientKey" source="File: aka:dbdev|||Select config.SearchKenshoo.Bucket_Name, config.SearchKenshoo.Report_FileMask, config.ClientSourceSystems.ClientKey, config.ClientSourceSystems.SourceSystemKey, config.ReportGrain.ReportGrainName From config.SearchKenshoo Inner Join config.ClientSourceSystems On config.ClientSourceSystems.ID = config.SearchKenshoo.ClientSourceSystemID Inner Join config.SearchKenshooReportGrain On config.SearchKenshoo.SearchKenshooKey = config.SearchKenshooReportGrain.SearchKenshooKey Inner Join config.ReportGrain On config.ReportGrain.ReportGrainKey = config.SearchKenshooReportGrain.ReportGrainKey Where config.SearchKenshoo.IsActive = 1 And config.ClientSourceSystems.IsActive = 1 (BatchMacro) (BatchMacro) (BatchMacro)" type="Int32" />
+                <Field name="SourceSystemKey" source="File: aka:dbdev|||Select config.SearchKenshoo.Bucket_Name, config.SearchKenshoo.Report_FileMask, config.ClientSourceSystems.ClientKey, config.ClientSourceSystems.SourceSystemKey, config.ReportGrain.ReportGrainName From config.SearchKenshoo Inner Join config.ClientSourceSystems On config.ClientSourceSystems.ID = config.SearchKenshoo.ClientSourceSystemID Inner Join config.SearchKenshooReportGrain On config.SearchKenshoo.SearchKenshooKey = config.SearchKenshooReportGrain.SearchKenshooKey Inner Join config.ReportGrain On config.ReportGrain.ReportGrainKey = config.SearchKenshooReportGrain.ReportGrainKey Where config.SearchKenshoo.IsActive = 1 And config.ClientSourceSystems.IsActive = 1 (BatchMacro) (BatchMacro) (BatchMacro)" type="Int32" />
+                <Field name="ReportGrainName" size="50" source="File: aka:dbdev|||Select config.SearchKenshoo.Bucket_Name, config.SearchKenshoo.Report_FileMask, config.ClientSourceSystems.ClientKey, config.ClientSourceSystems.SourceSystemKey, config.ReportGrain.ReportGrainName From config.SearchKenshoo Inner Join config.ClientSourceSystems On config.ClientSourceSystems.ID = config.SearchKenshoo.ClientSourceSystemID Inner Join config.SearchKenshooReportGrain On config.SearchKenshoo.SearchKenshooKey = config.SearchKenshooReportGrain.SearchKenshooKey Inner Join config.ReportGrain On config.ReportGrain.ReportGrainKey = config.SearchKenshooReportGrain.ReportGrainKey Where config.SearchKenshoo.IsActive = 1 And config.ClientSourceSystems.IsActive = 1 (BatchMacro) (BatchMacro) (BatchMacro)" type="V_String" />
+                <Field name="LogSource" size="1073741823" source="Formula: 'Process Into Warehouse'" type="V_WString" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+      </ChildNodes>
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="45" Connection="Output" />
+      <Destination ToolID="44" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="61" Connection="Output" />
+      <Destination ToolID="78" Connection="Control" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="31" Connection="Output" />
+      <Destination ToolID="78" Connection="FileToProcess" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="46" Connection="Question" />
+      <Destination ToolID="47" Connection="Question" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="47" Connection="Action" />
+      <Destination ToolID="29" Connection="Action" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="56" Connection="Question" />
+      <Destination ToolID="57" Connection="Question" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="57" Connection="Action" />
+      <Destination ToolID="55" Connection="Action" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="53" Connection="Output" />
+      <Destination ToolID="55" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="42" Connection="Question" />
+      <Destination ToolID="43" Connection="Question" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="43" Connection="Action" />
+      <Destination ToolID="28" Connection="Action" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="True" />
+      <Destination ToolID="28" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="40" Connection="Question" />
+      <Destination ToolID="41" Connection="Question" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="41" Connection="Action" />
+      <Destination ToolID="25" Connection="Action" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="28" Connection="True" />
+      <Destination ToolID="25" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="54" Connection="Output" />
+      <Destination ToolID="53" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="52" Connection="Output" />
+      <Destination ToolID="31" Connection="Input" />
+    </Connection>
+    <Connection name="#2" Wireless="True">
+      <Origin ToolID="48" Connection="Output" />
+      <Destination ToolID="45" Connection="Input" />
+    </Connection>
+    <Connection name="#1" Wireless="True">
+      <Origin ToolID="49" Connection="Output" />
+      <Destination ToolID="45" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="25" Connection="True" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="76" Connection="Source" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="17" Connection="Right" />
+      <Destination ToolID="76" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="31" Connection="Output" />
+      <Destination ToolID="33" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="31" Connection="Output" />
+      <Destination ToolID="48" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="31" Connection="Output" />
+      <Destination ToolID="61" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="16" Connection="Output" />
+      <Destination ToolID="17" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="keylist" />
+      <Destination ToolID="17" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="Output" />
+      <Destination ToolID="54" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="55" Connection="Output" />
+      <Destination ToolID="52" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="76" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="Output" />
+      <Destination ToolID="14" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="15" Connection="Output" />
+      <Destination ToolID="49" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="15" Connection="Output" />
+      <Destination ToolID="20" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="15" Connection="Output" />
+      <Destination ToolID="13" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <Constants>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Custom Filter Text Box</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Key Filter Text Box</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Final Output</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Check Box (46)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Max Files To Process</Name>
+        <Value />
+        <IsNumeric value="True" />
+      </Constant>
+    </Constants>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Social Kenshoo Control</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+    <RuntimeProperties>
+      <Actions>
+        <NoCondition>
+          <Type>NoCondition</Type>
+          <Description>(Always Run)</Description>
+          <True>
+            <Action>
+              <Type>UpdateValueFormula</Type>
+              <Description />
+              <ToolId value="41" />
+              <Expression>if Length([#1]) &gt; 0 then [#1] else '1' endif</Expression>
+              <Destination>25/Expression</Destination>
+              <Mode>Expression</Mode>
+            </Action>
+            <Action>
+              <Type>UpdateValueFormula</Type>
+              <Description />
+              <ToolId value="43" />
+              <Expression>if Length([#1]) &gt; 0 then "[key]='" + [#1] + "'" else "1" endif</Expression>
+              <Destination>28/Expression</Destination>
+              <Mode>Expression</Mode>
+            </Action>
+            <Action>
+              <Type>Dynamic</Type>
+              <Description />
+              <ToolId value="47" />
+              <Expression>{{INPUT}}</Expression>
+              <Destination>29/Disabled/@value</Destination>
+              <Mapping>Enable/Disable Container from Question</Mapping>
+              <Mode>Expression</Mode>
+              <DynamicConfiguration />
+              <DefaultConfiguration value="True" />
+            </Action>
+            <Action>
+              <Type>UpdateValue</Type>
+              <Description />
+              <ToolId value="57" />
+              <Mode>Simple</Mode>
+              <Variable />
+              <Replace value="False" />
+              <Destination>55/N</Destination>
+            </Action>
+          </True>
+        </NoCondition>
+      </Actions>
+      <Questions>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Questions</Description>
+          <Name>Tab (36)</Name>
+          <ToolId value="36" />
+          <Questions>
+            <Question>
+              <Type>TextBox</Type>
+              <Description>Custom Filter</Description>
+              <Name>Custom Filter Text Box</Name>
+              <ToolId value="40" />
+              <Default>[ClientKey] = 1058</Default>
+              <Password value="False" />
+              <Multiline value="False" />
+              <Hidden value="False" />
+            </Question>
+            <Question>
+              <Type>TextBox</Type>
+              <Description>Key Filter</Description>
+              <Name>Key Filter Text Box</Name>
+              <ToolId value="42" />
+              <Default>flywheel-ads-2017-05-22.zip</Default>
+              <Password value="False" />
+              <Multiline value="False" />
+              <Hidden value="False" />
+            </Question>
+            <Question>
+              <Type>MacroOutput</Type>
+              <Description>Final Output</Description>
+              <Name>Final Output</Name>
+              <ToolId value="44" />
+            </Question>
+            <Question>
+              <Type>NumericUpDown</Type>
+              <Description>Max Files To Process</Description>
+              <Name>Max Files To Process</Name>
+              <ToolId value="56" />
+              <Minimum value="0" />
+              <Maximum value="20" />
+              <Increment value="1" />
+              <Default value="20" />
+              <Decimals value="0" />
+            </Question>
+            <Question>
+              <Type>BooleanGroup</Type>
+              <Description>List Keys only</Description>
+              <Name>Check Box (46)</Name>
+              <ToolId value="46" />
+              <Questions />
+              <Default value="True" />
+              <Collapsable value="False" />
+            </Question>
+          </Questions>
+        </Question>
+      </Questions>
+      <ModuleType>Macro</ModuleType>
+      <MacroCustomHelp value="False" />
+      <MacroDynamicOutputFields value="False" />
+      <MacroImageStd value="39" />
+      <MacroInputs />
+      <MacroOutputs />
+      <Wiz_CustomHelp value="False" />
+      <Wiz_CustomGraphic value="False" />
+      <Wiz_ShowOutput value="True" />
+      <Wiz_OpenOutputTools>
+        <Tool ToolId="44" Selected="True" />
+        <Tool ToolId="33" Selected="True" />
+        <Tool ToolId="11" Selected="True" />
+        <Tool ToolId="20" Selected="True" />
+        <Tool ToolId="78" Selected="True" />
+      </Wiz_OpenOutputTools>
+      <Wiz_OutputMessage />
+      <Wiz_NoOutputFilesMessage />
+      <Wiz_ChainRunWizard />
+    </RuntimeProperties>
+  </Properties>
+</AlteryxDocument>
